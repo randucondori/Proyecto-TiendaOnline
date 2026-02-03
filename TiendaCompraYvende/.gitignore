@@ -31,7 +31,7 @@ yarn-error.log
 
 #mio
 /.angular
-!/src/app/*
+!/src/app/core/*
 
 # Miscellaneous
 /.angular/cache
