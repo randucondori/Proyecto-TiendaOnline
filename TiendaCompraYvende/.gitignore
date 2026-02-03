@@ -31,10 +31,10 @@ yarn-error.log
 
 #mio
 /.angular
-!/src/*
-!/src/app/*
-!/src/app/core/*
-!/src/app/constants/*
+!./src/*
+!./src/app/*
+!./src/app/core/*
+!./src/app/constants/*
 
 # Miscellaneous
 /.angular/cache
