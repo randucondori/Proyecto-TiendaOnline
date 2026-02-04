@@ -1,22 +1,35 @@
-*{
+* {
   //border:1px solid red;
   transition: 0.2s;
 }
+
 ///<<<<<<< 1.Logo div >>>>>>>>
 
-#logo{
+#logo {
   padding: 10px;
 }
 
 ///<<<<<< 2.botones de del head >>>>>>>>
 
-
-#head-btn{
-  width: 88%;
+///<<<<<< 2.1 botones >>>>>>>>
+#head-btn {
+  width: 30%;
   display: grid;
-  gap:10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  background-color: var(--background);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   margin: 0 auto;
-
+  border-radius: 5px;
+  padding: 5px;
 }
+
+#head-btn > button {
+  border-radius: 5px;
+}
+
+#head-btn > button:hover {
+  border: 1px solid black;
+}
+///<<<<<< 2.2 barra de busqueda >>>>>>>>
+
 

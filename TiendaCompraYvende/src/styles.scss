@@ -2,6 +2,7 @@
 @use './styles/typography' as typo;
 @use './styles/bootstrap-custom';
 @use './styles/theme' as th;
+@use './styles/icons/bootstrap-icons';
 
 @include th.apply-theme();
 
