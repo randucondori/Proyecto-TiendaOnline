@@ -1,6 +1,5 @@
 * {
   //border:1px solid red;
-  transition: 0.2s;
 }
 
 ///<<<<<<< 1.Logo div >>>>>>>>
@@ -30,6 +29,16 @@
 #head-btn > button:hover {
   border: 1px solid black;
 }
-///<<<<<< 2.2 barra de busqueda >>>>>>>>
+.opcion-head>button{
+  transition: 0.4s;
+  border-radius: 5px;
+}
+
+.opcion-head>button:hover{
+  transition: 0.4s;
+  background-color: var(--bs-dark);
+  color: white;
+}
+///<<<<<< 2.2 barra de búsqueda >>>>>>>>
 
 
