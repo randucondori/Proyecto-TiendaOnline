@@ -1,6 +1,14 @@
 * {
   //border:1px solid red;
 }
+///<<<<<<< 1.Logo div >>>>>>>>
+
+#cabeza{
+  display: grid;
+  grid-template-columns:12% 40% 5% 43%;
+  height: 80px;
+}
+
 
 ///<<<<<<< 1.Logo div >>>>>>>>
 
@@ -12,33 +20,52 @@
 
 ///<<<<<< 2.1 botones >>>>>>>>
 #head-btn {
-  width: 30%;
-  display: grid;
+  width: 99%;
+  display: flex;
   gap: 10px;
   background-color: var(--background);
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  margin: 0 auto;
   border-radius: 5px;
   padding: 5px;
+  justify-content: space-between;
 }
 
-#head-btn > button {
-  border-radius: 5px;
-}
-
-#head-btn > button:hover {
-  border: 1px solid black;
-}
 .opcion-head>button{
   transition: 0.4s;
-  border-radius: 5px;
 }
 
-.opcion-head>button:hover{
-  transition: 0.4s;
-  background-color: var(--bs-dark);
-  color: white;
-}
 ///<<<<<< 2.2 barra de búsqueda >>>>>>>>
+
+///<<<<<< 2.3 iniciar Sesión >>>>>>>>
+
+#boton-iniciar{
+  width: fit-content;
+}
+
+
+///Puntos de ruptura
+
+@media (max-width: 1845px){
+  #boton-iniciar{
+    color: white;
+  }
+}
+
+///<<<<<<<<< 2.4 filtros>>>>>>>>>
+
+#ajustes{
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#ajustes > i {
+  margin: 0;
+  font-size: 30px;
+}
+
+
+
 
 

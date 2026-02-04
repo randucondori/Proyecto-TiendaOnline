@@ -5,7 +5,10 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './head-main.html',
   styleUrl: './head-main.scss',
+  standalone: true
 })
 export class HeadMain {
+
+
 
 }

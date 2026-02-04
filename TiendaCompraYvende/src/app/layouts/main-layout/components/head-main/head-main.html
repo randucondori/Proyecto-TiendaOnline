@@ -1,22 +1,32 @@
-<header class="border w-100 d-flex bg-white  align-items-center">
+<header class="border vw-100 bg-white  align-items-center" id="cabeza">
+
 <!--  ///<<<<<<< 1.Logo div >>>>>>>>-->
   <div class="d-flex" id="logo" >
     <img src="/favicon.ico" alt="Logo">
     <h1>Nombre</h1>
   </div>
+
 <!--  2.2 Barra de búsqueda-->
-  <div class="input-group rounded-start-0 w-50">
+  <form class="input-group rounded-start-0 w-100">
+
     <div class="input-group-prepend">
-      <button class="btn btn-outline-info rounded-end-0"><i class="bi bi-search"></i></button>
+      <button class="btn btn-outline-info rounded-end-0" type="submit"><i class="bi bi-search"></i></button>
     </div>
     <input type="text" class="form-control" placeholder="Búsqueda"
            aria-label="" aria-describedby="basic-addon2">
-  </div>
+  </form>
+
+<!--  ///<<<<<<<<< 2.4 filtros>>>>>>>>> -->
+  <button class="border rounded-1 bg- text-dark" id="ajustes">
+    <i class="bi bi-gear text-center"></i>
+  </button>
+
 <!--  ///<<<<<< 2.botones de del head >>>>>>>>-->
   <div class="" role="group" aria-label="Basic outlined example" id="head-btn">
-<!--    ///<<<<<< 2.1 botones >>>>>>>>-->
+
+    <!--    ///<<<<<< 2.1 botones >>>>>>>>-->
     <div class="dropdown opcion-head">
-      <button class="btn dropdown-toggle" type="button"
+      <button class="btn btn-outline-white dropdown-toggle" type="button"
               id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-translate"></i>
         Idiomas
@@ -27,6 +37,34 @@
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
+
+    <div class="dropdown opcion-head">
+      <button class="btn btn-outline-white dropdown-toggle" type="button"
+              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-translate"></i>
+        Idiomas
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown opcion-head">
+      <button class="btn btn-outline-white dropdown-toggle" type="button"
+              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-translate"></i>
+        Idiomas
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    <!--    ///<<<<<< 2.3 iniciar Sesión >>>>>>>>-->
+    <button type="button" class="btn btn" id="boton-iniciar"><i class="bi bi-person me-2">Inicias Sesión</i></button>
 
   </div>
 
