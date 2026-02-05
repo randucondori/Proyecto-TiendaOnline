@@ -1,0 +1,27 @@
+*{
+  border-radius: 5px;
+}
+
+//<<<<<<< 0. Contenedor padre >>>>>>>>
+
+#padre{
+  padding: 1% 0 0 0;
+  width: 100dvw;
+  height: 100dvh;
+  background: var(--bs-dark);
+}
+// <<<<<<< 1. Opciones >>>>>>>>
+#panel{
+  display: flex;
+  gap:10px;
+  justify-content: space-between;
+}
+
+//<<<<<<< 2. tabla principal >>>>>>>>
+
+#box-tabla{
+  width: 70%;
+  min-width: 20%;
+  max-width: 70%;
+  margin: 0 auto 0 10px;
+}
