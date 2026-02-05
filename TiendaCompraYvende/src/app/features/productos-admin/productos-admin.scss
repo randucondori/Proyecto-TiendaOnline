@@ -1,27 +1,76 @@
 *{
   border-radius: 5px;
 }
-
+th{
+  background: darkolivegreen;
+}
+td{
+  background: var(--background);
+}
 //<<<<<<< 0. Contenedor padre >>>>>>>>
 
 #padre{
+  border-radius: 0;
   padding: 1% 0 0 0;
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  max-width: 100dvw;
+  height: fit-content;
+  min-height: 100dvh;
   background: var(--bs-dark);
 }
 // <<<<<<< 1. Opciones >>>>>>>>
 #panel{
+  width: 40%;
+  min-width: 400px;
+  margin: 20px auto;
   display: flex;
   gap:10px;
   justify-content: space-between;
+  align-items: center;
 }
 
 //<<<<<<< 2. tabla principal >>>>>>>>
 
 #box-tabla{
-  width: 70%;
+  width: 60%;
   min-width: 20%;
   max-width: 70%;
-  margin: 0 auto 0 10px;
+  margin: 10px auto;
+}
+.producto-opciones{
+  justify-content: center;
+  width: 100%;
+  gap:5px;
+
+}
+//<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>
+
+#tabla-body{
+}
+
+//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>
+
+.fondo-oscuro{
+  z-index: 1;
+  top: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>
+
+.box-login{
+  top: 0;
+  position: fixed;
+  z-index: 2;
+  background: white;
+  width: 30%;
+  height: fit-content;
+  margin: 100px 0 0 35%;
+}
+//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>
+
+#close{
+  position: absolute;
+  top: 0;
+  right: 1%;
 }
