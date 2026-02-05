@@ -1,56 +1,32 @@
 * {
   //border:1px solid red;
 }
-///<<<<<<< 1.Logo div >>>>>>>>
+///<<<<<<< 0. head !contiene todo >>>>>>>>
 
 #cabeza{
+  position: fixed;
+  top: 0;
+}
+
+///<<<<<<< 1. primera separación de head >>>>>>>>
+#infoYbusqueda{
   display: grid;
+  align-items: center;
   grid-template-columns:12% 40% 5% 43%;
   height: 80px;
 }
 
 
-///<<<<<<< 1.Logo div >>>>>>>>
+///<<<<<<< 2.Logo div >>>>>>>>
 
 #logo {
   padding: 10px;
 }
 
-///<<<<<< 2.botones de del head >>>>>>>>
-
-///<<<<<< 2.1 botones >>>>>>>>
-#head-btn {
-  width: 99%;
-  display: flex;
-  gap: 10px;
-  background-color: var(--background);
-  border-radius: 5px;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.opcion-head>button{
-  transition: 0.4s;
-}
-
-///<<<<<< 2.2 barra de búsqueda >>>>>>>>
-
-///<<<<<< 2.3 iniciar Sesión >>>>>>>>
-
-#boton-iniciar{
-  width: fit-content;
-}
+///<<<<<< 3. barra de búsqueda >>>>>>>>
 
 
-///Puntos de ruptura
-
-@media (max-width: 1845px){
-  #boton-iniciar{
-    color: white;
-  }
-}
-
-///<<<<<<<<< 2.4 filtros>>>>>>>>>
+///<<<<<<<<< 4. ajustes >>>>>>>>>
 
 #ajustes{
   width: 40px;
@@ -65,7 +41,48 @@
   font-size: 30px;
 }
 
+///<<<<<< 5.botones de del head >>>>>>>>
 
+///<<<<<< 6. botones >>>>>>>>
+#head-btn {
+  width: 99%;
+  display: flex;
+  gap: 10px;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.opcion-head>button{
+  transition: 0.4s;
+}
+
+///<<<<<< 6. iniciar Sesión >>>>>>>>
+
+#boton-iniciar{
+  width: fit-content;
+}
+
+
+//<<<<<<<<<<<<< 8. categorías >>>>>>>>>>>>
+
+#categorias{
+  padding: 5px;
+  display: grid;
+  grid-template-columns:auto 1fr;
+  background-color: rgba(169, 169, 169, 0.14);
+}
+
+//<<<<<<<<<<<<< 9.  >>>>>>>>>>>>
+
+///Puntos de ruptura
+
+@media (max-width: 1845px){
+  #boton-iniciar{
+    //color: white;
+  }
+}
 
 
 

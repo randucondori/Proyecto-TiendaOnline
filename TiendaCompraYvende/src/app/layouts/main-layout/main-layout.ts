@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {HeadMain} from './components/head-main/head-main';
 import {RouterOutlet} from '@angular/router';
 
@@ -10,6 +10,7 @@ import {RouterOutlet} from '@angular/router';
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',
+  standalone:true
 })
 export class MainLayout {
 

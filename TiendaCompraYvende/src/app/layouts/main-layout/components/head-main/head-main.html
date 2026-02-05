@@ -1,75 +1,98 @@
-<header class="border vw-100 bg-white  align-items-center" id="cabeza">
+<!--///<<<<<<< 0. head !contiene todo >>>>>>>>-->
+<header class="border vw-100 bg-white" id="cabeza">
 
-<!--  ///<<<<<<< 1.Logo div >>>>>>>>-->
-  <div class="d-flex" id="logo" >
-    <img src="/favicon.ico" alt="Logo">
-    <h1>Nombre</h1>
+<!--  ///<<<<<<< 1. primera separación de head >>>>>>>>-->
+  <div id="infoYbusqueda" class="">
+
+    <!--  ///<<<<<<< 2.Logo div >>>>>>>>-->
+    <div class="d-flex" id="logo">
+      <img src="/favicon.ico" alt="Logo">
+      <!--    <h1>Nombre</h1>-->
+    </div>
+
+    <!--  3. Barra de búsqueda-->
+    <form class="input-group rounded-start-0 w-100">
+
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-info rounded-end-0" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <input type="text" class="form-control h-50" placeholder="Búscar : Producto / Servicio"
+             aria-label="" aria-describedby="basic-addon2">
+    </form>
+
+    <!--  ///<<<<<<<<< 4 ajustes>>>>>>>>> -->
+    <button class="border rounded-1 bg- text-dark" id="ajustes">
+      <i class="bi bi-gear text-center"></i>
+    </button>
+
+    <!--  ///<<<<<< 5.botones del head >>>>>>>>-->
+    <div class="" role="group" aria-label="Basic outlined example" id="head-btn">
+
+      <!--    ///<<<<<< 6. botones >>>>>>>>-->
+      <div class="dropdown opcion-head">
+        <button class="btn btn-outline-white dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-translate"></i>
+          Idiomas
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown opcion-head">
+        <button class="btn btn-outline-white dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-translate"></i>
+          Idiomas
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+      <div class="dropdown opcion-head">
+        <button class="btn btn-outline-white dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-translate"></i>
+          Idiomas
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <!--    ///<<<<<< 7. iniciar Sesión >>>>>>>>-->
+      <button type="button" class="btn" id="boton-iniciar" (click)="IniciarSesion()">
+        <i class="bi bi-person me-2">Inicias Sesión</i>
+      </button>
+
+    </div>
+
   </div>
 
-<!--  2.2 Barra de búsqueda-->
-  <form class="input-group rounded-start-0 w-100">
-
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-info rounded-end-0" type="submit"><i class="bi bi-search"></i></button>
+  <hr class="m-0">
+<!--  //<<<<<<<<<<<<< 8. categorías >>>>>>>>>>>>-->
+  <div class="w-100" id="categorias">
+    <h3 class="mx-4 my-0">Categorías :</h3>
+    <div class="d-flex overflow-auto">
+      <button class="btn btn-outline-primary">algo</button>
     </div>
-    <input type="text" class="form-control" placeholder="Búsqueda"
-           aria-label="" aria-describedby="basic-addon2">
-  </form>
-
-<!--  ///<<<<<<<<< 2.4 filtros>>>>>>>>> -->
-  <button class="border rounded-1 bg- text-dark" id="ajustes">
-    <i class="bi bi-gear text-center"></i>
-  </button>
-
-<!--  ///<<<<<< 2.botones de del head >>>>>>>>-->
-  <div class="" role="group" aria-label="Basic outlined example" id="head-btn">
-
-    <!--    ///<<<<<< 2.1 botones >>>>>>>>-->
-    <div class="dropdown opcion-head">
-      <button class="btn btn-outline-white dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-translate"></i>
-        Idiomas
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-
-    <div class="dropdown opcion-head">
-      <button class="btn btn-outline-white dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-translate"></i>
-        Idiomas
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-
-    <div class="dropdown opcion-head">
-      <button class="btn btn-outline-white dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-translate"></i>
-        Idiomas
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    <!--    ///<<<<<< 2.3 iniciar Sesión >>>>>>>>-->
-    <button type="button" class="btn btn" id="boton-iniciar"><i class="bi bi-person me-2">Inicias Sesión</i></button>
-
   </div>
-
 
 </header>
+@if (cambiaLogin()) {
+  <app-auth (salirDeLogin)="IniciarSesion()"
+            (salirLogin)="IniciarSesion()">
+  </app-auth>
+}
 
 
 
