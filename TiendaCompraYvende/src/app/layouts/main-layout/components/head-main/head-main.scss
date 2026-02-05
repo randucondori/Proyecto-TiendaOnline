@@ -12,7 +12,7 @@
 #infoYbusqueda{
   display: grid;
   align-items: center;
-  grid-template-columns:12% 40% 5% 43%;
+  grid-template-columns:12% 40% 5% auto auto;
   height: 80px;
 }
 
@@ -42,17 +42,16 @@
 }
 
 ///<<<<<< 5.botones de del head >>>>>>>>
-
-///<<<<<< 6. botones >>>>>>>>
 #head-btn {
-  width: 99%;
+  width: auto;
   display: flex;
   gap: 10px;
   background-color: var(--background);
   border-radius: 5px;
   padding: 5px;
-  justify-content: space-between;
+  justify-content: start;
 }
+///<<<<<< 6. botones >>>>>>>>
 
 .opcion-head>button{
   transition: 0.4s;
@@ -70,6 +69,8 @@
 #categorias{
   padding: 5px;
   display: grid;
+  width: 80%;
+  margin: 0 0 0 auto;
   grid-template-columns:auto 1fr;
   background-color: rgba(169, 169, 169, 0.14);
 }
@@ -84,5 +85,51 @@
   }
 }
 
+@media (max-width: 1168px){
+  #head-btn{
+    display: grid;
+    grid-template-columns:auto auto;
+  }
+}
 
 
+
+@keyframes moveText {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(-4deg);
+  }
+  20% {
+    transform: skew(3deg);
+  }
+  30% {
+    transform: skew(0deg);
+  }
+  40% {
+    transform: skew(4deg);
+  }
+  50% {
+    transform: skew(2deg);
+  }
+  60% {
+    transform: skew(1deg);
+  }
+  70% {
+    transform: skew(4deg);
+  }
+  80% {
+    transform: skew(-3deg);
+  }
+  90% {
+    transform: skew(-1deg);
+  }
+  100% {
+    transform: skew(5deg);
+  }
+}
+
+.animation-skew {
+  animation: moveText 1s infinite linear alternate-reverse;
+}

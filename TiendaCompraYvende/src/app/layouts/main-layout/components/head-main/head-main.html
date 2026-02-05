@@ -28,8 +28,7 @@
     </button>
 
     <!--  ///<<<<<< 5.botones del head >>>>>>>>-->
-    <div class="" role="group" aria-label="Basic outlined example" id="head-btn">
-
+    <div class="" id="head-btn">
       <!--    ///<<<<<< 6. botones >>>>>>>>-->
       <div class="dropdown opcion-head">
         <button class="btn btn-outline-white dropdown-toggle" type="button"
@@ -38,6 +37,7 @@
           Idiomas
         </button>
         <ul class="dropdown-menu">
+          <button class="btn w-100 text-start">algo</button>
           <li><a class="dropdown-item" href="#">Action</a></li>
           <li><a class="dropdown-item" href="#">Another action</a></li>
           <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -69,19 +69,19 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-      <!--    ///<<<<<< 7. iniciar Sesión >>>>>>>>-->
-      <button type="button" class="btn" id="boton-iniciar" (click)="IniciarSesion()">
-        <i class="bi bi-person me-2">Inicias Sesión</i>
-      </button>
-
     </div>
+    <!--    ///<<<<<< 7. iniciar Sesión >>>>>>>>-->
+    <button type="button" class="btn d-flex mx-auto align-items-center"
+            id="boton-iniciar" (click)="IniciarSesion()">
+      <i class="bi bi-person"></i>
+      <p class="m-0">Inicias Sesión</p>
+    </button>
 
   </div>
 
   <hr class="m-0">
 <!--  //<<<<<<<<<<<<< 8. categorías >>>>>>>>>>>>-->
-  <div class="w-100" id="categorias">
-    <h3 class="mx-4 my-0">Categorías :</h3>
+  <div class="" id="categorias">
     <div class="d-flex overflow-auto">
       <button class="btn btn-outline-primary">algo</button>
     </div>
@@ -93,7 +93,3 @@
             (salirLogin)="IniciarSesion()">
   </app-auth>
 }
-
-
-
-

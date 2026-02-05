@@ -1,0 +1,15 @@
+
+
+//<<<<<<<< 0. Contenedor padre >>>>>>
+#padre{
+  z-index: 0;
+  position: fixed;
+  width: 20%;
+  height: 600px;
+  top: 82px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+//<<<<<<<< 1. parte de texto superior >>>>>>
+#titulo{
+  height: 48px;
+}
