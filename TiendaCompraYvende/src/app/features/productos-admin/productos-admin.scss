@@ -35,6 +35,9 @@ td {
   height: fit-content;
   max-height: 480px;
 }
+#tabla-principal * {
+  min-width: 100px;
+}
 
 #box-tabla {
   width: 70%;
@@ -50,10 +53,17 @@ td {
 }
 
 #tabla-titulos{
-  width: fit-content;
-  grid-template-columns:repeat(4, 1fr) 220px;
+  position: absolute;
+  width: 100%;
+  grid-template-columns:repeat(4, 1fr) 220px 15px;
   background: darkolivegreen;
   color:black;
+  height: 47px;
+  align-items: center;
+}
+#tabla-principal>b{
+  display: block;
+  min-width: 100px;
 }
 
 #tabla-titulos>p{
@@ -69,10 +79,11 @@ td {
 
 #tabla-body {
   width: 100%;
-  scrollbar-width: none;
+  //scrollbar-width: none;
 }
-#tabla-body>p{
-  height: 100%;
+#tabla-body>.producto>p{
+  display: block;
+  padding: 20% 0;
 }
 
 //<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>
@@ -101,4 +112,12 @@ td {
   position: absolute;
   top: 0;
   right: 1%;
+}
+
+//<<<<<<<<<<<< Responsibe >>>>>>>>>>>
+
+@media (max-width: 888px){
+  #tabla-titulos{
+    width: fit-content;
+  }
 }

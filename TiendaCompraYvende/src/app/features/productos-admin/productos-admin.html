@@ -11,17 +11,21 @@
     </button>
 
     <div class="border px-2 py-3 input-group" id="busqueda">
-      <select name="buscar" id="buscarPor" class="border-0 outline-0 ">
+      <select name="buscar" id="buscarPor" class="border-0 outline-0 rounded-start-1" [(ngModel)]="select">
+        <option value="">Todo</option>
         <option value="nombre">Nombre</option>
+        <option value="categoria">Categoria</option>
       </select>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button" id="buscar"
+      <input type="text" class="form-control" aria-label="Text input with dropdown button"
+             id="buscar"
+             [(ngModel)]="input"
              placeholder="Búscar">
     </div>
   </div>
 
   <!--  //<<<<<<< 2. tabla principal >>>>>>>>-->
   <div class="border rounded-1" id="box-tabla">
-    <h1 class="text-white text-center mb-2 text-decoration-underline w-100">Tabla de Productos</h1>
+    <h1 class="text-white text-center my-3 text-decoration-underline w-100">Tabla de Productos</h1>
     <div class="table table-bordered border-dark  position-relative" id="tabla-principal">
       <!--   //<<<<<<<<< nombre de las columnas >>>>>>>   -->
       <div class=" w-100 position-absolute d-grid text-center" id="tabla-titulos">
@@ -29,14 +33,15 @@
         <b class="m-0 border-end border-dark">Nombre</b>
         <b class="m-0 border-end border-dark">Categoria</b>
         <b class="m-0 border-end border-dark">Precio €</b>
-        <b class="m-0 border-end border-dark">Opciones</b>
+        <b class="m-0 ">Opciones</b>
       </div>
 
 
       <!--   //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>   -->
       <div class="pt-5 overflow-auto" id="tabla-body">
         @for (p of Productos; track p.nombre) {
-          <div class="text-white d-grid producto border-bottom border-dark">
+          <div class="text-white d-grid producto border-bottom border-dark text-center"
+                      [ngClass]="[ Buscar(p)?'d-block':'d-none']">
             <p class="m-0 border-end border-dark">IMG</p>
             <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
             <p class="m-0 border-end border-dark">{{ p.categoria }}</p>
@@ -49,7 +54,7 @@
               </button>
 
               <button class="btn btn-info text-white w-100" type="button" (click)="toggleModifiedForm()">
-                <i class="bi bi-receipt me-2"></i>
+                <i class="bi bi-pencil-fill me-2"></i>
                 Editar Producto
               </button>
 
@@ -120,7 +125,3 @@
 
     </div>
   }
-
-
-
-
