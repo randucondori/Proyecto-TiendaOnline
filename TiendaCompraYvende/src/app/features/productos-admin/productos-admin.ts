@@ -11,7 +11,7 @@ export class ProductosAdmin {
 
   Productos=[
     {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
+    {nombre:"alallalaa",precio:"12.00",categoria:"ghbaisubva"},
     {nombre:"TV",precio:"12.00",categoria:"algo"},
     {nombre:"TV",precio:"12.00",categoria:"algo"},
     {nombre:"TV",precio:"12.00",categoria:"algo"},

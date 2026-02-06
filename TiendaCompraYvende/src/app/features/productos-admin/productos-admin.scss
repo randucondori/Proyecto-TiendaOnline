@@ -1,15 +1,14 @@
-*{
-  border-radius: 5px;
-}
-th{
+th {
   background: darkolivegreen;
 }
-td{
+
+td {
   background: var(--background);
 }
+
 //<<<<<<< 0. Contenedor padre >>>>>>>>
 
-#padre{
+#padre {
   border-radius: 0;
   padding: 1% 0 0 0;
   width: 100%;
@@ -18,39 +17,67 @@ td{
   min-height: 100dvh;
   background: var(--bs-dark);
 }
+
 // <<<<<<< 1. Opciones >>>>>>>>
-#panel{
+#panel {
   width: 40%;
   min-width: 400px;
   margin: 20px auto;
   display: flex;
-  gap:10px;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
 }
 
 //<<<<<<< 2. tabla principal >>>>>>>>
+#tabla-principal {
+  display: flex;
+  height: fit-content;
+  max-height: 480px;
+}
 
-#box-tabla{
-  width: 60%;
-  min-width: 20%;
-  max-width: 70%;
+#box-tabla {
+  width: 70%;
+  min-width: 38%;
+  max-width: 90%;
   margin: 10px auto;
 }
-.producto-opciones{
+
+.producto-opciones {
   justify-content: center;
   width: 100%;
-  gap:5px;
-
+  gap: 5px;
 }
+
+#tabla-titulos{
+  width: fit-content;
+  grid-template-columns:repeat(4, 1fr) 220px;
+  background: darkolivegreen;
+  color:black;
+}
+
+#tabla-titulos>p{
+  display: block;
+  padding: 5px 10px;
+}
+
 //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>
 
-#tabla-body{
+.producto{
+  grid-template-columns: repeat(4,1fr) 220px;
+}
+
+#tabla-body {
+  width: 100%;
+  scrollbar-width: none;
+}
+#tabla-body>p{
+  height: 100%;
 }
 
 //<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>
 
-.fondo-oscuro{
+.fondo-oscuro {
   z-index: 1;
   top: 0;
   background: rgba(0, 0, 0, 0.25);
@@ -58,18 +85,19 @@ td{
 
 //<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>
 
-.box-login{
+.box-login {
   top: 0;
   position: fixed;
   z-index: 2;
   background: white;
-  width: 30%;
+  width: 35%;
   height: fit-content;
-  margin: 100px 0 0 35%;
+  margin: 100px 0 0 32.5%;
 }
+
 //<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>
 
-#close{
+#close {
   position: absolute;
   top: 0;
   right: 1%;

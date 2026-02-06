@@ -3,7 +3,7 @@
   <h1 class="text-white text-center mb-2 text-decoration-underline">Panel Principal</h1>
 
   <!--  // <<<<<<< 1.Opciones >>>>>>>>-->
-  <div class="border ps-5 pe-3 py-3 " id="panel">
+  <div class="border ps-5 pe-3 py-3 rounded-2" id="panel">
     <p class="h1 text-white m-0">+</p>
     <button class="btn btn-outline-success text-white" type="button" (click)="toggleAddForm()">
       <i class="bi bi-database-fill-add me-2"></i>
@@ -20,103 +20,106 @@
   </div>
 
   <!--  //<<<<<<< 2. tabla principal >>>>>>>>-->
-  <div class="border rounded-0" id="box-tabla">
+  <div class="border rounded-1" id="box-tabla">
     <h1 class="text-white text-center mb-2 text-decoration-underline w-100">Tabla de Productos</h1>
-    <table class="table table-bordered border-dark" id="tabla-principal">
+    <div class="table table-bordered border-dark  position-relative" id="tabla-principal">
       <!--   //<<<<<<<<< nombre de las columnas >>>>>>>   -->
-      <thead class="table-dark ">
-      <tr>
-        <th scope="col">img</th>
-        <th scope="col">nombre</th>
-        <th scope="col">categoría</th>
-        <th scope="col">precio</th>
-        <th>Opciones</th>
-      </tr>
-      </thead>
+      <div class=" w-100 position-absolute d-grid text-center" id="tabla-titulos">
+        <b class="m-0 border-end border-dark">IMG</b>
+        <b class="m-0 border-end border-dark">Nombre</b>
+        <b class="m-0 border-end border-dark">Categoria</b>
+        <b class="m-0 border-end border-dark">Precio €</b>
+        <b class="m-0 border-end border-dark">Opciones</b>
+      </div>
+
 
       <!--   //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>   -->
+      <div class="pt-5 overflow-auto" id="tabla-body">
+        @for (p of Productos; track p.nombre) {
+          <div class="text-white d-grid producto border-bottom border-dark">
+            <p class="m-0 border-end border-dark">IMG</p>
+            <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
+            <p class="m-0 border-end border-dark">{{ p.categoria }}</p>
+            <p class="m-0 border-end border-dark">{{ p.precio }} €</p>
+            <div class="producto-opciones d-grid">
 
-      <tbody id="tabla-body">
-        @for (producto of Productos; track producto.nombre) {
-          <tr class="producto-tabla">
-            <td>nada</td>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.categoria }}</td>
-            <td>{{ producto.precio }}€</td>
-            <td class="d-flex producto-opciones">
-
-              <button class="btn btn-danger text-white" type="button" (click)="Worry()">
+              <button class="btn btn-danger text-white w-100" type="button" (click)="Worry()">
                 <i class="bi bi-x-square-fill me-2"></i>
                 Eliminar Producto
               </button>
 
-              <button class="btn btn-info text-white" type="button" (click)="toggleModifiedForm()">
+              <button class="btn btn-info text-white w-100" type="button" (click)="toggleModifiedForm()">
                 <i class="bi bi-receipt me-2"></i>
                 Editar Producto
               </button>
 
-            </td>
-          </tr>
+            </div>
+          </div>
         }
-      </tbody>
+      </div>
 
-    </table>
-  </div>
 
-</div>
-<!-- Formularios para la edicion o creacion de productos-->
-@if (formAddActivo()) {
-  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-  <div class="vw-100 vh-100 position-fixed fondo-oscuro" (click)="toggleAddForm()">
-  </div>
-  <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-  <div class="border rounded-2 bg-dark box-login">
-    <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-    <div class="m-2 position-relative">
-      <h2 class="text-center mt-3 text-white">Creando Producto</h2>
-      <button class="btn btn-danger" id="close" (click)="toggleAddForm()">
-        <i class="bi bi-x-lg text-white"></i>
-      </button>
     </div>
-    <form action="" class="contenido">
 
-    </form>
   </div>
-}
+  <!-- Formularios para la edicion o creacion de productos-->
+  @if (formAddActivo()) {
+    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
 
-@if (formModified()) {
-  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-  <div class="vw-100 vh-100 position-fixed fondo-oscuro" (click)="toggleModifiedForm()">
-  </div>
-  <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-  <div class="border border-info rounded-2 bg-dark box-login">
-    <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-    <div class="m-2 position-relative">
-      <h2 class="text-center mt-3 text-info">Modificando Producto</h2>
-      <button class="btn btn-danger" id="close" (click)="toggleModifiedForm()">
-        <i class="bi bi-x-lg text-white"></i>
-      </button>
+      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+      <div class="border rounded-2 bg-dark box-login">
+        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+        <div class="m-2 position-relative">
+          <h2 class="text-center mt-3 text-white">Creando Producto</h2>
+          <button class="btn btn-danger" id="close" (click)="toggleAddForm()">
+            <i class="bi bi-x-lg text-white"></i>
+          </button>
+        </div>
+        <form action="" class="contenido">
+
+        </form>
+      </div>
     </div>
-    <form action="" class="contenido">
-    </form>
-  </div>
-}
+  }
 
-@if (Sure()) {
-  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-  <div class="vw-100 vh-100 position-fixed fondo-oscuro" (click)="Worry()">
-  </div>
-  <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-  <div class="border border-danger rounded-2 bg-dark box-login">
-    <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-    <div class="m-2 position-relative">
-      <h2 class="text-center mt-3 text-danger">Eliminando Producto</h2>
-      <button class="btn btn-danger" id="close" (click)="Worry()">
-        <i class="bi bi-x-lg text-white"></i>
-      </button>
+  @if (formModified()) {
+    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
+
+      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+      <div class="border border-info rounded-2 bg-dark box-login">
+        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+        <div class="m-2 position-relative">
+          <h2 class="text-center mt-3 text-info">Modificando Producto</h2>
+          <button class="btn btn-danger" id="close" (click)="toggleModifiedForm()">
+            <i class="bi bi-x-lg text-white"></i>
+          </button>
+        </div>
+        <form action="" class="contenido">
+        </form>
+      </div>
     </div>
-  </div>
-}
+  }
+
+  @if (Sure()) {
+    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
+
+      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+
+      <div class="border border-danger rounded-2 bg-dark box-login ">
+        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+        <div class="m-2 position-relative">
+          <h2 class="text-center mt-3 text-danger">Eliminando Producto</h2>
+          <button class="btn btn-danger" id="close" (click)="Worry()">
+            <i class="bi bi-x-lg text-white"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  }
 
 
 
