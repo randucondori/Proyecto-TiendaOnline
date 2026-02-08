@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="" />
+    <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +116,7 @@
       <workItem from="1770397600019" duration="416000" />
       <workItem from="1770398147389" duration="1665000" />
       <workItem from="1770464237312" duration="10503000" />
-      <workItem from="1770550757865" duration="11705000" />
+      <workItem from="1770550757865" duration="16055000" />
     </task>
     <servers />
   </component>

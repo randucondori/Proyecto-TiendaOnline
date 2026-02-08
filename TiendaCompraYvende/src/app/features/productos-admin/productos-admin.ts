@@ -2,10 +2,11 @@ import {Component, OnInit, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {FormControl, FormsModule} from '@angular/forms';
 import {ProductosService} from '../../core/services/Productos/productos.service';
+import {Router} from '@angular/router';
 
 
 // Typos o interfaces
-type producto = [{ nombre: string, precio: string, categoria_nombre: string }] | []
+type producto = [{ nombre: string, precio: number, categoria_nombre: string }] | []
 type categoria = [{ nombre: string, slug: string }] | []
 
 
@@ -23,7 +24,8 @@ type categoria = [{ nombre: string, slug: string }] | []
 export class ProductosAdmin implements OnInit {
 
   constructor(
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private router:Router
   ) {
   }
 
@@ -43,12 +45,10 @@ export class ProductosAdmin implements OnInit {
     this.productosService.getProductos().subscribe({
       next: data => {
         this.Productos.set(data.productos);
-        console.log(this.Productos())
       },
       error: error => {
         if (error) {
           this.connexionOff.set(true)
-          console.log(this.connexionOff())
         }
       },
       complete() {
@@ -107,7 +107,12 @@ export class ProductosAdmin implements OnInit {
     }
     return true;
   }
+
   BuscarSelect(producto:any){
     return producto.categoria_nombre===this.select
+  }
+
+  GoInicio(){
+    this.router.navigate(['/']);
   }
 }

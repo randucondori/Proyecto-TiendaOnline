@@ -1,0 +1,12 @@
+#productos{
+  grid-template-columns: repeat(5,1fr);
+  gap:30px;
+}
+.producto{
+  width: 100%;
+  height: 320px;
+}
+.producto > img{
+  width: 100%;
+  height: 80%;
+}
