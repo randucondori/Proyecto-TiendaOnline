@@ -1,6 +1,16 @@
-import {Component, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {ProductosService} from '../../core/services/Productos/productos.service';
+
+
+
+type producto=[{
+  nombre:string,
+  precio:number,
+  categoria_slug:string
+}]| []
+
 
 @Component({
   selector: 'app-productos-admin',
@@ -10,32 +20,41 @@ import {FormsModule} from '@angular/forms';
   ],
   templateUrl: './productos-admin.html',
   styleUrl: './productos-admin.scss',
+  standalone: true
 })
-export class ProductosAdmin {
+
+
+
+
+export class ProductosAdmin implements OnInit {
+
+  constructor(
+    private productosService:ProductosService
+  ) {}
+
   input=""
   select=""
 
-  Productos=[
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"alallalaa",precio:"12.00",categoria:"ghbaisubva"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
-    {nombre:"TV",precio:"12.00",categoria:"algo"},
 
-  ]
+  Productos=signal<producto>([])
   formAddActivo = signal<boolean>(false)
   formModified = signal<boolean>(false)
   Sure = signal<boolean>(false)
+
+
+  ngOnInit(): void {
+    this.productosService.getProductos().subscribe({
+      next: data => {
+        this.Productos.set(data.productos);
+      },
+      error: error => {
+        console.log(error)
+      },
+      complete(){
+
+      }
+    })
+  }
 
   toggleAddForm() {
     this.formAddActivo.update(state => !state)

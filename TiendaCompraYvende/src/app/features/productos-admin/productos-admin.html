@@ -25,7 +25,7 @@
 
   <!--  //<<<<<<< 2. tabla principal >>>>>>>>-->
   <div class="border rounded-1" id="box-tabla">
-    <h1 class="text-white text-center my-3 text-decoration-underline w-100">Tabla de Productos</h1>
+    <h1 class="text-white text-center my-3 text-decoration-underline w-100">Tabla de ProductosService</h1>
     <div class="table table-bordered border-dark  position-relative" id="tabla-principal">
       <!--   //<<<<<<<<< nombre de las columnas >>>>>>>   -->
       <div class=" w-100 position-absolute d-grid text-center" id="tabla-titulos">
@@ -39,12 +39,12 @@
 
       <!--   //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>   -->
       <div class="pt-5 overflow-auto" id="tabla-body">
-        @for (p of Productos; track p.nombre) {
+        @for (p of Productos(); track p.nombre) {
           <div class="text-white d-grid producto border-bottom border-dark text-center"
                       [ngClass]="[ Buscar(p)?'d-block':'d-none']">
             <p class="m-0 border-end border-dark">IMG</p>
             <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
-            <p class="m-0 border-end border-dark">{{ p.categoria }}</p>
+            <p class="m-0 border-end border-dark">{{ p.categoria_slug }}</p>
             <p class="m-0 border-end border-dark">{{ p.precio }} €</p>
             <div class="producto-opciones d-grid">
 

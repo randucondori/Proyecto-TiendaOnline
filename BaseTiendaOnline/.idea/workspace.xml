@@ -5,9 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Productos/admin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/admin/productos_admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/models/categorias_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/models/productos_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/serealizers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/views/Categorias_View.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Productos/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/models/users_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/serealizers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseTiendaOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseTiendaOnline/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseTiendaOnline/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseTiendaOnline/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Productos/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Productos/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Productos/admin/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Productos/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Productos/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/core/services/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/Productos/admin/categorias_admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,26 +57,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/randy/Desktop/TiendaRandu/Proyecto-TiendaOnline/BaseTiendaOnline",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.BaseTiendaOnline.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/randy/Desktop/TiendaRandu/Proyecto-TiendaOnline/BaseTiendaOnline&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\randy\Desktop\TiendaRandu\Proyecto-TiendaOnline\BaseTiendaOnline\Users" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="BaseTiendaOnline" type="Python.DjangoServer" factoryName="Django server">
       <module name="BaseTiendaOnline" />
@@ -63,6 +99,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="BaseTiendaOnline.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -99,7 +136,9 @@
       <updated>1769968402056</updated>
       <workItem from="1769968402057" duration="880000" />
       <workItem from="1770397600019" duration="416000" />
-      <workItem from="1770398147389" duration="1646000" />
+      <workItem from="1770398147389" duration="1665000" />
+      <workItem from="1770464237312" duration="10503000" />
+      <workItem from="1770550757865" duration="5631000" />
     </task>
     <servers />
   </component>

@@ -11,5 +11,5 @@ export const routes: Routes = [
   {
     path:"productosAdmin",
     loadComponent:()=>import("./features/productos-admin/productos-admin").then(c=>c.ProductosAdmin)
-  }
+  },
 ];

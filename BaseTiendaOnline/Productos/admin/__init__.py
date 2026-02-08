@@ -1,0 +1,2 @@
+from .productos_admin import ProductosAdmin
+from .categorias_admin import CategoriasAdmin

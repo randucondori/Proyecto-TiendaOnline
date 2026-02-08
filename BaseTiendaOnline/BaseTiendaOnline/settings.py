@@ -38,7 +38,7 @@ if SECRET_KEY == "":
     raise KeyError("SECRET_KEY cannot be empty")
 
 if DEBUG:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['*',"http://localhost:4200"]
 else:
     ALLOWED_HOSTS = config("ALLOWED_HOSTS", default=[])
 
@@ -61,9 +61,12 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
 
 #     APPS Mias
+    "Productos",
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,10 +166,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = ASSETS_DIR / 'media'
 
 AUTHENTICATION_BACKENDS = [
-    "Users.backend.EmailOrPhoneBackend",
+    # "Users.backend.EmailOrPhoneBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# AUTH_USER_MODEL = 'Users.CustomUser'
+AUTH_USER_MODEL = 'auth.User'
+
 
