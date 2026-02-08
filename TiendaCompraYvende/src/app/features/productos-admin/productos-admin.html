@@ -14,12 +14,25 @@
       <select name="buscar" id="buscarPor" class="border-0 outline-0 rounded-start-1" [(ngModel)]="select">
         <option value="">Todo</option>
         <option value="nombre">Nombre</option>
-        <option value="categoria">Categoria</option>
+        <option
+          value="categoria">Categoria
+        </option>
       </select>
-      <input type="text" class="form-control" aria-label="Text input with dropdown button"
-             id="buscar"
-             [(ngModel)]="input"
-             placeholder="Búscar">
+
+      @if (select !== 'categoria') {
+        <input type="text" class="form-control" aria-label="Text input with dropdown button"
+               id="buscar"
+               [(ngModel)]="input"
+               placeholder="Búscar">
+      } @else {
+        <select type="text" class="form-control" aria-label="Text input with dropdown button"
+                id="buscar"
+                [(ngModel)]="input">
+          @for (c of Categorias(); track c.slug) {
+            <option value="{{c.slug}}">{{ c.nombre }}</option>
+          }
+        </select>
+      }
     </div>
   </div>
 
@@ -39,35 +52,34 @@
 
       <!--   //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>   -->
       <div class="pt-5 overflow-auto" id="tabla-body">
-        @if (connexionOff()){
+        @if (connexionOff()) {
           <div class="text-white border-bottom border-dark text-center w-100">
             <h1 class="text-danger text-bg-warning">Error de Conexión:</h1>
             <p class="text-danger">Intente de nuevo o comuníquese con la Asistencia al Cliente</p>
           </div>
-        }
-        @else{
-        @for (p of Productos(); track p.nombre) {
-          <div class="text-white d-grid producto border-bottom border-dark text-center"
-                      [ngClass]="[ Buscar(p)?'d-block':'d-none']">
-            <p class="m-0 border-end border-dark">IMG</p>
-            <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
-            <p class="m-0 border-end border-dark">{{ p.categoria_slug }}</p>
-            <p class="m-0 border-end border-dark">{{ p.precio }} €</p>
-            <div class="producto-opciones d-grid">
+        } @else {
+          @for (p of Productos(); track p.nombre) {
+            <div class="text-white d-grid producto border-bottom border-dark text-center"
+                 [ngClass]="[ Buscar(p)?'d-block':'d-none']">
+              <p class="m-0 border-end border-dark">IMG</p>
+              <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
+              <p class="m-0 border-end border-dark">{{ p.categoria_nombre }}</p>
+              <p class="m-0 border-end border-dark">{{ p.precio }} €</p>
+              <div class="producto-opciones d-grid">
 
-              <button class="btn btn-danger text-white w-100" type="button" (click)="Worry()">
-                <i class="bi bi-x-square-fill me-2"></i>
-                Eliminar Producto
-              </button>
+                <button class="btn btn-danger text-white w-100" type="button" (click)="Worry()">
+                  <i class="bi bi-x-square-fill me-2"></i>
+                  Eliminar Producto
+                </button>
 
-              <button class="btn btn-info text-white w-100" type="button" (click)="toggleModifiedForm()">
-                <i class="bi bi-pencil-fill me-2"></i>
-                Editar Producto
-              </button>
+                <button class="btn btn-info text-white w-100" type="button" (click)="toggleModifiedForm()">
+                  <i class="bi bi-pencil-fill me-2"></i>
+                  Editar Producto
+                </button>
 
+              </div>
             </div>
-          </div>
-        }
+          }
         }
       </div>
 
@@ -76,61 +88,61 @@
 
   </div>
 </div>
-  <!-- Formularios para la edicion o creacion de productos-->
-  @if (formAddActivo()) {
-    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
+<!-- Formularios para la edicion o creacion de productos-->
+@if (formAddActivo()) {
+  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+  <div class="vw-100 vh-100 position-fixed fondo-oscuro">
 
-      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-      <div class="border rounded-2 bg-dark box-login">
-        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-        <div class="m-2 position-relative">
-          <h2 class="text-center mt-3 text-white">Creando Producto</h2>
-          <button class="btn btn-danger" id="close" (click)="toggleAddForm()">
-            <i class="bi bi-x-lg text-white"></i>
-          </button>
-        </div>
-        <form action="" class="contenido">
+    <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+    <div class="border rounded-2 bg-dark box-login">
+      <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+      <div class="m-2 position-relative">
+        <h2 class="text-center mt-3 text-white">Creando Producto</h2>
+        <button class="btn btn-danger" id="close" (click)="toggleAddForm()">
+          <i class="bi bi-x-lg text-white"></i>
+        </button>
+      </div>
+      <form action="" class="contenido">
 
-        </form>
+      </form>
+    </div>
+  </div>
+}
+
+@if (formModified()) {
+  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+  <div class="vw-100 vh-100 position-fixed fondo-oscuro">
+
+    <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+    <div class="border border-info rounded-2 bg-dark box-login">
+      <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+      <div class="m-2 position-relative">
+        <h2 class="text-center mt-3 text-info">Modificando Producto</h2>
+        <button class="btn btn-danger" id="close" (click)="toggleModifiedForm()">
+          <i class="bi bi-x-lg text-white"></i>
+        </button>
+      </div>
+      <form action="" class="contenido">
+      </form>
+    </div>
+  </div>
+}
+
+@if (Sure()) {
+  <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
+  <div class="vw-100 vh-100 position-fixed fondo-oscuro">
+
+    <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
+
+    <div class="border border-danger rounded-2 bg-dark box-login ">
+      <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
+      <div class="m-2 position-relative">
+        <h2 class="text-center mt-3 text-danger">Eliminando Producto</h2>
+        <button class="btn btn-danger" id="close" (click)="Worry()">
+          <i class="bi bi-x-lg text-white"></i>
+        </button>
       </div>
     </div>
-  }
 
-  @if (formModified()) {
-    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
-
-      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-      <div class="border border-info rounded-2 bg-dark box-login">
-        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-        <div class="m-2 position-relative">
-          <h2 class="text-center mt-3 text-info">Modificando Producto</h2>
-          <button class="btn btn-danger" id="close" (click)="toggleModifiedForm()">
-            <i class="bi bi-x-lg text-white"></i>
-          </button>
-        </div>
-        <form action="" class="contenido">
-        </form>
-      </div>
-    </div>
-  }
-
-  @if (Sure()) {
-    <!--//<<<<<<<<<<<< 3. fondo oscuro >>>>>>>>>>>-->
-    <div class="vw-100 vh-100 position-fixed fondo-oscuro">
-
-      <!--//<<<<<<<<<<<< 4. caja de el login >>>>>>>>>>>-->
-
-      <div class="border border-danger rounded-2 bg-dark box-login ">
-        <!--//<<<<<<<<<<<< 5. texto y botón de close>>>>>>>>>>>-->
-        <div class="m-2 position-relative">
-          <h2 class="text-center mt-3 text-danger">Eliminando Producto</h2>
-          <button class="btn btn-danger" id="close" (click)="Worry()">
-            <i class="bi bi-x-lg text-white"></i>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  }
+  </div>
+}

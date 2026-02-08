@@ -9,6 +9,6 @@ from Productos.models import ProductosModels
 class ProductosView(APIView):
     permission_classes = [AllowAny]
     def get(self, request):
-        productos=[{"nombre":p.nombre,"precio":p.precio,"categoria_slug":p.categoria.slug} for p in ProductosModels.objects.all()]
-        print("hola")
+        productos=[{"nombre":p.nombre,"precio":p.precio,"categoria_nombre":p.categoria.nombre} for p in ProductosModels.objects.all()]
+
         return Response({"productos":productos},status=status.HTTP_200_OK)

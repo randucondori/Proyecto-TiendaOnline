@@ -1,15 +1,12 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormControl, FormsModule} from '@angular/forms';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 
 
-
-type producto=[{
-  nombre:string,
-  precio:number,
-  categoria_slug:string
-}]| []
+// Typos o interfaces
+type producto = [{ nombre: string, precio: string, categoria_nombre: string }] | []
+type categoria = [{ nombre: string, slug: string }] | []
 
 
 @Component({
@@ -23,21 +20,19 @@ type producto=[{
   standalone: true
 })
 
-
-
-
 export class ProductosAdmin implements OnInit {
 
   constructor(
-    private productosService:ProductosService
-  ) {}
+    private productosService: ProductosService
+  ) {
+  }
 
-  input=""
-  select=""
-  connexionOff=signal<boolean>(false)
+  input = ""
+  select = ""
+  connexionOff = signal<boolean>(false)
 
-
-  Productos=signal<producto>([])
+  Categorias = signal<categoria>([])
+  Productos = signal<producto>([])
   formAddActivo = signal<boolean>(false)
   formModified = signal<boolean>(false)
   Sure = signal<boolean>(false)
@@ -47,15 +42,25 @@ export class ProductosAdmin implements OnInit {
     this.productosService.getProductos().subscribe({
       next: data => {
         this.Productos.set(data.productos);
+        console.log(this.Productos())
       },
       error: error => {
-        if(error){
+        if (error) {
           this.connexionOff.set(true)
           console.log(this.connexionOff())
         }
       },
-      complete(){
+      complete() {
 
+      }
+    })
+
+    this.productosService.getCategorias().subscribe({
+      next: data => {
+        this.Categorias.set(data.categorias);
+      },
+      error: error => {
+        console.log("error")
       }
     })
   }
@@ -72,25 +77,33 @@ export class ProductosAdmin implements OnInit {
     this.Sure.update(state => !state)
   }
 
-  RemoveProducto(id:string) {
+  RemoveProducto(id: string) {
 
   }
 
-  ValidModified(){
-
-  }
-  ProductBorn(){
+  ValidModified() {
 
   }
 
-  Buscar(producto:any){
+  ProductBorn() {
 
-    console.log(producto[this.select].charAt(0).toString().toLowerCase())
+  }
 
-    return this.input.includes(producto[this.select])
-      || this.input===''
-      || this.select===''
-      || this.input.toLowerCase()===producto[this.select].charAt(0).toString().toLowerCase()
+  Buscar(producto: any) {
+    if(this.input!==""){
 
+    let nombre=producto.nombre.toLowerCase();
+    let separado=""
+
+    for (let i = 0; i < nombre.length; i++) {
+      if(i%this.input.length===0){
+        separado+=" "
+      }
+      separado+=nombre[i];
+    }
+
+    return separado.includes(this.input);
+    }
+    return true;
   }
 }

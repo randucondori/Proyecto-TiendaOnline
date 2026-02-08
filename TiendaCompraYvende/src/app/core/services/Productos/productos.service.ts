@@ -10,9 +10,13 @@ export class ProductosService {
     private http:HttpClient,
   ) {}
 
-  URL="http://127.0.0.1:8000/api/productos/";
+  URL="http://127.0.0.1:8000/api/";
 
   getProductos():Observable<any>{
-    return this.http.get(this.URL);
+    return this.http.get(this.URL+"productos/");
+  }
+
+  getCategorias():Observable<any>{
+    return this.http.get(this.URL+"categorias/");
   }
 }
