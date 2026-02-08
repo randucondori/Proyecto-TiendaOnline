@@ -29,6 +29,7 @@ export class ProductosAdmin implements OnInit {
 
   input = ""
   select = ""
+  selectCategory=""
   connexionOff = signal<boolean>(false)
 
   Categorias = signal<categoria>([])
@@ -89,7 +90,7 @@ export class ProductosAdmin implements OnInit {
 
   }
 
-  Buscar(producto: any) {
+  BuscarInput(producto: any) {
     if(this.input!==""){
 
     let nombre=producto.nombre.toLowerCase();
@@ -105,5 +106,8 @@ export class ProductosAdmin implements OnInit {
     return separado.includes(this.input);
     }
     return true;
+  }
+  BuscarSelect(producto:any){
+    return producto.categoria_nombre===this.select
   }
 }

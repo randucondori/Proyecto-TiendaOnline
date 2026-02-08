@@ -27,7 +27,7 @@
       } @else {
         <select type="text" class="form-control" aria-label="Text input with dropdown button"
                 id="buscar"
-                [(ngModel)]="input">
+                [(ngModel)]="selectCategory">
           @for (c of Categorias(); track c.slug) {
             <option value="{{c.slug}}">{{ c.nombre }}</option>
           }
@@ -60,7 +60,7 @@
         } @else {
           @for (p of Productos(); track p.nombre) {
             <div class="text-white d-grid producto border-bottom border-dark text-center"
-                 [ngClass]="[ Buscar(p)?'d-block':'d-none']">
+                 [ngClass]="[ BuscarInput(p) || BuscarSelect(p)?'d-block':'d-none']">
               <p class="m-0 border-end border-dark">IMG</p>
               <p class="m-0 border-end border-dark">{{ p.nombre }}</p>
               <p class="m-0 border-end border-dark">{{ p.categoria_nombre }}</p>
