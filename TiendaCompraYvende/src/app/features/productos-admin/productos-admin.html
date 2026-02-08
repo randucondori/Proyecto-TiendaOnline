@@ -39,6 +39,13 @@
 
       <!--   //<<<<<<<<< 2.1 Contenido de la tabla >>>>>>>   -->
       <div class="pt-5 overflow-auto" id="tabla-body">
+        @if (connexionOff()){
+          <div class="text-white border-bottom border-dark text-center w-100">
+            <h1 class="text-danger text-bg-warning">Error de Conexión:</h1>
+            <p class="text-danger">Intente de nuevo o comuníquese con la Asistencia al Cliente</p>
+          </div>
+        }
+        @else{
         @for (p of Productos(); track p.nombre) {
           <div class="text-white d-grid producto border-bottom border-dark text-center"
                       [ngClass]="[ Buscar(p)?'d-block':'d-none']">
@@ -60,6 +67,7 @@
 
             </div>
           </div>
+        }
         }
       </div>
 

@@ -5,31 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/admin/productos_admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/models/categorias_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/models/productos_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/serealizers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/views/Categorias_View.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Productos/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/admin/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/models/users_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/serealizers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseTiendaOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseTiendaOnline/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseTiendaOnline/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseTiendaOnline/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Productos/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Productos/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Productos/admin/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Productos/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Productos/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/core/services/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/Productos/admin/categorias_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +116,7 @@
       <workItem from="1770397600019" duration="416000" />
       <workItem from="1770398147389" duration="1665000" />
       <workItem from="1770464237312" duration="10503000" />
-      <workItem from="1770550757865" duration="5631000" />
+      <workItem from="1770550757865" duration="8156000" />
     </task>
     <servers />
   </component>

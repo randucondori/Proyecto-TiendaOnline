@@ -34,6 +34,7 @@ export class ProductosAdmin implements OnInit {
 
   input=""
   select=""
+  connexionOff=signal<boolean>(false)
 
 
   Productos=signal<producto>([])
@@ -48,7 +49,10 @@ export class ProductosAdmin implements OnInit {
         this.Productos.set(data.productos);
       },
       error: error => {
-        console.log(error)
+        if(error){
+          this.connexionOff.set(true)
+          console.log(this.connexionOff())
+        }
       },
       complete(){
 
@@ -80,6 +84,8 @@ export class ProductosAdmin implements OnInit {
   }
 
   Buscar(producto:any){
+
+    console.log(producto[this.select].charAt(0).toString().toLowerCase())
 
     return this.input.includes(producto[this.select])
       || this.input===''
