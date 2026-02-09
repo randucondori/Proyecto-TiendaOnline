@@ -1,9 +1,83 @@
-#body{
-  box-shadow: 1px 2px 3px rgba(0,0,0,.1);
-  border-radius: 5px;
-  width:80.5%;
-  height: fit-content;
-  margin: 80px 0 0 19%;
-  padding: 20px;
+//<<<<<<<<<<0. Contenedor padre >>>>>>>>
+#padre{
+  min-height: 100dvh;
+
 }
+
+//<<<<<<<<<<2. Texto y images derechas >>>>>>>>
+#body{
+  width: 100%;
+  padding: 0 0 0 15%;
+}
+#derecha{
+  padding-top: 10%;
+}
+
+//<<<<<<<<<<2.1. Texto>>>>>>>>
+#texto > h1{
+  font-size: 70px;
+  font-family: "Yu Gothic UI Semilight", serif;
+}
+
+//<<<<<<<<<<2.2. Imagenes >>>>>>>>-->
+#imgs{
+  height: 250px;
+  border-radius: 7px;
+  overflow: hidden;
+
+}
+#img-flotantes > div {
+  display: block;
+  position: absolute;
+  height: 236px;
+  border-radius: 5px;
+  box-shadow: -10px 0 15px -5px black;
+  transition-duration:3s ;
+}
+.box-img > img{
+  height: 100%;
+}
+
+#comida{
+  left: 0;
+  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
+}
+#ropa{
+
+  left: 25%;
+  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
+  //animation-delay: 0.4s;
+}
+#postre{
+  left: 45%;
+  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
+  //animation-delay: 0.8s;
+}
+#mueble{
+  left: 65%;
+  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
+  //animation-delay: 1.2s;
+}
+#img-flotantes > div:hover{
+  transition-duration:3s ;
+  left: 33%;
+  z-index: 999;
+
+}
+
+@keyframes Aparecer-Lateralmente{
+  from{
+    top:0;
+  }
+  to{
+    top: -5px;
+  }
+}
+//<<<<<<<<<<3. Form  >>>>>>>>
+#formulario{
+  width: 35%;
+  height: fit-content;
+  margin: 2% auto 0;
+}
+
 

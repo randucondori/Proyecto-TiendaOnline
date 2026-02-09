@@ -1,124 +1,27 @@
-* {
-  //border:1px solid red;
-}
-///<<<<<<< 0. head !contiene todo >>>>>>>>
-
+//<<<<<<<<<<<<0. Contenedor padre >>>>>>>>>>>
 #cabeza{
-  position: fixed;
-  top: 0;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
 }
 
-///<<<<<<< 1. primera separación de head >>>>>>>>
-#infoYbusqueda{
-  display: grid;
-  align-items: center;
-  grid-template-columns:12% 40% 5% auto auto;
-  height: 60px;
+//<<<<<<<<<<<<1. contenedor del head parte izquierda >>>>>>>>>>>
+.button-trans-border{
+  outline: none;
+  border:1px solid #1f1f1f;
+  background: none;
+  transition: 0.3s ;
+  padding: 10px 15px;
+  margin: 0 10px 0 0;
+  border-radius: 2px;
+}
+button:hover{
+  transition: 0.2s ;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+#ajustes:hover{
+  border: 1px solid #B5B5B8;
 }
 
-
-///<<<<<<< 2.Logo div >>>>>>>>
-
-#logo {
-  padding:0 0 0 10px;
-}
-
-///<<<<<< 3. barra de búsqueda >>>>>>>>
-
-
-///<<<<<<<<< 4. ajustes >>>>>>>>>
-
-#ajustes{
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#ajustes > i {
-  margin: 0;
-  font-size: 30px;
-}
-
-///<<<<<< 5.botones de del head >>>>>>>>
-#head-btn {
-  width: auto;
-  display: flex;
-  gap: 10px;
-  background-color: var(--background);
-  border-radius: 5px;
-  padding: 5px;
-  justify-content: start;
-}
-///<<<<<< 6. botones >>>>>>>>
-
-.opcion-head>button{
-  transition: 0.4s;
-}
-
-///<<<<<< 6. iniciar Sesión >>>>>>>>
-
-#boton-iniciar{
-  width: fit-content;
-}
-
-
-//<<<<<<<<<<<<< 9.  >>>>>>>>>>>>
-
-///Puntos de ruptura
-
-@media (max-width: 1845px){
-  #boton-iniciar{
-    //color: white;
-  }
-}
-
-@media (max-width: 1168px){
-  #head-btn{
-    display: grid;
-    grid-template-columns:auto auto;
-  }
-}
-
-
-
-@keyframes moveText {
-  0% {
-    transform: skew(0deg);
-  }
-  10% {
-    transform: skew(-4deg);
-  }
-  20% {
-    transform: skew(3deg);
-  }
-  30% {
-    transform: skew(0deg);
-  }
-  40% {
-    transform: skew(4deg);
-  }
-  50% {
-    transform: skew(2deg);
-  }
-  60% {
-    transform: skew(1deg);
-  }
-  70% {
-    transform: skew(4deg);
-  }
-  80% {
-    transform: skew(-3deg);
-  }
-  90% {
-    transform: skew(-1deg);
-  }
-  100% {
-    transform: skew(5deg);
-  }
-}
-
-.animation-skew {
-  animation: moveText 1s infinite linear alternate-reverse;
-}
+//<<<<<<<<<<<<2. contenedor del head parte derecha >>>>>>>>>>>

@@ -1,91 +1,17 @@
-<!--///<<<<<<< 0. head !contiene todo >>>>>>>>-->
-<header class=" vw-100 bg-white" id="cabeza">
-
-<!--  ///<<<<<<< 1. primera separación de head >>>>>>>>-->
-  <div id="infoYbusqueda" class="graduacion5">
-
-    <!--  ///<<<<<<< 2.Logo div >>>>>>>>-->
-    <div class="d-flex" id="logo">
-      <img src="/favicon.ico" alt="Logo">
-      <!--    <h1>Nombre</h1>-->
+<!--//<<<<<<<<<<<<0. Contenedor padre >>>>>>>>>>>-->
+<div class=" pt-4 px-4 d-flex" id="cabeza">
+<!--  //<<<<<<<<<<<<1. contenedor del head parte izquierda >>>>>>>>>>>-->
+  <div class="d-flex align-items-center" id="head-left">
+    <img src="logo.jpg" alt="Logo" height="70px" class="rounded-2">
+    <div class="ms-5">
+      <button class="text-blanco-roto button-trans-border">Documentación</button>
+      <button class="text-blanco-roto button-trans-border">algo</button>
     </div>
-
-    <!--  3. Barra de búsqueda-->
-    <form class="input-group rounded-start-0 w-100">
-
-      <div class="input-group-prepend">
-        <button class="btn btn-info rounded-end-0" type="submit">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
-      <input type="text" class="form-control h-50" placeholder="Búscar : Producto / Servicio"
-             aria-label="" aria-describedby="basic-addon2">
-    </form>
-
-    <!--  ///<<<<<<<<< 4 ajustes>>>>>>>>> -->
-    <div></div>
-<!--    <button class="border rounded-1 bg- text-dark" id="ajustes">-->
-<!--      <i class="bi bi-gear text-center"></i>-->
-<!--    </button>-->
-
-    <!--  ///<<<<<< 5.botones del head >>>>>>>>-->
-    <div class="justify-content-center" id="head-btn">
-      <!--    ///<<<<<< 6. botones >>>>>>>>-->
-      <div class="dropdown opcion-head">
-        <button class="btn btn-outline-white dropdown-toggle" type="button"
-                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-translate"></i>
-          Idiomas
-        </button>
-        <ul class="dropdown-menu">
-          <button class="btn w-100 text-start">algo</button>
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown opcion-head">
-        <button class="btn btn-outline-white dropdown-toggle" type="button"
-                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-translate"></i>
-          Idiomas
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-
-      <div class="dropdown opcion-head">
-        <button class="btn btn-outline-white dropdown-toggle" type="button"
-                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-translate"></i>
-          Idiomas
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-    </div>
-    <!--    ///<<<<<< 7. iniciar Sesión >>>>>>>>-->
-    <button type="button" class="btn btn-dark d-flex mx-auto align-items-center"
-            id="boton-iniciar" (click)="IniciarSesion()">
-      <i class="bi bi-person"></i>
-      <p class="m-0">Inicias Sesión</p>
-    </button>
-
+  </div>
+<!--  //<<<<<<<<<<<<2. contenedor del head parte derecha >>>>>>>>>>>-->
+  <div class="d-flex align-items-center" id="head-right">
+    <button class="border border-white border-2 button-trans-unborder rounded-2 text-blanco-roto">Comprar</button>
+    <button class="button-trans-unborder" id="ajustes"><i class="bi bi-three-dots text-blanco-roto"></i></button>
   </div>
 
-  <hr class="m-0">
-
-
-</header>
-@if (cambiaLogin()) {
-  <app-auth (salirDeLogin)="IniciarSesion()"
-            (salirLogin)="IniciarSesion()">
-  </app-auth>
-}
+</div>

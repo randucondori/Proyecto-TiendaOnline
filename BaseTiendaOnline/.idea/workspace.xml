@@ -8,9 +8,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/BaseTiendaOnline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BaseTiendaOnline.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/features/productos-admin/productos-admin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/auth/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/auth/auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,35 +45,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.BaseTiendaOnline.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/github/BaseTiendaOnline",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.BaseTiendaOnline.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/github/BaseTiendaOnline&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\randy\Desktop\TiendaRandu\Proyecto-TiendaOnline\BaseTiendaOnline\Users" />
@@ -121,6 +128,7 @@
       <workItem from="1770464237312" duration="10503000" />
       <workItem from="1770550757865" duration="16055000" />
       <workItem from="1770623722603" duration="4203000" />
+      <workItem from="1770654869331" duration="9878000" />
     </task>
     <servers />
   </component>
