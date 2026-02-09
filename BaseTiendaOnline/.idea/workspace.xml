@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BaseTiendaOnline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BaseTiendaOnline.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/barra-lateral/barra-lateral.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/components/head-main/head-main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/app/layouts/main-layout/main-layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TiendaCompraYvende/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../TiendaCompraYvende/src/styles.scss" afterDir="false" />
-    </list>
+    <list default="true" id="9bd7f5c3-d89f-4de7-985e-9e1b0b6266a9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +114,7 @@
       <workItem from="1770464237312" duration="10503000" />
       <workItem from="1770550757865" duration="16055000" />
       <workItem from="1770623722603" duration="4203000" />
-      <workItem from="1770654869331" duration="9878000" />
+      <workItem from="1770654869331" duration="10469000" />
     </task>
     <servers />
   </component>
