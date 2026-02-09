@@ -45,10 +45,12 @@ export class ProductosAdmin implements OnInit {
     this.productosService.getProductos().subscribe({
       next: data => {
         this.Productos.set(data.productos);
+        console.log(data.productos)
       },
       error: error => {
         if (error) {
           this.connexionOff.set(true)
+          console.log(error.message)
         }
       },
       complete() {
@@ -103,7 +105,7 @@ export class ProductosAdmin implements OnInit {
       separado+=nombre[i];
     }
 
-    return separado.includes(this.input);
+    return separado.includes(this.input.toLowerCase());
     }
     return true;
   }

@@ -7,6 +7,7 @@
 @include th.apply-theme();
 
 html, body {
+  scrollbar-width: thin;
   height: 100%;
   margin: 0;
   background-color: var(--background);
@@ -22,6 +23,12 @@ html, body {
 .card, .btn, .table, .form-control, .navbar {
   transition: all 0.3s ease;
 }
+.elemento-desactivado {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 .color1 {
   background-color: #34675c;
