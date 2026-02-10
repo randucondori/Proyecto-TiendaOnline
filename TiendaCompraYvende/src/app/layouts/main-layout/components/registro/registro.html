@@ -2,6 +2,7 @@
 
   <div class="text-center text-blanco-roto pt-3">
     <h2 class="m-0">Registro</h2>
+    <p>Acceda al círculo privado de Cats's</p>
   </div>
 
   <hr class="my-1">
@@ -12,13 +13,13 @@
 
       <div >
         <label>Nombre:
-        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Nombre" class="dark-input">
         </label>
       </div>
 
       <div >
         <label>Apellidos:
-        <input type="text" placeholder="Apellidos">
+        <input type="text" placeholder="Apellidos" class="dark-input">
         </label>
       </div>
 
@@ -28,12 +29,12 @@
 
       <label class="mb-2">
         Email{{'@'}}:
-        <input type="email" placeholder="Correo Electrónico @gmail.com">
+        <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input">
       </label>
 
       <label>Contraseña:
-      <input type="password" class="mb-3" placeholder="Contraseña">
-      <input type="password" placeholder="Repetir Contraseña">
+      <input type="password" class="mb-3 dark-input" placeholder="Contraseña" >
+      <input type="password" placeholder="Repetir Contraseña" class="dark-input">
       </label>
 
     </div>
@@ -41,19 +42,19 @@
     <div class="d-flex gap-3 mb-3">
       <div>
         <label>Teléfono:
-        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Nombre" class="dark-input">
         </label>
       </div>
 
       <div >
         <label >Ciudad:
-        <input type="text" id="ciudades" placeholder="Apellidos">
+        <input type="text" id="ciudades" placeholder="Apellidos" class="dark-input">
         </label>
       </div>
 
       <div >
         <label >País:
-          <input type="text"  id="ciudades" placeholder="Pais">
+          <input type="text"  id="ciudades" placeholder="Pais" class="dark-input">
         </label>
       </div>
 
@@ -61,11 +62,11 @@
 
     <label>
       Fecha de nacimiento:
-      <input type="date">
+      <input type="date" class="dark-input">
     </label>
 
   </div>
-  <hr> 
+  <hr>
   <!--  //<<<<<<<1. iniciar sesión con x >>>>>>-->
     <div class="d-flex mx-auto text-madera-clara gap-3 align-items-center" id="inicia">
       <h5 class="m-0"><u>Iniciar sesión Con</u></h5>
@@ -76,9 +77,9 @@
       </div>
     </div>
   <hr>
-  <div class="w-75 d-flex mx-auto justify-content-between pb-2">
-    <button class="text-blanco-roto button-trans-unborder border-white">Registrarse</button>
-    <button class="text-blanco-roto button-trans-unborder border-white">Iniciar Sesión</button>
+  <div class="w-75 d-flex mx-auto justify-content-between pb-1 align-items-center">
+    <button type="button" class="text-dark button-trans-unborder bg-dorado-suave py-2">Registrarse</button>
+    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/']">Iniciar Sesión</button>
   </div>
 
 </form>

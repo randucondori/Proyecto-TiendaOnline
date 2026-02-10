@@ -1,29 +1,35 @@
+
+label{
+  width: 100%;
+  color: #C8A85A;
+}
 *{
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
-//<<<<<<<<<<<< 0. fondo oscuro >>>>>>>>>>>
-
-#fondo-oscuro{
-  z-index: 1;
-  top: 0;
-  background: rgba(0, 0, 0, 0.25);
+//<<<<<<<0. Inputs >>>>>>
+#nombres{
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 4%;
+}
+.inputs{
+  margin-bottom:15px ;
+}
+//<<<<<<<1. iniciar sesión con x >>>>>>
+#face:hover{
+  transition: 0.5s;
+  color:dodgerblue;
+}
+#you:hover{
+  transition: 0.5s;
+  color: red;
+}
+#x:hover{
+  transition: 0.5s;
+  color: black;
+}
+#inicia{
+  width: fit-content;
 }
 
-//<<<<<<<<<<<< 1. caja de el login >>>>>>>>>>>
-
-#box-login{
-  position: relative;
-  z-index: 2;
-  background: white;
-  width: 30%;
-  height: 500px;
-  margin: 100px auto;
-}
-//<<<<<<<<<<<< 2. texto y botón de close>>>>>>>>>>>
-
-#close{
-  position: absolute;
-  top: 0;
-  right: 1%;
-}

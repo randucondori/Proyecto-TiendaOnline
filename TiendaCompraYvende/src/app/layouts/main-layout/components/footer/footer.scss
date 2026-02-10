@@ -1,0 +1,15 @@
+*{
+  transition: 0.4s;
+  color: rgba(187, 228, 250, 0.45);
+}
+
+.botones > button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.dorado:hover{
+  transition: 0.4s;
+  color: #C8A85A;
+}

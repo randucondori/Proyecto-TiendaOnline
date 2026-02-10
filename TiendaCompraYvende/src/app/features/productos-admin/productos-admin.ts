@@ -1,8 +1,9 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
-import {FormControl, FormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 import {Router} from '@angular/router';
+
 
 
 // Typos o interfaces
@@ -96,16 +97,15 @@ export class ProductosAdmin implements OnInit {
     if(this.input!==""){
 
     let nombre=producto.nombre.toLowerCase();
-    let separado=""
-
+    let estado=false
+      
     for (let i = 0; i < nombre.length; i++) {
-      if(i%this.input.length===0){
-        separado+=" "
+      if(nombre.slice(i,this.input.length)==this.input){
+      estado=true
       }
-      separado+=nombre[i];
     }
 
-    return separado.includes(this.input.toLowerCase());
+    return estado
     }
     return true;
   }

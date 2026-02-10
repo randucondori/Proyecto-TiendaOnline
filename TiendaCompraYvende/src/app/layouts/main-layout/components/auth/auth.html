@@ -1,18 +1,42 @@
-<!--//<<<<<<<<<<<< 0. fondo oscuro >>>>>>>>>>>-->
-<div class="vw-100 vh-100 position-fixed" id="fondo-oscuro" (click)="salirLogin.emit()">
-</div>
-<!--//<<<<<<<<<<<< 1. caja de el login >>>>>>>>>>>-->
-  <div class="border rounded-2 bg-white position-absolute" id="box-login">
-<!--//<<<<<<<<<<<< 2. texto y botón de close>>>>>>>>>>>-->
-    <div class="m-2 position-relative">
-      <h2 class="text-center mt-3">Login</h2>
-      <button class="btn btn-danger" id="close" (click)="salirDeLogin.emit()">
-        <i class="bi bi-x-lg text-white"></i>
-      </button>
-    </div>
-    <form action="">
+<form action="">
 
-    </form>
+  <div class="text-center text-blanco-roto pt-3">
+    <h2 class="m-0">Iniciar Sesión</h2>
+    <p>Acceda al círculo privado de Cats's</p>
   </div>
 
+  <hr class="my-1">
+  <!--  //<<<<<<<0. Inputs >>>>>>-->
+  <div class="px-3">
+
+    <div class="inputs">
+
+      <label class="mb-2">
+        Email{{'@'}}:
+        <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input">
+      </label>
+
+      <label>Contraseña:
+        <input type="password" class="mb-3 dark-input" placeholder="Contraseña" >
+      </label>
+
+    </div>
+
+  </div>
+  <!--  //<<<<<<<1. iniciar sesión con x >>>>>>-->
+  <div class="d-flex mx-auto text-madera-clara gap-3 align-items-center" id="inicia">
+    <h5 class="m-0"><u>Iniciar sesión Con</u></h5>
+    <div class="d-flex gap-2">
+      <i class="bi bi-facebook fs-4 text" id="face"></i>
+      <i class="bi bi-google fs-4" id="you"></i>
+      <i class="bi bi-twitter-x fs-4" id="x"></i>
+    </div>
+  </div>
+  <hr>
+  <div class="w-75 d-flex mx-auto justify-content-between pb-1 align-items-center">
+    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/register']">Registrarse</button>
+    <button type="button" class="text-dark bg-dorado-suave button-trans-unborder py-2" (click)="prueba()">Iniciar Sesión</button>
+  </div>
+
+</form>
 

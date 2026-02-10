@@ -4,7 +4,9 @@
   <app-head-main></app-head-main>
   <!-- //<<<<<<<<<<2. Texto y images derechas >>>>>>>>-->
   <div class="d-grid " id="body">
-    <div class="" id="derecha">
+
+    <div class="" id="derecha"
+    >
       <!--    //<<<<<<<<<<2.1. Texto>>>>>>>>-->
       <div id="texto" class="text-blanco-roto">
         <h1>Compra Ahora en</h1>
@@ -43,12 +45,14 @@
 
     </div>
     <!--    //<<<<<<<<<<3. Form  >>>>>>>>-->
-    <div class="bg-gris-oscuro rounded-2 w-75" id="formulario">
-
-      <app-registro></app-registro>
-
+    <div class="bg-carbon rounded-5 pb-3 w-75 my-auto" id="formulario">
+      <router-outlet></router-outlet>
     </div>
 
-
   </div>
+
+  <footer class="w-100">
+    <app-footer></app-footer>
+  </footer>
+
 </div>
