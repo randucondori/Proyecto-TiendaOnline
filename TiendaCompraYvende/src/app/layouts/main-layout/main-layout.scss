@@ -1,13 +1,18 @@
 //<<<<<<<<<<0. Contenedor padre >>>>>>>>
 #padre{
+  width: 100dvw;
+  height: fit-content;
+  //max-width: 100vw;
+  //max-height: 100vh;
+  //min-width: 100dvw;
   min-height: 100dvh;
-
 }
 
 //<<<<<<<<<<2. Texto y images derechas >>>>>>>>
 #body{
   width: 100%;
-  padding: 0 0 0 15%;
+  padding: 3% 0 0 10%;
+  grid-template-columns: 1fr 1fr;
 }
 #derecha{
   padding-top: 10%;
@@ -77,7 +82,16 @@
 #formulario{
   width: 35%;
   height: fit-content;
-  margin: 2% auto 0;
+  margin: 1% auto 0 5%;
 }
 
 
+@media (max-width: 1105px){
+  #body{
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  #imgs{
+    display: none;
+  }
+}
