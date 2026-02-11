@@ -1,9 +1,9 @@
-import {Component, signal} from '@angular/core';
+import {Component} from '@angular/core';
 import {HeadMain} from './components/head-main/head-main';
-import {Registro} from './components/registro/registro';
 import {Footer} from './components/footer/footer';
 import {RouterOutlet} from '@angular/router';
-import {NgClass} from '@angular/common';
+import {CargandoModel} from '../../shared/models/cargando-model/cargando-model';
+
 
 
 @Component({
@@ -12,6 +12,7 @@ import {NgClass} from '@angular/common';
     HeadMain,
     Footer,
     RouterOutlet,
+
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.scss',

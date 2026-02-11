@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
-
+  hola(texto:string){
+    console.log(texto);
+  }
 }

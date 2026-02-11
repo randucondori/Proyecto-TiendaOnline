@@ -1,17 +1,15 @@
 //<<<<<<<<<<0. Contenedor padre >>>>>>>>
 #padre{
-  //width: 100dvw;
   height:fit-content;
-  //max-width: 100vw;
-  //max-height: 100vh;
-  //min-width: 100dvw;
   min-height: 100dvh;
+  display: grid;
+  align-content: space-between;
 }
 
 //<<<<<<<<<<2. Texto y images derechas >>>>>>>>
 #body{
   width: 100%;
-  padding: 2% 0 0 10%;
+  padding: 0 0 0 10%;
   grid-template-columns: 1fr 1fr;
 }
 #derecha{
@@ -74,8 +72,12 @@
 //<<<<<<<<<<4. footer  >>>>>>>>
 
 footer{
-  bottom:0;
+
+
 }
+
+
+
 
 @media (max-width: 1105px){
   #body{

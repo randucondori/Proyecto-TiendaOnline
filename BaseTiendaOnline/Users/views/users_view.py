@@ -11,7 +11,8 @@ class Login(APIView):
     def post(self,request):
         serialisado=Login_Serializer(data=request.data)
         if serialisado.is_valid():
-            return Response(serialisado.data,status=status.HTTP_200_OK)
+            data={"email":serialisado.data['email']}
+            return Response(data,status=status.HTTP_200_OK)
         else:
 
             Piedras=serialisado.errors

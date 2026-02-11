@@ -5,6 +5,8 @@ import {ValidandoEmail} from '../../../../core/validators/email.validator';
 import {NgClass} from '@angular/common';
 import {PassValid} from '../../../../core/validators/pass.validator';
 import {LoginService} from '../../../../core/services/login/login.service';
+import {IniciaCon} from '../inicia-con/inicia-con';
+import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 
 type DatosDeEnvio = { email?: string, password: string }
 
@@ -14,6 +16,7 @@ type DatosDeEnvio = { email?: string, password: string }
     RouterLink,
     ReactiveFormsModule,
     NgClass,
+    IniciaCon,
   ],
   templateUrl: './auth.html',
   styleUrl: './auth.scss',
@@ -25,6 +28,7 @@ export class Auth {
   constructor(
     private formBuild: FormBuilder,
     private loginService: LoginService,
+    private cookie:MeCookiesService
   ) {
     this.formLogin = this.formBuild.group({
       email: ['', [Validators.required,ValidandoEmail]],
@@ -32,19 +36,19 @@ export class Auth {
     })
   }
   ValidarLogin(){
-    console.log(this.formLogin.value);
-    this.loginService.IsLogin(this.formLogin.value).subscribe({
+
+    let data={"email":this.formLogin.value.email,"password":this.formLogin.value.password}
+
+    this.loginService.IsLogin(data).subscribe({
       next: value => {
+        console.log(value)
+        this.cookie.set("user",value);
+        console.log(this.cookie.get("user"));
         console.log("bien")
       },
       error: error => {
         console.log("mal")
       }
     })
-  }
-
-  prueba() {
-    let resp=/^[a-z0-9._]+@[a-z0-9.-]+\.(com|es)$/i.test("randu@gmail.com")
-    console.log(resp)
   }
 }

@@ -1,9 +1,9 @@
 import {ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection} from '@angular/core';
 import {provideRouter} from '@angular/router';
-
 import {routes} from './app.routes';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +13,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(
       withInterceptors([])
-    )
+    ),
+    CookieService
+
   ]
 };

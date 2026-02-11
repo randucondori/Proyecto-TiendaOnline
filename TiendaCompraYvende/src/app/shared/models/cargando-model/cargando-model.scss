@@ -1,0 +1,38 @@
+
+
+
+//<<<<<<<0. popup>>>>>>
+#pop{
+  width: 25%;
+  border-radius: 10px;
+  display: grid;
+  height: fit-content;
+  top: 25%;
+  left: 36%;
+}
+
+
+
+
+@keyframes loading {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: perspective(120px) rotateX(180deg) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(120px) rotateX(180deg) rotateY(-180deg);
+  }
+}
+
+.carga{
+  margin: 20px auto;
+  border: 1px solid goldenrod;
+  background-color: var(--bs-dark);
+  width: 70px;
+  height: 70px;
+  animation: loading 2s infinite ease-in-out;
+}

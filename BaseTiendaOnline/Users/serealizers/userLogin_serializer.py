@@ -9,6 +9,7 @@ class Login_Serializer(serializers.ModelSerializer):
     email=serializers.EmailField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"Email Field"})
     password = serializers.CharField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"Password Field"})
 
+
     class Meta:
         model = UsuarioOrdinario
         fields = ('email','password')
@@ -24,22 +25,24 @@ class Login_Serializer(serializers.ModelSerializer):
 
     def validate_password(self,password):
         if not password or password == "":
-            return serializers.ValidationError("La contraseña no puede estar Vacía")
-        if len(password)<9:
-            raise serializers.ValidationError("La contraseña debe de tener al menos 8 caracteres")
+            raise serializers.ValidationError({"PassError":"La contraseña no puede estar Vacía"})
+        if len(password)<2:
+            raise serializers.ValidationError({"PassError":"La contraseña debe de tener al menos 8 caracteres"})
 
         return password
 
-    def validate(self, data):
+    def validate(self, validate_data):
+        password= validate_data.get("password")
+        email= validate_data.get("email")
 
-        user=UsuarioOrdinario.objects.filter(email=data['email']).first()
+        user=UsuarioOrdinario.objects.filter(email=email).first()
 
         if user:
-            if not user.check_password(data['password']):
-                raise serializers.ValidationError("Contraseña incorrecta")
+            if not user.check_password(password):
+                raise serializers.ValidationError({"LoginError":"Contraseña incorrecta"})
 
-            return {"success": True, "data": {"correo": user.email,"apellido": user.apellidos}}
-        else:
-            raise serializers.ValidationError("Usuario NO encontrado")
+        if not user:
+            raise serializers.ValidationError({"LoginError":"Usuario NO encontrado"})
 
 
+        return validate_data
