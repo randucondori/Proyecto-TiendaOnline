@@ -1,4 +1,4 @@
-<form action="">
+<form action="" [formGroup]="formLogin" (ngSubmit)="ValidarLogin()">
 
   <div class="text-center text-blanco-roto pt-3">
     <h2 class="m-0">Iniciar Sesión</h2>
@@ -12,12 +12,41 @@
     <div class="inputs">
 
       <label class="mb-2">
-        Email{{'@'}}:
-        <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input">
+        Email{{ '@' }}:
+        @if (formLogin.get("email")?.touched) {
+        @if(formLogin.get("email")?.errors?.['required']){
+          <i class="">Campo requerido</i>
+        } @else if (formLogin.get("email")?.errors?.["ArrobaError"]){
+          <i class="">No se considera Email sin un {{'@'}}</i>
+        }@else if (formLogin.get("email")?.errors?.["FormatoError"]){
+          <i class="">Formato o extensión Incorrecta: opciones .com o .es)</i>
+        }
+      }
+        <input type="email"
+               placeholder="Correo Electrónico @gmail.com"
+               class="dark-input"
+               formControlName="email"
+              [ngClass]="[
+              formLogin.get('email')?.touched && formLogin.get('email')?.errors?'invalido':'',
+               formLogin.get('email')?.touched && !formLogin.get('email')?.errors?'valido':''
+              ]">
       </label>
 
       <label>Contraseña:
-        <input type="password" class="mb-3 dark-input" placeholder="Contraseña" >
+        @if (formLogin.get("password")?.touched) {
+          @if(formLogin.get("password")?.errors?.['required']){
+            <i class="">Campo requerido</i>
+          } @else if (formLogin.get("password")?.errors?.["cantidadError"]){
+            <i class="">La contraseña debe tener al menos 8 caracteres</i>
+          }
+        }
+        <input type="password" class="mb-3 dark-input"
+               placeholder="Contraseña"
+               formControlName="password"
+               [ngClass]="[
+              formLogin.get('password')?.touched && formLogin.get('password')?.errors?'invalido':'',
+               formLogin.get('password')?.touched && !formLogin.get('password')?.errors?'valido':''
+              ]">
       </label>
 
     </div>
@@ -34,8 +63,11 @@
   </div>
   <hr>
   <div class="w-75 d-flex mx-auto justify-content-between pb-1 align-items-center">
-    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/register']">Registrarse</button>
-    <button type="button" class="text-dark bg-dorado-suave button-trans-unborder py-2" (click)="prueba()">Iniciar Sesión</button>
+    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/register']">
+      Registrarse
+    </button>
+    <button type="submit" class="text-dark bg-dorado-suave button-trans-unborder py-2"
+    [ngClass]="[formLogin.valid?'':'elemento-desactivado']">Iniciar Sesión</button>
   </div>
 
 </form>

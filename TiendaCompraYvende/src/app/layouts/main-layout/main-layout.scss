@@ -11,7 +11,7 @@
 //<<<<<<<<<<2. Texto y images derechas >>>>>>>>
 #body{
   width: 100%;
-  padding: 3% 0 0 10%;
+  padding: 2% 0 0 10%;
   grid-template-columns: 1fr 1fr;
 }
 #derecha{
@@ -71,6 +71,11 @@
   outline: 0.5px solid #C8A85A;
 }
 
+//<<<<<<<<<<4. footer  >>>>>>>>
+
+footer{
+  bottom:0;
+}
 
 @media (max-width: 1105px){
   #body{
@@ -81,3 +86,4 @@
     display: none;
   }
 }
+

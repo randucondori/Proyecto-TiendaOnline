@@ -43,3 +43,29 @@ button:hover{
 }
 
 //<<<<<<<<<<<<2. contenedor del head parte derecha >>>>>>>>>>>
+#head-right{
+  gap: 20px;
+}
+
+@media (max-width: 801px) {
+  #cabeza{
+    gap: 10%;
+  }
+}
+
+
+@media (max-width: 710px){
+  #cabeza{
+    gap: 0;
+  }
+}
+@media (max-width: 640px){
+  #head-left > div{
+    display: none;
+  }
+}
+@media (max-width: 345px){
+  #head-right{
+    gap: 0;
+  }
+}

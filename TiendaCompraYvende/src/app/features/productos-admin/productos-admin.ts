@@ -1,9 +1,8 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
-import { FormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 import {Router} from '@angular/router';
-
 
 
 // Typos o interfaces
@@ -26,13 +25,13 @@ export class ProductosAdmin implements OnInit {
 
   constructor(
     private productosService: ProductosService,
-    private router:Router
+    private router: Router
   ) {
   }
 
   input = ""
   select = ""
-  selectCategory=""
+  selectCategory = ""
   connexionOff = signal<boolean>(false)
 
   Categorias = signal<categoria>([])
@@ -94,27 +93,15 @@ export class ProductosAdmin implements OnInit {
   }
 
   BuscarInput(producto: any) {
-    if(this.input!==""){
-
-    let nombre=producto.nombre.toLowerCase();
-    let estado=false
-      
-    for (let i = 0; i < nombre.length; i++) {
-      if(nombre.slice(i,this.input.length)==this.input){
-      estado=true
-      }
-    }
-
-    return estado
-    }
-    return true;
+    let re=RegExp(".*"+this.input,"i")
+    return re.test(producto.nombre)
   }
 
-  BuscarSelect(producto:any){
-    return producto.categoria_nombre===this.select
+  BuscarSelect(producto: any) {
+    return producto.categoria_nombre === this.select
   }
 
-  GoInicio(){
+  GoInicio() {
     this.router.navigate(['/']);
   }
 }

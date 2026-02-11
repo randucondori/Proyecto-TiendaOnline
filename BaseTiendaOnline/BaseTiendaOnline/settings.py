@@ -49,6 +49,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,6 +63,7 @@ INSTALLED_APPS = [
 
 #     APPS Mias
     "Productos",
+    "Users",
 
 ]
 
@@ -171,6 +173,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'Users.UsuarioOrdinario'
 
 
