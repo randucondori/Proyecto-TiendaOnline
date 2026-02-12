@@ -1,19 +1,21 @@
 import re
 from rest_framework import serializers
 from Users.models import UsuarioOrdinario
+from Users.models.ciudades_model import CiudadesModel
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=100, required=True)
     nombre = serializers.CharField(max_length=100, required=True)
     apellidos = serializers.CharField(max_length=100, required=True)
+    ciudad = serializers.CharField(max_length=100, required=True)
     password = serializers.CharField(min_length=8, max_length=100, required=True)
     password0 = serializers.CharField(min_length=8, max_length=100, required=True)
 
 
     class Meta:
         model = UsuarioOrdinario
-        fields = ("email", "nombre", "apellidos", "password", "password0")
+        fields = ("email", "nombre", "apellidos", "password", "password0","ciudad")
 
     def validate_email(self, email):
         if not email or email == "":
@@ -44,19 +46,35 @@ class RegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({"PasswordError": "Es necesario introducir la segunda contraseña"})
         return password0
 
+    def validate_ciudad(self,ciudad):
+        if not ciudad or ciudad == "":
+            raise serializers.ValidationError({"CiudadError":"Se necesita ser parte de una ciudad"})
+
+        return ciudad
+
     def validate(self, validated_data):
+
+        ciudad=CiudadesModel.objects.filter(slug=validated_data["ciudad"]).first()
 
         user=UsuarioOrdinario.objects.filter(email=validated_data["email"]).first()
 
         if user:
             raise serializers.ValidationError({"ExistError":"Usuario Ya existe"})
 
+        if not ciudad:
+            raise serializers.ValidationError({"CiudadError":"La ciudad no existe"})
+
         if not validated_data['password'] == validated_data['password0']:
             raise serializers.ValidationError({"PasswordsDiferentes": "las contraseñas no son iguales"})
+
+
 
         return validated_data
 
     def create(self, validated_data):
+
+        ciudad=CiudadesModel.objects.filter(slug=validated_data["ciudad"]).first()
+
         password=validated_data.pop("password")
         validated_data.pop("password0")
 
@@ -64,6 +82,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data["email"],
             nombre=validated_data["nombre"],
             apellidos=validated_data["apellidos"],
+            ciudad=ciudad,
         )
 
         user.set_password(password)
