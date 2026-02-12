@@ -1,4 +1,6 @@
-
+#fondo{
+  left: 0;
+}
 
 
 //<<<<<<<0. popup>>>>>>
@@ -9,6 +11,7 @@
   height: fit-content;
   top: 25%;
   left: 36%;
+  justify-items: center;
 }
 
 
@@ -35,4 +38,36 @@
   width: 70px;
   height: 70px;
   animation: loading 2s infinite ease-in-out;
+}
+
+//<<<<<<<<< OK icono 1>>>>>>>>
+
+#bien{
+  width: fit-content;
+  height: fit-content;
+  font-size: 400%;
+}
+#box-bien{
+  margin: 20px 0 0 0 ;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//<<<<<<<<< OK icono 1>>>>>>>>
+
+#x{
+  width: fit-content;
+  height: fit-content;
+  font-size: 300%;
+}
+#box-x{
+  margin: 20px 0 0 0 ;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

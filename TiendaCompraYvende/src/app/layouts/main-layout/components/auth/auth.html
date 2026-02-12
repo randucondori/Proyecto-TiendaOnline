@@ -14,19 +14,19 @@
       <label class="mb-2">
         Email{{ '@' }}:
         @if (formLogin.get("email")?.touched) {
-        @if(formLogin.get("email")?.errors?.['required']){
-          <i class="">Campo requerido</i>
-        } @else if (formLogin.get("email")?.errors?.["ArrobaError"]){
-          <i class="">No se considera Email sin un {{'@'}}</i>
-        }@else if (formLogin.get("email")?.errors?.["FormatoError"]){
-          <i class="">Formato o extensión Incorrecta: opciones .com o .es)</i>
+          @if (formLogin.get("email")?.errors?.['required']) {
+            <i class="">Campo requerido</i>
+          } @else if (formLogin.get("email")?.errors?.["ArrobaError"]) {
+            <i class="">No se considera Email sin un {{ '@' }}</i>
+          } @else if (formLogin.get("email")?.errors?.["FormatoError"]) {
+            <i class="">Formato o extensión Incorrecta: opciones .com o .es)</i>
+          }
         }
-      }
         <input type="email"
                placeholder="Correo Electrónico @gmail.com"
                class="dark-input"
                formControlName="email"
-              [ngClass]="[
+               [ngClass]="[
               formLogin.get('email')?.touched && formLogin.get('email')?.errors?'invalido':'',
                formLogin.get('email')?.touched && !formLogin.get('email')?.errors?'valido':''
               ]">
@@ -34,10 +34,10 @@
 
       <label>Contraseña:
         @if (formLogin.get("password")?.touched) {
-          @if(formLogin.get("password")?.errors?.['required']){
+          @if (formLogin.get("password")?.errors?.['required']) {
             <i class="">Campo requerido</i>
-          } @else if (formLogin.get("password")?.errors?.["cantidadError"]){
-            <i class="">La contraseña debe tener al menos 8 caracteres</i>
+          } @else if (formLogin.get("password")?.errors?.["cantidadError"]) {
+            <i class="">La contraseña debe tener al menos {{ passlen }} caracteres</i>
           }
         }
         <input type="password" class="mb-3 dark-input"
@@ -60,10 +60,12 @@
       Registrarse
     </button>
     <button type="submit" class="text-dark bg-dorado-suave button-trans-unborder py-2"
-    [ngClass]="[formLogin.valid?'':'elemento-desactivado']">Iniciar Sesión</button>
+            [ngClass]="[formLogin.valid?'':'elemento-desactivado']">Iniciar Sesión
+    </button>
   </div>
-
+  <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()" ] ></app-cargando-model>
 </form>
+
 
 
 

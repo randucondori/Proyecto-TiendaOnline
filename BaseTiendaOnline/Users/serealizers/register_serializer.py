@@ -1,7 +1,5 @@
 import re
-
 from rest_framework import serializers
-
 from Users.models import UsuarioOrdinario
 
 
@@ -57,6 +55,8 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         if not password == password0:
             raise serializers.ValidationError({"PasswordsDiferentes": "las contraseñas no son iguales"})
+
+        return validated_data
 
     def create(self, validated_data):
 
