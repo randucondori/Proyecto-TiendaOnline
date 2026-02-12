@@ -10,6 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(min_length=8, max_length=100, required=True)
     password0 = serializers.CharField(min_length=8, max_length=100, required=True)
 
+
     class Meta:
         model = UsuarioOrdinario
         fields = ("email", "nombre", "apellidos", "password", "password0")
@@ -45,20 +46,19 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     def validate(self, validated_data):
 
-        password = validated_data.get("password")
-        password0 = validated_data.get("password0")
-
         user=UsuarioOrdinario.objects.filter(email=validated_data["email"]).first()
 
         if user:
             raise serializers.ValidationError({"ExistError":"Usuario Ya existe"})
 
-        if not password == password0:
+        if not validated_data['password'] == validated_data['password0']:
             raise serializers.ValidationError({"PasswordsDiferentes": "las contraseñas no son iguales"})
 
         return validated_data
 
     def create(self, validated_data):
+        password=validated_data.pop("password")
+        validated_data.pop("password0")
 
         user = UsuarioOrdinario.objects.create(
             email=validated_data["email"],
@@ -66,6 +66,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             apellidos=validated_data["apellidos"],
         )
 
-        user.set_password(validated_data["password"])
+        user.set_password(password)
         user.save()
+
         return user

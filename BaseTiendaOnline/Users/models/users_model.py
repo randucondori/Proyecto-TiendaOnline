@@ -7,6 +7,7 @@ from django.db import models
 
 class UsuarioAdminAndUSer(BaseUserManager):
     def create_user(self, email=None, password=None, **extra_fields):
+
         if not email or email == "":
             raise ValueError('Usuario debe de tener un correo válido')
 
