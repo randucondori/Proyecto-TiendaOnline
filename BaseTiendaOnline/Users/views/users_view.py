@@ -5,6 +5,9 @@ from rest_framework.views import APIView
 
 from Users.serealizers import Login_Serializer
 
+#investigar sobre Viewset() django
+# pip install django-jazzmin (mejor admin)
+# pip install django-unfold (mejor admin)
 
 class Login(APIView):
     permission_classes = (AllowAny,)
@@ -15,7 +18,10 @@ class Login(APIView):
             return Response(data,status=status.HTTP_200_OK)
         else:
 
-            Piedras=serialisado.errors
-            print(Piedras)
+            errores=[]
 
-            return Response(serialisado.errors,status=status.HTTP_400_BAD_REQUEST)
+            for key, error in serialisado.errors.items():
+                for err in error:
+                    errores.append(str(err))
+
+            return Response({"succes":False,"error":errores},status=status.HTTP_400_BAD_REQUEST)

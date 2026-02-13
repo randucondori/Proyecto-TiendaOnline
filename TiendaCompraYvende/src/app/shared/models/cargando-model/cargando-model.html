@@ -1,28 +1,32 @@
 <div clasS="vw-100 vh-100 opacity-25 position-absolute top-0 bg-dorado-suave"
      id="fondo"
      [ngClass]="[visible()?'d-block':'d-none']"></div>
-<div class="position-absolute bg-blanco-roto pb-3" id="pop"
+<div class="position-absolute bg-blanco-roto pb-3 position-relative" id="pop"
      [ngClass]="[visible()?'d-block':'d-none']">
-  @if (icono()===0) {
+  @if (icono() === 2) {
+    <button class="rounded-2 bg-danger btn position-absolute" id="cerrar" (click)="cerrar()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  }
+  @if (icono() === 0) {
     <h2 class="text-madera-clara h1 mt-4 text-center">Cargando</h2>
     <div class="carga"></div>
   }
-  @if (icono()===1) {
+  @if (icono() === 1) {
     <h2 class="mb-0 text-madera-clara h1 mt-4 text-center text-success mx-2">Operación Completada</h2>
     <div class="rounded-circle bg-success" id="box-bien">
       <i class="bi bi-check-all mx-auto d-block text-white" id="bien"></i>
     </div>
   }
-  @if (icono()===2) {
+  @if (icono() === 2) {
     <h2 class="mb-0 text-madera-clara h1 mt-4 text-center text-danger">Error</h2>
     <div class="rounded-circle bg-danger" id="box-x">
       <i class="bi bi-x-lg mx-auto d-block text-white" id="x"></i>
     </div>
   }
-  <div id="contenido mx-2 mt-3">
-<!--    @for(c of contenido();track c){-->
-<!--      <p>-{{c}}</p>-->
-<!--    }-->
-    <p>{{contenido()}}</p>
+  <div id="contenido" class="mx-2 pt-3">
+    @for (c of contenido(); track c) {
+      <p>- {{ c }}</p>
+    }
   </div>
 </div>

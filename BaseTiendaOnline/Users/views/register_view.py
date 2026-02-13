@@ -13,7 +13,7 @@ class register(APIView):
 
         if serializado.is_valid():
             try:
-                serializado.save()
+                # serializado.save()
                 return Response({"succes": True}, status=status.HTTP_201_CREATED)
             except Exception as e:
                 print(e)
@@ -22,10 +22,10 @@ class register(APIView):
 
             errores=[]
 
-            for clave, error in serializado.errors.items():
-                # errores.append(", ".join(error))
+            for key,error in serializado.errors.items():
                 for err in error:
                     errores.append(str(err))
 
+            print(errores)
 
-            return Response({"succes":False,"Error":errores},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"succes":False,"errors":errores},status=status.HTTP_400_BAD_REQUEST)

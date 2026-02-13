@@ -58,7 +58,7 @@ html, body {
 }
 .dark-input::placeholder{
   opacity: 1;
-  color: #E6E6E4;
+  color: rgba(230, 230, 228, 0.33);
 }
 .dark-input:focus{
   outline: 1px solid #C8A85A;

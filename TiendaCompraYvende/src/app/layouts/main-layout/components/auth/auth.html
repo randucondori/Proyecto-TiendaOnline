@@ -1,4 +1,4 @@
-<form action="" [formGroup]="formLogin" (ngSubmit)="ValidarLogin()">
+<form action="" [formGroup]="formLogin" >
 
   <div class="text-center text-blanco-roto pt-3">
     <h2 class="m-0">Iniciar Sesión</h2>
@@ -60,10 +60,12 @@
       Registrarse
     </button>
     <button type="submit" class="text-dark bg-dorado-suave button-trans-unborder py-2"
-            [ngClass]="[formLogin.valid?'':'elemento-desactivado']">Iniciar Sesión
+            [ngClass]="[formLogin.valid?'':'elemento-desactivado']" (click)="ValidarLogin()">Iniciar Sesión
     </button>
   </div>
-  <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"></app-cargando-model>
+  <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"
+                       (cerrarIcono)="changeCargando(Boolean($event))" (cerrarVisible)="changeIcono(Number($event))"
+  ></app-cargando-model>
 </form>
 
 

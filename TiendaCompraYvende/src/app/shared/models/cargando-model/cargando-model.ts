@@ -1,4 +1,4 @@
-import {Component, input, output, signal} from '@angular/core';
+import {Component, input, model, output} from '@angular/core';
 import {NgClass} from '@angular/common';
 
 @Component({
@@ -11,9 +11,18 @@ import {NgClass} from '@angular/common';
   standalone:true,
 })
 export class CargandoModel {
-  visible=input<boolean>()
-  icono =input<number>(0)
-  contenido=input<any>([])
+  visible=model<boolean>()
+  icono =input<number>()
+  contenido=input<string[]>([])
+
+  cerrarVisible=output<boolean>()
+  cerrarIcono=output<number>()
+
+
+  cerrar(){
+    this.cerrarIcono.emit(0)
+    this.cerrarVisible.emit(false)
+  }
 
 
 }

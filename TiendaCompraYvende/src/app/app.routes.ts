@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import {compraGuard} from './core/guards/comprar/compra-guard';
 
 export const routes: Routes = [
   {path:"",
@@ -13,6 +14,7 @@ export const routes: Routes = [
   },
   {
     path:"productosAdmin",
+    canActivate:[compraGuard],
     loadComponent:()=>import("./features/productos-admin/productos-admin").then(c=>c.ProductosAdmin)
   },
 ];

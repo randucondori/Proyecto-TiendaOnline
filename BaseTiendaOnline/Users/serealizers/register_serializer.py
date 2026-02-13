@@ -54,6 +54,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     def validate(self, validated_data):
 
+        if not validated_data or validated_data=={}:
+            raise serializers.ValidationError({"VoidError":"Necesito contenido"})
+
         ciudad=CiudadesModel.objects.filter(slug=validated_data["ciudad"]).first()
 
         user=UsuarioOrdinario.objects.filter(email=validated_data["email"]).first()

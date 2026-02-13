@@ -28,50 +28,62 @@ type DatosDeEnvio = { email?: string, password: string }
 export class Auth {
 
   formLogin: FormGroup;
-  passlen=2
+  passlen = 2
 
   constructor(
     private formBuild: FormBuilder,
     private loginService: LoginService,
-    private cookie:MeCookiesService,
+    private cookie: MeCookiesService,
     private router: Router,
   ) {
     this.formLogin = this.formBuild.group({
-      email: ['', [Validators.required,ValidandoEmail]],
-      password: ['', Validators.required,PassValid(this.passlen)]
+      email: ['', [Validators.required, ValidandoEmail]],
+      password: ['', Validators.required, PassValid(this.passlen)]
     })
   }
 
-  visibleCargando=signal<boolean>(false)
-  tipeResp=signal<number>(0)
-  errors=signal<any>([])
+  visibleCargando = signal<boolean>(false)
+  tipeResp = signal<number>(0)
+  errors = signal<string[]>([])
 
 
-  ValidarLogin(){
-    let data={"email":this.formLogin.value.email,"password":this.formLogin.value.password}
+  ValidarLogin() {
+
+    let data = {
+      "email": this.formLogin.value.email,
+      "password": this.formLogin.value.password
+    }
 
     this.visibleCargando.set(true)
 
     this.loginService.IsLogin(data).subscribe({
       next: value => {
         this.tipeResp.set(1)
-        this.cookie.set("user",value);
-        setTimeout(()=>{
+        this.cookie.set("user", value);
+        setTimeout(() => {
+          this.visibleCargando.set(false)
           this.router.navigateByUrl('/productosAdmin');
-        },500)
+        }, 500)
       },
       error: error => {
         this.tipeResp.set(2);
-        console.log(error)
-        this.errors.set(error.error);
-
+        this.errors.set(error.error.error);
       },
       complete: () => {
-        setTimeout(()=> {
-          this.visibleCargando.set(false)
-          this.tipeResp.set(0)
-        },5000)
+
       }
     })
   }
+
+  changeCargando(o: boolean) {
+    this.visibleCargando.set(o)
+  }
+
+  changeIcono(n: number): void {
+    this.tipeResp.set(n)
+  }
+
+
+  protected readonly Boolean = Boolean;
+  protected readonly Number = Number;
 }
