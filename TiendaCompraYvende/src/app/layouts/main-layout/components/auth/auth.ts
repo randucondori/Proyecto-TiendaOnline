@@ -46,7 +46,7 @@ export class Auth {
   tipeResp=signal<number>(0)
   errors=signal<any>([])
 
-  
+
   ValidarLogin(){
     let data={"email":this.formLogin.value.email,"password":this.formLogin.value.password}
 
