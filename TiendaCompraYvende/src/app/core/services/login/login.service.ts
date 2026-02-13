@@ -15,4 +15,8 @@ export class LoginService {
   IsLogin(userData:any):Observable<any>{
     return this.http.post(this.url + '/loguser/', userData);
   }
+
+  ToRegister(data:any):Observable<any>{
+    return this.http.post(this.url + '/born/', data);
+  }
 }

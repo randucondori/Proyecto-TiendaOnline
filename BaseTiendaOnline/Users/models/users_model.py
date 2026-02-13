@@ -7,10 +7,11 @@ from django.db import models
 
 class UsuarioAdminAndUSer(BaseUserManager):
     def create_user(self, email=None, password=None, **extra_fields):
+
         if not email or email == "":
             raise ValueError('Usuario debe de tener un correo válido')
 
-        if not re.search(r"^[a-z0-9._]+@[a-z0-9.-]+\.(com|es)$",email):
+        if not re.search(r"^[a-z0-9._]+@[a-z0-9.-]+\.(com|es)$", email):
             raise ValueError('No es un formato de correo válido')
 
         if any(ext in email for ext in settings.EXTENSIONES_BLACKLIST):
@@ -38,6 +39,7 @@ class UsuarioOrdinario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True, blank=False, null=False)
     nombre = models.CharField(max_length=50, null=False, blank=False)
     apellidos = models.CharField(max_length=50, null=False, blank=False)
+    ciudad = models.ForeignKey('CiudadesModel', on_delete=models.SET_NULL, null=True)
     is_active = models.BooleanField(default=True, verbose_name="¿Está activo?",help_text="(Obligatorio si queremos que el usuario pueda acceder a su cuenta)")
 
     is_staff = models.BooleanField(default=False)

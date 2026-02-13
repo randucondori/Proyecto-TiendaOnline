@@ -1,4 +1,4 @@
-import {Component, output, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ValidandoEmail} from '../../../../core/validators/email.validator';

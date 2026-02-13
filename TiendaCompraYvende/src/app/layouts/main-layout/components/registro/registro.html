@@ -1,4 +1,4 @@
-<form action="">
+<form action="" [formGroup]="formRegister">
 
   <div class="text-center text-blanco-roto pt-3">
     <h2 class="m-0">Registro</h2>
@@ -11,15 +11,31 @@
 
     <div class="inputs" id="nombres">
 
-      <div >
+      <div>
         <label>Nombre:
-        <input type="text" placeholder="Nombre" class="dark-input">
+          @if (formRegister.get("nombre")?.touched) {
+            @if (formRegister.get("nombre")?.errors?.['required']) {
+              <i class="">requerido</i>
+            }
+          }
+          <input type="text" placeholder="Nombre" class="dark-input" formControlName="nombre" [ngClass]="[
+              formRegister.get('nombre')?.touched && formRegister.get('nombre')?.errors?'invalido':'',
+               formRegister.get('nombre')?.touched && !formRegister.get('nombre')?.errors?'valido':''
+              ]">
         </label>
       </div>
 
-      <div >
+      <div>
         <label>Apellidos:
-        <input type="text" placeholder="Apellidos" class="dark-input">
+          @if (formRegister.get("apellidos")?.touched) {
+            @if (formRegister.get("apellidos")?.errors?.['required']) {
+              <i class="">Campo requerido</i>
+            }
+          }
+          <input type="text" placeholder="Apellidos" class="dark-input" formControlName="apellidos" [ngClass]="[
+              formRegister.get('apellidos')?.touched && formRegister.get('apellidos')?.errors?'invalido':'',
+               formRegister.get('apellidos')?.touched && !formRegister.get('apellidos')?.errors?'valido':''
+              ]">
         </label>
       </div>
 
@@ -27,51 +43,100 @@
 
     <div class="inputs">
 
-      <label class="mb-2">
-        Email{{'@'}}:
-        <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input">
-      </label>
+
+      <div class="d-flex gap-3">
+
+        <label class="mb-2">
+          Email{{ '@' }}:
+          @if (formRegister.get("email")?.touched) {
+            @if (formRegister.get("email")?.errors?.['required']) {
+              <i class="">Campo requerido</i>
+            } @else if (formRegister.get("email")?.errors?.["ArrobaError"]) {
+              <i class="">No se considera Email sin un {{ '@' }}</i>
+            } @else if (formRegister.get("email")?.errors?.["FormatoError"]) {
+              <i class="">Formato o extensión Incorrecta: opciones .com o .es)</i>
+            }
+          }
+          <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input" formControlName="email"
+                 [ngClass]="[
+              formRegister.get('email')?.touched && formRegister.get('email')?.errors?'invalido':'',
+               formRegister.get('email')?.touched && !formRegister.get('email')?.errors?'valido':''
+              ]">
+        </label>
+
+        <div>
+          <label>Ciudad:
+            <select type="text" id="ciudades" class="dark-input" formControlName="ciudad" [ngClass]="[
+              formRegister.get('ciudad')?.touched && formRegister.get('ciudad')?.errors?'invalido':'',
+               formRegister.get('ciudad')?.touched && !formRegister.get('ciudad')?.errors ? 'valido':'']">
+
+<!--              @for(c of ciudades;track c){-->
+<!--                <option value="nada"> Ciudad </option>-->
+<!--              }-->
+
+            </select>
+          </label>
+        </div>
+      </div>
+
 
       <label>Contraseña:
-      <input type="password" class="mb-3 dark-input" placeholder="Contraseña" >
-      <input type="password" placeholder="Repetir Contraseña" class="dark-input">
+        @if (formRegister.get("password")?.touched) {
+          @if (formRegister.get("password")?.errors?.['required']) {
+            <i class="">Campo requerido</i>
+          } @else if (formRegister.get("password")?.errors?.["cantidadError"]) {
+            <i class="">La contraseña debe tener al menos {{ 8 }} caracteres</i>
+          }
+        }
+        <input type="password" class="mb-3 dark-input" placeholder="Contraseña" formControlName="password" [ngClass]="[
+              formRegister.get('password')?.touched && formRegister.get('password')?.errors?'invalido':'',
+               formRegister.get('password')?.touched && !formRegister.get('password')?.errors?'valido':''
+              ]">
+        <input type="password" placeholder="Repetir Contraseña" class="dark-input"
+               formControlName="password_confirmation" [ngClass]="[
+              formRegister.get('password_confirmation')?.touched && formRegister.get('password_confirmation')?.errors?'invalido':'',
+               formRegister.get('password_confirmation')?.touched && !formRegister.get('password_confirmation')?.errors?'valido':''
+              ]">
       </label>
 
     </div>
 
-<!--    <div class="d-flex gap-3 mb-3">-->
-<!--      <div>-->
-<!--        <label>Teléfono:-->
-<!--        <input type="text" placeholder="Nombre" class="dark-input">-->
-<!--        </label>-->
-<!--      </div>-->
+    <!--    <div class="d-flex gap-3 mb-3">-->
+    <!--      <div>-->
+    <!--        <label>Teléfono:-->
+    <!--        <input type="text" placeholder="Nombre" class="dark-input">-->
+    <!--        </label>-->
+    <!--      </div>-->
 
-<!--      <div >-->
-<!--        <label >Ciudad:-->
-<!--        <input type="text" id="ciudades" placeholder="Apellidos" class="dark-input">-->
-<!--        </label>-->
-<!--      </div>-->
+    <!--      <div >-->
+    <!--        <label >Ciudad:-->
+    <!--        <input type="text" id="ciudades" placeholder="Apellidos" class="dark-input">-->
+    <!--        </label>-->
+    <!--      </div>-->
 
-<!--      <div >-->
-<!--        <label >País:-->
-<!--          <input type="text"  id="ciudades" placeholder="Pais" class="dark-input">-->
-<!--        </label>-->
-<!--      </div>-->
+    <!--      <div >-->
+    <!--        <label >País:-->
+    <!--          <input type="text"  id="ciudades" placeholder="Pais" class="dark-input">-->
+    <!--        </label>-->
+    <!--      </div>-->
 
-<!--    </div>-->
+    <!--    </div>-->
 
-<!--    <label>-->
-<!--      Fecha de nacimiento:-->
-<!--      <input type="date" class="dark-input">-->
-<!--    </label>-->
+    <!--    <label>-->
+    <!--      Fecha de nacimiento:-->
+    <!--      <input type="date" class="dark-input">-->
+    <!--    </label>-->
 
   </div>
 
   <!--  //<<<<<<<1. iniciar sesión con x >>>>>>-->
-    <app-inicia-con></app-inicia-con>
+  <app-inicia-con></app-inicia-con>
   <div class="w-75 d-flex mx-auto justify-content-between pb-1 align-items-center">
-    <button type="button" class="text-dark button-trans-unborder bg-dorado-suave py-2">Registrarse</button>
-    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/']">Iniciar Sesión</button>
+    <button type="button" class="text-dark button-trans-unborder bg-dorado-suave py-2" [ngClass]="[formRegister.valid?'':'elemento-desactivado']" >Registrarse</button>
+    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/']">Iniciar
+      Sesión
+    </button>
   </div>
 
 </form>
+<app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"></app-cargando-model>
