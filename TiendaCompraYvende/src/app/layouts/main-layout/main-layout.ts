@@ -3,6 +3,7 @@ import {HeadMain} from './components/head-main/head-main';
 import {Footer} from './components/footer/footer';
 import {RouterOutlet} from '@angular/router';
 import {CargandoModel} from '../../shared/models/cargando-model/cargando-model';
+import {ChestMain} from './components/chest-main/chest-main';
 
 
 
@@ -12,6 +13,7 @@ import {CargandoModel} from '../../shared/models/cargando-model/cargando-model';
     HeadMain,
     Footer,
     RouterOutlet,
+    ChestMain,
 
   ],
   templateUrl: './main-layout.html',

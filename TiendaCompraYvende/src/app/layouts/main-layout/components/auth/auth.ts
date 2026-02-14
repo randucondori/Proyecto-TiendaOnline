@@ -62,7 +62,7 @@ export class Auth {
         this.cookie.set("user", value);
         setTimeout(() => {
           this.visibleCargando.set(false)
-          this.router.navigateByUrl('/productosAdmin');
+          this.router.navigateByUrl('/sesion');
         }, 500)
       },
       error: error => {
@@ -81,6 +81,10 @@ export class Auth {
 
   changeIcono(n: number): void {
     this.tipeResp.set(n)
+  }
+
+  changeError(lista:[]){
+    this.errors.set(lista)
   }
 
 

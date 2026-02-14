@@ -1,13 +1,8 @@
-<div clasS="vw-100 vh-100 opacity-25 position-absolute top-0 bg-dorado-suave"
+<div class="opacity-25 position-fixed top-0 bg-dorado-suave"
      id="fondo"
      [ngClass]="[visible()?'d-block':'d-none']"></div>
-<div class="position-absolute bg-blanco-roto pb-3 position-relative" id="pop"
+<div class="position-fixed bg-blanco-roto pb-3 position-relative" id="pop"
      [ngClass]="[visible()?'d-block':'d-none']">
-  @if (icono() === 2) {
-    <button class="rounded-2 bg-danger btn position-absolute" id="cerrar" (click)="cerrar()">
-      <i class="bi bi-x-lg"></i>
-    </button>
-  }
   @if (icono() === 0) {
     <h2 class="text-madera-clara h1 mt-4 text-center">Cargando</h2>
     <div class="carga"></div>
@@ -19,7 +14,12 @@
     </div>
   }
   @if (icono() === 2) {
-    <h2 class="mb-0 text-madera-clara h1 mt-4 text-center text-danger">Error</h2>
+    <div class="d-flex align-items-center w-100 position-relative justify-content-center px-3">
+      <h2 class="mb-0 text-madera-clara h1 mt-4 text-center text-danger ">Error</h2>
+      <button class="rounded-2 bg-danger btn position-absolute" id="cerrar" (click)="cerrar()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    </div>
     <div class="rounded-circle bg-danger" id="box-x">
       <i class="bi bi-x-lg mx-auto d-block text-white" id="x"></i>
     </div>

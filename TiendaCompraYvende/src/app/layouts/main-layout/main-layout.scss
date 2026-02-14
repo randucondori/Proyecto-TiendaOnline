@@ -12,54 +12,6 @@
   padding: 0 0 0 10%;
   grid-template-columns: 1fr 1fr;
 }
-#derecha{
-  padding-top: 10%;
-}
-
-//<<<<<<<<<<2.1. Texto>>>>>>>>
-#texto > h1{
-  font-size: 70px;
-  font-family: "Yu Gothic UI Semilight", serif;
-}
-
-//<<<<<<<<<<2.2. Imagenes >>>>>>>>-->
-#imgs{
-  height: 250px;
-  border-radius: 7px;
-
-}
-#img-flotantes > div {
-  display: block;
-  position: absolute;
-  height: 236px;
-  border-radius: 5px;
-  box-shadow: -10px 0 15px -5px black;
-  transition-duration:3s ;
-}
-.box-img > img{
-  height: 100%;
-}
-
-#comida{
-  left: 0;
-  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
-}
-#ropa{
-
-  left: 25%;
-  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
-  //animation-delay: 0.4s;
-}
-#postre{
-  left: 51%;
-  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
-  //animation-delay: 0.8s;
-}
-#mueble{
-  left: 70%;
-  //animation: Aparecer-Lateralmente 0.8s infinite alternate-reverse;
-  //animation-delay: 1.2s;
-}
 
 //<<<<<<<<<<3. Form  >>>>>>>>
 #formulario{

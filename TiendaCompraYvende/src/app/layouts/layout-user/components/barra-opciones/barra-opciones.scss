@@ -1,0 +1,49 @@
+p{
+  color: #F2F1F0;
+}
+*{
+  font-family: "Droid Sans", Helvetica, sans-serif;
+}
+
+
+//<<<<<< 0. contenedor padre>>>>>>>
+
+#barra{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  background-color: #221C11;
+  padding:0 1% ;
+}
+
+//<<<<<< 1. logo  >>>>>>>
+
+
+//<<<<<< 2. opciones user  >>>>>>>
+.parte2{
+  width: 100%;
+  color: #74716A;
+  gap:10px;
+  font-size:20px;
+  height: fit-content;
+}
+
+.parte2:hover{
+  background-color: #EEB713;
+  color: #EEB713;
+}
+#parte2 > button{
+  color: #74716A;
+  gap:20px;
+  font-size:20px;
+}
+
+#parte2 > button:hover{
+  background-color: #372D11;
+  border-left: 5px solid #EEB713 ;
+  color: #EEB713;
+
+}
+

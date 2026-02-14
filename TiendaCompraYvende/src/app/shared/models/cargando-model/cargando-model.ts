@@ -17,11 +17,13 @@ export class CargandoModel {
 
   cerrarVisible=output<boolean>()
   cerrarIcono=output<number>()
+  vaciarErrores=output<[]>()
 
 
   cerrar(){
     this.cerrarIcono.emit(0)
     this.cerrarVisible.emit(false)
+    this.vaciarErrores.emit([])
   }
 
 

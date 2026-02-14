@@ -1,13 +1,13 @@
-<form action="" [formGroup]="formLogin" >
+<form action="" [formGroup]="formLogin"  class="py-5">
 
-  <div class="text-center text-blanco-roto pt-3">
+  <div class="text-center text-blanco-roto">
     <h2 class="m-0">Iniciar Sesión</h2>
     <p>Acceda al círculo privado de Cats's</p>
   </div>
 
   <hr class="my-1">
   <!--  //<<<<<<<0. Inputs >>>>>>-->
-  <div class="px-3">
+  <div class="px-5">
 
     <div class="inputs">
 
@@ -56,15 +56,16 @@
   <app-inicia-con></app-inicia-con>
   <hr>
   <div class="w-75 d-flex mx-auto justify-content-between pb-1 align-items-center">
-    <button type="button" class="text-blanco-roto button-trans-unborder border-white" [routerLink]="['/register']">
-      Registrarse
+    <button type="button" class="text-blanco-roto button-trans-unborder border-white py-3" [routerLink]="['/register']">
+      <b>Registrarse</b>
     </button>
-    <button type="submit" class="text-dark bg-dorado-suave button-trans-unborder py-2"
-            [ngClass]="[formLogin.valid?'':'elemento-desactivado']" (click)="ValidarLogin()">Iniciar Sesión
+    <button type="submit" class="text-dark bg-dorado-suave button-trans-unborder py-3"
+            [ngClass]="[formLogin.valid?'':'elemento-desactivado']" (click)="ValidarLogin()"><b>Iniciar Sesión</b>
     </button>
   </div>
   <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"
                        (cerrarIcono)="changeCargando(Boolean($event))" (cerrarVisible)="changeIcono(Number($event))"
+                       (vaciarErrores)="changeError($event)"
   ></app-cargando-model>
 </form>
 

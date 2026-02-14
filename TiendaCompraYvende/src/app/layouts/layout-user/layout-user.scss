@@ -1,0 +1,24 @@
+p {
+  color: #F2F1F0;
+}
+
+
+//<<<<<<<<<0. Fondo dorado>>>>>>>
+#fondo-user {
+  width: 100dvw;
+  height: 100dvh;
+  background: #FDFDF8;
+  z-index: 1;
+}
+
+//<<<<<<<<<1. contenido>>>>>>>
+
+#contenedor {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  position: absolute;
+  z-index: 2;
+  width: 100dvw;
+  height: 100dvh;
+}
+

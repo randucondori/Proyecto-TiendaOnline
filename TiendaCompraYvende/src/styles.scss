@@ -4,7 +4,7 @@
 @use './styles/theme' as th;
 @use './styles/icons/bootstrap-icons';
 
-//@include th.apply-theme();
+@include th.apply-theme();
 
 html, body {
   scrollbar-width: thin;
@@ -24,28 +24,35 @@ html, body {
   transition: all 0.3s ease;
 }
 
+.border-dorado-suave{
+  border: 1px solid #C8A85A;
+}
+
+
 .elemento-desactivado {
   pointer-events: none;
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.button-trans-unborder{
+.button-trans-unborder {
   width: 100%;
   height: fit-content;
   outline: none;
   border-radius: 5px;
   border: 1px solid #1f1f1f;
   background: none;
-  transition: 0.3s ;
+  transition: 0.3s;
   padding: 5px 20px;
   margin: 0 10px 0 0;
 }
-.button-trans-unborder:hover{
+
+.button-trans-unborder:hover {
   color: #1C1C1E;
   background: #E6E6E4;
 }
-.dark-input{
+
+.dark-input {
   width: 100%;
   height: 40px;
   background: none;
@@ -56,17 +63,18 @@ html, body {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   padding-left: 10px;
 }
-.dark-input::placeholder{
+
+.dark-input::placeholder {
   opacity: 1;
   color: rgba(230, 230, 228, 0.33);
 }
-.dark-input:focus{
-  outline: 1px solid #C8A85A;
+
+.dark-input:focus {
+  outline: 1px solid var(--dorado);
 }
 
 
-
-.bg-main{
+.bg-main {
   background: radial-gradient(circle at 50% -20%, #1a1a1c 0%, #0A0A0B 100%);
 }
 
@@ -89,25 +97,34 @@ html, body {
 .bg-gris-claro {
   background-color: #B5B5B8;
 }
+
 .bg-blanco-roto {
   background-color: #E6E6E4;
 }
-.text-blanco-roto{
+
+.text-blanco-roto {
   color: #E6E6E4;
 }
-.text-madera-clara{
+
+.text-madera-clara {
   color: #D2C4A8;
+}
+
+.texto-dorado {
+  color: rgb(236 182 19);
 }
 
 
 .bg-madera-clara {
   background-color: #D2C4A8;
 }
+
 .bg-beige-muy-claro {
   background-color: #EFE9DE;
 }
+
 .bg-dorado-suave {
-  background-color: #C8A85A;
+  background-color: rgb(236 182 19);
 }
 
 

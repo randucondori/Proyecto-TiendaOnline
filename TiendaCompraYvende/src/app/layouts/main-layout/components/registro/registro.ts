@@ -85,7 +85,7 @@ export class Registro implements OnInit {
 
         setTimeout(() => {
           this.visibleCargando.set(false)
-          // this.router.navigateByUrl('/productosAdmin');
+          this.router.navigateByUrl('/sesion');
         }, 2000)
       },
       error: (error) => {

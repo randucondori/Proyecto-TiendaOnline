@@ -2,8 +2,8 @@
 #cabeza{
   width: 100%;
   height: 65px;
-  justify-content: center;
-  gap:20%;
+  justify-content: space-between;
+  padding: 0 1%;
   background-color: rgb(10 10 11 / 0.8);
 }
 
@@ -38,7 +38,7 @@ button:hover{
   color: #C8A85A;
 }
 #comprar:hover{
-  color: #1e1e1e;
+  color: black;
   background-color: #C8A85A;
 }
 

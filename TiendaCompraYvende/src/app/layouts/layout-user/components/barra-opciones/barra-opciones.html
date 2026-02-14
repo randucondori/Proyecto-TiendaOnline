@@ -1,0 +1,51 @@
+<!--//<<<<<< 0. contenedor padre>>>>>>>-->
+<div class="p-5 h-100" id="barra">
+
+  <div>
+
+    <div class="mb-5" id="parte1">
+      <!--  //<<<<<< 1. logo  >>>>>>>-->
+      <div>
+        <p class="h2">Lgoo</p>
+      </div>
+
+      <!--  //<<<<<< 2. opciones user  >>>>>>>-->
+      <div>
+
+      </div>
+    </div>
+
+    <div class="d-grid gap-3" id="parte2">
+
+      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+        <i class="bi bi-houses-fill"></i>
+        Inicio
+      </button>
+
+      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+        <i class="bi bi-bag-fill"></i>
+        Tienda
+      </button>
+
+      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+        <i class="bi bi-heart-fill"></i>
+        Favoritos
+      </button>
+
+      <button class="w-100 d-flex justify-content-start rounded-3 btn text" [routerLink]="['/sesion/user']">
+        <i class="bi bi-person-fill"></i>
+        perfil
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <button type="button" class="parte2 bg-dorado-suave d-flex justify-content-center py-2 rounded-3 btn text-dark" (click)="cerrarSesion()" >
+    <i class="bi bi-door-open-fill"></i>
+    Cerrar Sesión
+  </button>
+
+
+</div>

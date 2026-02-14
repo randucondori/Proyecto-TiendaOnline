@@ -17,4 +17,16 @@ export const routes: Routes = [
     canActivate:[compraGuard],
     loadComponent:()=>import("./features/productos-admin/productos-admin").then(c=>c.ProductosAdmin)
   },
+  {
+    path:"sesion",
+    canActivate:[compraGuard],
+    loadComponent:()=>import("./layouts/layout-user/layout-user").then(c=>c.LayoutUser),
+    children:[
+      {
+        path:"user",
+        loadComponent:()=>import("./features/user-page/user-page").then(c=>c.UserPage)
+      },
+
+    ]
+  }
 ];

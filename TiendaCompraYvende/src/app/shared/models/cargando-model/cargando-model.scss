@@ -1,15 +1,19 @@
 #fondo{
   left: 0;
   min-height: 100%;
+  min-width: 100%;
+  height: fit-content;
+  width: fit-content;
 }
 
 
 //<<<<<<<0. popup>>>>>>
 #pop{
-  width: 25%;
+  width: 25dvw;
   border-radius: 10px;
   display: grid;
   height: fit-content;
+  z-index: 999;
   top: 25%;
   left: 36%;
   justify-items: center;
@@ -58,10 +62,11 @@
 }
 
 //<<<<<<<<< NOT OK icono 2>>>>>>>>
-
 #cerrar{
-  margin: 10px 10px 10px 85%;
+  width: fit-content;
+  height: fit-content;
   box-shadow: 1px 1px 1px black;
+  right: 3%;
 }
 #cerrar:hover{
   cursor: pointer;

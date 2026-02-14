@@ -1,0 +1,21 @@
+//<<<<<<<< Padre >>>>>
+#padre{
+  grid-template-columns: 70% 1fr;
+}
+//<<<<<<<<<0. user>>>>>>
+//<<<<<<<<<1. IMG user>>>>>>
+#box-img{
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#box-img > i{
+  font-size: 45px;
+}
+
+
+//<<<<<<<<<2. hola,user>>>>>>
+//<<<<<<<<<0. padre>>>>>>
+//<<<<<<<<<0. padre>>>>>>
