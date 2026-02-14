@@ -14,8 +14,10 @@ p {
 //<<<<<<<<<1. contenido>>>>>>>
 
 #contenedor {
+  scrollbar-color: var(--bs-dorado) #485864;
+  scrollbar-width: thin;
   display: grid;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 15% 1fr;
   position: absolute;
   z-index: 2;
   width: 100dvw;

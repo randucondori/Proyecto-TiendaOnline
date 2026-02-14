@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
+import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
 
 @Component({
   selector: 'app-barra-opciones',
   imports: [
-    RouterLink
+    RouterLink,
+    CargandoModel
   ],
   templateUrl: './barra-opciones.html',
   styleUrl: './barra-opciones.scss',
 })
 export class BarraOpciones {
+
+  visibleCargando = signal<boolean>(false)
+  tipeResp = signal<number>(0)
 
   constructor(
     private cookie: MeCookiesService,
@@ -20,7 +25,25 @@ export class BarraOpciones {
 
   cerrarSesion(): void {
     this.cookie.remove('user')
-    this.router.navigate(['/']);
+    this.visibleCargando.set(true)
+    setTimeout(() => {
+      this.tipeResp.set(1)
+    },700)
+    setTimeout(() => {
+      this.visibleCargando.set(false)
+      this.router.navigate(['/'])
+    },1200)
   }
 
+  changeCargando(o: boolean) {
+    this.visibleCargando.set(o)
+  }
+
+  changeIcono(n: number): void {
+    this.tipeResp.set(n)
+  }
+
+
+  protected readonly Boolean = Boolean;
+  protected readonly Number = Number;
 }

@@ -24,6 +24,33 @@ html, body {
   transition: all 0.3s ease;
 }
 
+//<<<<<<<<<<0 div con img>>>>>>>
+.contenedor-imagen {
+  overflow: hidden;
+  border-radius: 10px;
+  border: solid 1px #C8A85A;
+  position: relative;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.contenedor-imagen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+.contenedor-imagen img {
+  height: 100%;
+}
+
+
+
 .border-dorado-suave{
   border: 1px solid #C8A85A;
 }

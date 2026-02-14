@@ -17,7 +17,7 @@
 
     <div class="d-grid gap-3" id="parte2">
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+      <button type="button" class="w-100 d-flex justify-content-start rounded-3 btn text">
         <i class="bi bi-houses-fill"></i>
         Inicio
       </button>
@@ -49,3 +49,9 @@
 
 
 </div>
+
+<app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()"
+                     (cerrarIcono)="changeCargando(Boolean($event))"
+                     (cerrarVisible)="changeIcono(Number($event))"
+
+></app-cargando-model>
