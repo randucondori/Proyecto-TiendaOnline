@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {ShowProductos} from '../show-productos/show-productos';
 
 @Component({
   selector: 'app-inicio-page',
-  imports: [],
+  imports: [
+    ShowProductos
+  ],
   templateUrl: './inicio-page.html',
   styleUrl: './inicio-page.scss',
 })

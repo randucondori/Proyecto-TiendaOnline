@@ -1,7 +1,12 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 
-type producto=[{nombre:string,precio:number,categoria_nombre:string}]|[];
+type producto=[{nombre:string,
+  precio:number,
+  categoria_nombre:string,
+  slug:string,
+  img:string,
+}]|[];
 
 @Component({
   selector: 'app-show-productos',
