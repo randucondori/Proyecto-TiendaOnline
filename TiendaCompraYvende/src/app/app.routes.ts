@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import {compraGuard} from './core/guards/comprar/compra-guard';
+import {inicioGuard} from './core/guards/inicio/inicio-guard';
 
 export const routes: Routes = [
   {path:"",
     loadComponent:()=>import("./layouts/main-layout/main-layout").then((c)=>c.MainLayout),
+    canActivate:[inicioGuard],
     children:[
       {path:"register",
       loadComponent:()=>import("./layouts/main-layout/components/registro/registro").then(c=>c.Registro)}
@@ -25,7 +27,11 @@ export const routes: Routes = [
       {
         path:"user",
         loadComponent:()=>import("./features/user-page/user-page").then(c=>c.UserPage)
+      },{
+        path:"inicio",
+        loadComponent:()=>import("./features/inicio-page/inicio-page").then(c=>c.InicioPage)
       },
+
 
     ]
   }

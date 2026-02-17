@@ -1,0 +1,73 @@
+//<<<<<<<<0. contenedor padre>>>>>>>>
+#padre {
+  background-color: #FAF9F6;
+}
+
+*{
+  transition-duration:1s ;
+}
+
+//<<<<<<<<1. 3 img principales>>>>>>>>
+#img-principales {
+  justify-self: center;
+  height: fit-content;
+  width: 80%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 10px;
+  background-color: #F2F1E8;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.img-texto {
+  width: 100%;
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+.img-texto > img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-texto > p{
+  color: #ECB613;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  text-decoration: underline;
+}
+
+
+.img-texto2 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 250px;
+}
+
+.img-texto2 > img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-texto2 > p{
+  color: #ECB613;
+  position: absolute;
+  text-decoration: underline;
+  bottom: 10px;
+  left: 10px;
+}
+
+.escala:hover{
+  transform: scale(1.010);
+  transition: 1s;
+
+}
+

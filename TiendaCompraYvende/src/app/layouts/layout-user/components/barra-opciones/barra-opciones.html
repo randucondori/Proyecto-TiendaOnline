@@ -17,22 +17,26 @@
 
     <div class="d-grid gap-3" id="parte2">
 
-      <button type="button" class="w-100 d-flex justify-content-start rounded-3 btn text">
+      <button type="button" class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/inicio']"
+      [ngClass]="[estado==='inicio'?'focus':'button-parte2']" (click)="cambiarEstado('inicio')">
         <i class="bi bi-houses-fill"></i>
         Inicio
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+      <button class="w-100 d-flex justify-content-start rounded-3 btn "
+              [ngClass]="[estado==='explorar'?'focus':'button-parte2']" (click)="cambiarEstado('explorar')">
         <i class="bi bi-bag-fill"></i>
-        Tienda
+        Explorar
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn text">
+      <button class="w-100 d-flex justify-content-start rounded-3 btn "
+              [ngClass]="[estado==='favoritos'?'focus':'button-parte2']" (click)="cambiarEstado('favoritos')">
         <i class="bi bi-heart-fill"></i>
         Favoritos
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn text" [routerLink]="['/sesion/user']">
+      <button class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/user']"
+              [ngClass]="[estado==='perfil'?'focus':'button-parte2']" (click)="cambiarEstado('perfil')">
         <i class="bi bi-person-fill"></i>
         perfil
       </button>

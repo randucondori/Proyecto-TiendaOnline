@@ -34,21 +34,24 @@ p{
   background-color: #EEB713;
   color: #EEB713;
 }
-#parte2 > button{
+.button-parte2{
   color: #74716A;
   gap:20px;
   font-size:20px;
 }
 
-#parte2 > button:hover{
+.button-parte2:hover{
   background-color: #372D11;
   border-left: 5px solid #EEB713 ;
   color: #EEB713;
 
 }
-#parte2 > button:focus{
+.focus{
   background-color: #372D11;
+  gap:20px;
   border-left: 5px solid #EEB713 ;
   color: #EEB713;
+  font-size:20px;
 }
+
 

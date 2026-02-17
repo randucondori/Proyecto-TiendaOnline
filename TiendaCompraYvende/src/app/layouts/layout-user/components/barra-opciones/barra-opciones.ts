@@ -2,18 +2,21 @@ import {Component, signal} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-barra-opciones',
   imports: [
     RouterLink,
-    CargandoModel
+    CargandoModel,
+    NgClass
   ],
   templateUrl: './barra-opciones.html',
   styleUrl: './barra-opciones.scss',
 })
 export class BarraOpciones {
 
+  estado=""
   visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
 
@@ -23,6 +26,9 @@ export class BarraOpciones {
   ) {}
 
 
+  cambiarEstado(estado:string){
+    this.estado=estado;
+  }
   cerrarSesion(): void {
     this.cookie.remove('user')
     this.visibleCargando.set(true)
