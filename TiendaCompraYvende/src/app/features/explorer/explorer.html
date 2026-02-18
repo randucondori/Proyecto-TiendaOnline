@@ -1,1 +1,20 @@
-<p>explorer works!</p>
+<!--//<<<<<<<<<<0. Contenedor padre>>>>>>>>>-->
+<div class="p-3 w-100">
+<!--  //<<<<<<<<<<1. Buscador>>>>>>>>>-->
+  <div class="input-group">
+    <button type="button" class="btn btn-info "><i class="bi bi-search"></i></button>
+    <input type="text" class="form-control " placeholder="Buscar . . . ">
+  </div>
+<!--  //<<<<<<<<<<2. Zona comprar productos>>>>>>>>>-->
+  <div>
+  <button (click)="comprar('perro')">notificacion</button>
+  </div>
+<!--  //<<<<<<<<<<3. notificaciones>>>>>>>>>-->
+  <div class="position-absolute " id="notificacion">
+    @for(n of notificaciones();track n){
+      <div class="alert alert-success " role="alert">
+        {{n}} añadido al carrito
+      </div>
+    }
+  </div>
+</div>
