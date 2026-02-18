@@ -8,6 +8,7 @@ import {LoginService} from '../../../../core/services/login/login.service';
 import {IniciaCon} from '../inicia-con/inicia-con';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
+import {CargandoService} from '../../../../core/utils/cargando.service';
 
 
 type DatosDeEnvio = { email?: string, password: string }
@@ -63,7 +64,7 @@ export class Auth {
         setTimeout(() => {
           this.visibleCargando.set(false)
           this.router.navigateByUrl('/sesion/inicio');
-        }, 500)
+        }, 800)
       },
       error: error => {
         this.tipeResp.set(2);

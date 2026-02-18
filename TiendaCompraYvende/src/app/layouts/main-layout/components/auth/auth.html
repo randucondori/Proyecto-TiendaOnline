@@ -63,10 +63,12 @@
             [ngClass]="[formLogin.valid?'':'elemento-desactivado']" (click)="ValidarLogin()"><b>Iniciar Sesión</b>
     </button>
   </div>
+
   <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"
                        (cerrarIcono)="changeCargando(Boolean($event))" (cerrarVisible)="changeIcono(Number($event))"
                        (vaciarErrores)="changeError($event)"
   ></app-cargando-model>
+
 </form>
 
 

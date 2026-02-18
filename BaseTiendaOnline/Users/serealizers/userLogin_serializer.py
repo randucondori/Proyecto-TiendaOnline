@@ -1,13 +1,14 @@
 import re
 
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from Users.models import UsuarioOrdinario
 
 
 class Login_Serializer(serializers.ModelSerializer):
-    email=serializers.EmailField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"Email Field"})
-    password = serializers.CharField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"Password Field"})
+    email=serializers.EmailField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"se necesita 'email'"})
+    password = serializers.CharField(required=True, allow_blank=False,allow_null=False,error_messages={"required":"se necesita 'password'"})
 
 
     class Meta:
@@ -44,5 +45,16 @@ class Login_Serializer(serializers.ModelSerializer):
         if not user:
             raise serializers.ValidationError({"LoginError":"Usuario NO encontrado"})
 
+        refresh = RefreshToken.for_user(user)
+        refresh["nombre"] = user.nombre
+        refresh["ciudad"] = user.ciudad
 
-        return validate_data
+        return {
+            "success": True,
+            "data": {
+                "nombre": user.nombre,
+                "email": user.email,
+                "refreshToken": str(refresh),
+                "token": str(refresh.access_token)
+            }
+        }

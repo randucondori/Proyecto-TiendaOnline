@@ -30,7 +30,13 @@ export const routes: Routes = [
       },{
         path:"inicio",
         loadComponent:()=>import("./features/inicio-page/inicio-page").then(c=>c.InicioPage)
-      },
+      },{
+      path:"explorer",
+        loadComponent:()=>import("./features/explorer/explorer").then(c=>c.Explorer)
+      },{
+      path:"favorite",
+        loadComponent:()=>import("./features/favorite/favorite").then(c=>c.Favorite)
+      }
 
 
     ]

@@ -17,19 +17,19 @@
 
     <div class="d-grid gap-3" id="parte2">
 
-      <button type="button" class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/inicio']"
+      <button  type="button" class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/inicio']"
       [ngClass]="[estado==='inicio'?'focus':'button-parte2']" (click)="cambiarEstado('inicio')">
         <i class="bi bi-houses-fill"></i>
         Inicio
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn "
+      <button class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/explorer']"
               [ngClass]="[estado==='explorar'?'focus':'button-parte2']" (click)="cambiarEstado('explorar')">
         <i class="bi bi-bag-fill"></i>
         Explorar
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn "
+      <button class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/favorite']"
               [ngClass]="[estado==='favoritos'?'focus':'button-parte2']" (click)="cambiarEstado('favoritos')">
         <i class="bi bi-heart-fill"></i>
         Favoritos

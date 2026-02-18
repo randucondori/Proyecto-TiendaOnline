@@ -30,6 +30,12 @@ p {
   grid-template-columns: 15% auto 1fr;
 }
 .enDos{
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
+}
+
+.enMedio{
+  position: absolute;
+  top:35%;
+  height: 30%;
 }
 
