@@ -1,8 +1,6 @@
 p {
   color: #F2F1F0;
 }
-
-
 //<<<<<<<<<0. Fondo dorado>>>>>>>
 #fondo-user {
   width: 100dvw;
@@ -17,10 +15,21 @@ p {
   scrollbar-color: var(--bs-dorado) #485864;
   scrollbar-width: thin;
   display: grid;
-  grid-template-columns: 15% 1fr;
   position: absolute;
   z-index: 2;
   width: 100dvw;
   height: 100dvh;
+}
+#mi-btn{
+  border: none;
+  outline: none;
+  width: fit-content;
+}
+
+.enTres{
+  grid-template-columns: 15% auto 1fr;
+}
+.enDos{
+  grid-template-columns: auto 1fr;
 }
 

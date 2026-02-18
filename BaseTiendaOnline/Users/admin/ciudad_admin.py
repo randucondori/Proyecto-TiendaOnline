@@ -1,9 +1,9 @@
 from django.contrib import admin
-
+from unfold.admin import ModelAdmin
 from Users.models.ciudades_model import CiudadesModel
 
 
-class CiudadAdmin(admin.ModelAdmin):
+class CiudadAdmin(ModelAdmin):
     list_display = ("nombre", "slug")
     list_filter = ("nombre", "slug")
     list_per_page = 20

@@ -62,7 +62,7 @@ export class Auth {
         this.cookie.set("user", value);
         setTimeout(() => {
           this.visibleCargando.set(false)
-          this.router.navigateByUrl('/sesion');
+          this.router.navigateByUrl('/sesion/inicio');
         }, 500)
       },
       error: error => {

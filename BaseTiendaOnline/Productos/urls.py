@@ -1,5 +1,5 @@
 from django.urls import path, include
-from Productos.views import ProductosView, CategoriasView, probando
+from Productos.views import probando
 from rest_framework.routers import DefaultRouter
 
 user_list = probando.as_view({'get': 'list'})

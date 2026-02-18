@@ -11,7 +11,7 @@ export const inicioGuard: CanActivateFn = (route, state) => {
   if(!cookie.exists('user')){
     return true
   }else{
-    rout.navigate(['/sesion']);
+    rout.navigate(['/sesion/inicio']);
     return false;
   }
 };

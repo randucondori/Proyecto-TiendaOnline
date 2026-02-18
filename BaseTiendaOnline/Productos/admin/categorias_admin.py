@@ -1,9 +1,10 @@
+from unfold.admin import ModelAdmin
 from django.contrib import admin
 
 from Productos.models import CategoriasModel
 
 
-class CategoriasAdmin(admin.ModelAdmin):
+class CategoriasAdmin(ModelAdmin):
     list_display = ("nombre","slug")
     search_fields = ("nombre","slug")
     list_per_page = 25

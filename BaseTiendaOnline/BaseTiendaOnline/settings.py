@@ -50,7 +50,7 @@ else:
 
 INSTALLED_APPS = [
     'corsheaders',
-    # 'unfold', #importante que este en este lugar antes de django.contrib.admin
+    'unfold', #importante que este en este lugar antes de django.contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

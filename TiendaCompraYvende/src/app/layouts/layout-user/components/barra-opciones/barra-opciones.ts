@@ -16,7 +16,8 @@ import {NgClass} from '@angular/common';
 })
 export class BarraOpciones {
 
-  estado=""
+  estado="inicio"
+
   visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
 

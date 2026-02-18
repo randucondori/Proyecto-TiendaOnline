@@ -2,8 +2,11 @@
 <div class="position-absolute" id="fondo-user"></div>
 
 <!--//<<<<<<<<<1. contenido>>>>>>>-->
-<div class="" id="contenedor">
-  <app-barra-opciones></app-barra-opciones>
+<div class="" id="contenedor" [ngClass]="barra()?'enDos':'enTres'">
+  <app-barra-opciones [ngClass]="barra()?'d-none':'d-block'"></app-barra-opciones>
+  <button class="bg-dorado-suave rounded-0 p-0" id="mi-btn" (click)="toggleBarra()">
+    <b><i class="bi m-0 px-1" [ngClass]="barra()?'bi-arrow-right-circle-fill':'bi-arrow-left-circle-fill'" ></i></b>
+  </button>
   <div class="px-5 py-3 overflow-y-scroll" id="contenido">
     <router-outlet></router-outlet>
   </div>

@@ -49,7 +49,7 @@
             } @else if (formRegister.get("email")?.errors?.["ArrobaError"]) {
               <i class="">No se considera Email sin un {{ '@' }}</i>
             } @else if (formRegister.get("email")?.errors?.["FormatoError"]) {
-              <i class="">Formato o extensión Incorrecta: opciones .com o .es)</i>
+              <i class="">Falta el gmail y (.com o .es)</i>
             }
           }
           <input type="email" placeholder="Correo Electrónico @gmail.com" class="dark-input" formControlName="email"

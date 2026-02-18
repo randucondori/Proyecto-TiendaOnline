@@ -18,6 +18,16 @@ class ProductosModels(models.Model):
         return self.nombre
 
     def save(self, *args, **kwargs):
+
+        if self.pk:
+            old_img=ProductosModels.objects.filter(pk=self.pk).first()
+            if old_img and old_img.img and old_img.img != self.img:
+                storage=old_img.img.storage
+                if storage.exists(old_img.img.name):
+                    storage.delete(old_img.img.name)
+
+        
+
         slug=f"{self.nombre}{str(self.id)}"
         self.slug=slugify(slug)
         super().save(*args, **kwargs)
