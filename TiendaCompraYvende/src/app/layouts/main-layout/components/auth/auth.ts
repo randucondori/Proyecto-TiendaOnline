@@ -9,6 +9,7 @@ import {IniciaCon} from '../inicia-con/inicia-con';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
 import {CargandoService} from '../../../../core/utils/cargando.service';
+import {webs} from '../../../../constants/WebsVar';
 
 
 type DatosDeEnvio = { email?: string, password: string }
@@ -60,7 +61,7 @@ export class Auth {
     this.loginService.IsLogin(data).subscribe({
       next: value => {
         this.tipeResp.set(1)
-        this.cookie.set("user", value);
+        this.cookie.set(webs.token, JSON.stringify(value));
         setTimeout(() => {
           this.visibleCargando.set(false)
           this.router.navigateByUrl('/sesion/inicio');

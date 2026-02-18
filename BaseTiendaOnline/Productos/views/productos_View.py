@@ -23,7 +23,9 @@ from Productos.models import ProductosModels
 #
 #         return Response({"succes": True, "productos": productos}, status=status.HTTP_200_OK)
 
-class probando(viewsets.ViewSet):
+class ProductosView(viewsets.ViewSet):
+
+    queryset = ProductosModels.objects.all()
 
     def list(self, request):
         productos = [{"nombre": p.nombre,
@@ -32,7 +34,7 @@ class probando(viewsets.ViewSet):
                       "slug": p.slug,
                       "img": "nada" if not p.img.url else request.build_absolute_uri(p.img.url), "id": p.id
                       }
-                     for p in ProductosModels.objects.all()
+                     for p in self.queryset
                      ]
 
         return Response({"succes": True, "productos": productos}, status=status.HTTP_200_OK)

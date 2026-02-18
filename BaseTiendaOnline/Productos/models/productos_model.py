@@ -7,7 +7,8 @@ class ProductosModels(models.Model):
     nombre= models.CharField(max_length=100,null=False,blank=False,verbose_name="Nombre",)
     precio= models.DecimalField(max_digits=10,decimal_places=2,verbose_name="Precio",)
     categoria= models.ForeignKey("CategoriasModel",on_delete=models.SET_NULL,null=True,blank=False,verbose_name="Categoria",)
-    slug=models.SlugField(max_length=100,null=True,blank=True,verbose_name="Slug",)
+    slug=models.SlugField(unique=True, max_length=100,null=True,blank=True,verbose_name="Slug",)
+    favorito=models.PositiveIntegerField(default=0,verbose_name="Favorito",)
 
     class Meta:
         db_table= "Productos"

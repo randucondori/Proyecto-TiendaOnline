@@ -1,6 +1,7 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {ProductosService} from '../../core/services/Productos/productos.service';
-import {Observable} from 'rxjs';
+import {NgClass} from '@angular/common';
+import {CarritoService} from '../../core/services/carrito/carrito.service';
 
 type producto = [{
   nombre: string,
@@ -10,19 +11,31 @@ type producto = [{
   img: string,
 }] | [];
 
+type categoria ={
+  nombre: string,
+  slug: string,
+}
+
 @Component({
   selector: 'app-explorer',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './explorer.html',
   styleUrl: './explorer.scss',
 })
 export class Explorer implements OnInit {
-
   notificaciones = signal<string[]>([])
-  productos = signal<producto>([])
 
-  constructor(private getproductos: ProductosService) {
-  }
+  productos = signal<producto>([])
+  categorias=signal<categoria[]>([])
+
+  cat=""
+
+  constructor(
+    private getproductos: ProductosService,
+    private carrito:CarritoService,
+  ) {}
 
   ngOnInit() {
     this.getproductos.getProductos().subscribe({
@@ -33,17 +46,29 @@ export class Explorer implements OnInit {
 
       }
     })
+
+    this.getproductos.getCategorias().subscribe({
+      next: data => {
+        this.categorias.set(data.categorias)
+      },
+      error: err => {
+
+      }
+    })
   }
 
-  comprar(nombre: string) {
-    this.notificaciones.update(val => [...val, nombre]);
+  comprar(p:object,nombre:string) {
+    this.notificaciones.update(val => [...val,nombre ]);
+    this.carrito.addCompra(p)
 
     setTimeout(() => {
       this.notificaciones.update(val=>[...val.slice(0,-1)])
-      console.log(this.notificaciones())
-      console.log("eliminado")
     }, 2000)
 
+  }
+
+  changeCat(nombre: string) {
+    this.cat=nombre;
   }
 
 }

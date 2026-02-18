@@ -19,6 +19,8 @@ export const routes: Routes = [
     canActivate:[compraGuard],
     loadComponent:()=>import("./features/productos-admin/productos-admin").then(c=>c.ProductosAdmin)
   },
+
+
   {
     path:"sesion",
     canActivate:[compraGuard],
@@ -40,5 +42,13 @@ export const routes: Routes = [
 
 
     ]
+  },
+
+
+  {
+    path:"**",
+    loadComponent:()=>import("./layouts/erro-page/erro-page").then(c=>c.ErroPage)
   }
+
+
 ];

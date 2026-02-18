@@ -3,6 +3,7 @@ import {Router, RouterLink} from '@angular/router';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
 import {NgClass} from '@angular/common';
+import {webs} from '../../../../constants/WebsVar';
 
 @Component({
   selector: 'app-barra-opciones',
@@ -31,7 +32,7 @@ export class BarraOpciones {
     this.estado=estado;
   }
   cerrarSesion(): void {
-    this.cookie.remove('user')
+    this.cookie.remove(webs.token)
     this.visibleCargando.set(true)
     setTimeout(() => {
       this.tipeResp.set(1)
