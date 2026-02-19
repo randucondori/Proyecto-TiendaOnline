@@ -31,7 +31,7 @@
 
 .producto > img{
   object-fit: cover;
-  width: 100%;
+  width: 250px;
   height: 100%;
 }
 
@@ -48,6 +48,8 @@
 #notificacion{
   top: 5px;
   right: 5px;
+  overflow-y: hidden;
+  height: 99%;
 }
 #notificacion > div{
   transition: 2s;

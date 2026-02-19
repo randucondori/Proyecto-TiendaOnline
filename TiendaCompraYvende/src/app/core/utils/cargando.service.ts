@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2'
+import {CarritoService} from '../services/carrito/carrito.service';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class CargandoService {
+
+  constructor(private carritoService: CarritoService) {
+  }
+
 
   showLoader(title: string = "Cargando...", description: string = "Espere unos segundos") {
     Swal.fire({
@@ -26,6 +31,26 @@ export class CargandoService {
           cancelText: string = "Cancelar",
           icon: "warning" | "info" | "error" | "success"): void {
   }
+
+  confirmarEliminacion() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.carritoService.setCarrito()
+        this.carritoService.carritoActualizado()
+      }
+    });
+  }
+
+
 
   alert(title: string,
         description: string,

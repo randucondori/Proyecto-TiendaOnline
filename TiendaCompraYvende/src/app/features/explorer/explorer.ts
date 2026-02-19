@@ -9,6 +9,7 @@ type producto = [{
   categoria_nombre: string,
   slug: string,
   img: string,
+  id:any
 }] | [];
 
 type categoria ={
@@ -41,7 +42,6 @@ export class Explorer implements OnInit {
     this.getproductos.getProductos().subscribe({
       next: data => {
         this.productos.set(data.productos)
-        console.log(data)
       },
       error: err => {
         console.log(err)
@@ -58,13 +58,13 @@ export class Explorer implements OnInit {
     })
   }
 
-  comprar(nombre:string,precio:number,img:string) {
+  comprar(id:any,nombre:string,precio:number,img:string) {
     this.notificaciones.update(val => [...val,nombre ]);
-    this.carrito.addCompra(nombre,precio,img);
-
+    this.carrito.addCompra(id,nombre,precio,img);
+    this.carrito.carritoActualizado()
     setTimeout(() => {
       this.notificaciones.update(val=>[...val.slice(0,-1)])
-    }, 2000)
+    }, 3000)
 
   }
 

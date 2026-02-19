@@ -22,6 +22,12 @@ p{
 
 
 //<<<<<< 2. opciones user  >>>>>>>
+#parte2{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
 .parte2{
   width: 90%;
   color: #74716A;

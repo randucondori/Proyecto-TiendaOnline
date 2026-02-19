@@ -1,7 +1,6 @@
 import {Component, model, OnInit, signal} from '@angular/core';
 import {BarraOpciones} from './components/barra-opciones/barra-opciones';
 import {RouterOutlet} from '@angular/router';
-import {NgClass} from '@angular/common';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {Carrito} from '../../features/carrito/carrito';
 
@@ -11,7 +10,6 @@ import {Carrito} from '../../features/carrito/carrito';
   imports: [
     BarraOpciones,
     RouterOutlet,
-    NgClass,
     Carrito
   ],
   templateUrl: './layout-user.html',
@@ -36,5 +34,7 @@ export class LayoutUser implements OnInit {
 
   toggleCompras(val: boolean) {
     this.compras.set(val);
+    this.carritoService.carritoActualizado()
   }
+
 }

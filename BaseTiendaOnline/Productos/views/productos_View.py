@@ -34,7 +34,6 @@ class ProductosView(viewsets.ViewSet):
                       "slug": p.slug,
                       "img": "nada" if not p.img.url else request.build_absolute_uri(p.img.url),
                       "id": p.id,
-                      "favorito":p.favorito,
                       }
                      for p in self.queryset
                      ]

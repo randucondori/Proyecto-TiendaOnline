@@ -7,23 +7,41 @@
     </button>
   </div>
 
-  <div id="contenido" class="overflow-y-auto d-grid">
-    @for(p of productos();track p){
+  <button class="btn btn-outline-warning my-3" (click)="LimpiarCompra()"><i class="bi bi-trash2">Eliminar todo el carrito</i></button>
+
+  <div id="contenido" class="overflow-y-auto ">
+    @for(p of productos();track p.nombre){
       <div class="comprado shadow-sm border-top bg-beige-muy-claro pe-2">
         <img src="{{p.info[1]}}" alt="img" width="30%" height="100%">
         <div class="d-grid">
-          <p class="m-0 text-primary">{{p.nombre}}</p>
-          <b>{{p.info[0]}}€ x {{p.info[2]}}</b>
+          <p class="m-0 text-primary text-decoration-underline">{{p.info[3]}}</p>
         </div>
-        <button type="button" class="btn btn-warning text-dark" (click)="eliminarCompra(p)">
+
+        <div class="d-flex align-items-center gap-2">
+
+          <div>
+            <b><i class="bg-dorado-suave px-2 py-1 rounded-2">{{p.info[0]}}€</i> x <i class="bg-white px-2 py-1 rounded-3">{{p.info[2]}}</i></b>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-secondary py-0" (click)="addCompra(p.nombre,p.info[3],p.info[0],p.info[1])">
+              <i class="bi bi-arrow-up"></i>
+            </button>
+            <button class="btn btn-dark py-0" (click)="eliminarCompra(p.nombre)">
+              <i class="bi bi-arrow-down"></i>
+            </button>
+          </div>
+
+        </div>
+        <button type="button" class="btn btn-warning text-dark" (click)="eliminarUno(p.nombre)">
           <i class="bi bi-trash-fill"></i>
         </button>
       </div>
     }
   </div>
-  <div class="w-100 d-flex justify-content-between">
+  <div class="w-100 d-flex justify-content-between fs-3">
     <b>Total :</b>
-    <i>{{total!=0?total:'0.00'}}€</i>
+    <i>{{total()!==0?total().toFixed(2):'0.00'}}€</i>
   </div>
 
   <button type="button" class="btn btn-info">Pagar €/s</button>
