@@ -1,0 +1,29 @@
+#carrito{
+  z-index: 999;
+  height: 96%;
+  right: 20px;
+  top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 30%;
+  display: grid;
+  grid-template-rows: auto 1fr 5% 5%;
+}
+#close{
+  right: 0;
+  top: 0;
+}
+.comprado{
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  gap:10px;
+  text-align: center;
+}
+.comprado > img{
+  object-fit: cover;
+  border-radius: 2px;
+}

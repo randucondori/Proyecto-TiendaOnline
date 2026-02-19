@@ -1,5 +1,6 @@
 <!--//<<<<<< 0. contenedor padre>>>>>>>-->
-<div class="h-100" id="barra">
+
+<div class="justify-content-between" id="barra" [ngClass]="barra()?'d-none':'d-block'">
 
   <div>
 
@@ -53,9 +54,11 @@
 
 
 </div>
+<button class="bg-dorado-suave rounded-0 p-0" id="mi-btn" (click)="toggleBarra()" [ngClass]="[barra()?'enMedio rounded-end-2':'']">
+  <b><i class="bi m-0 px-1" [ngClass]="barra()?'bi-arrow-right-circle-fill':'bi-arrow-left-circle-fill'" ></i></b>
+</button>
 
 <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()"
                      (cerrarIcono)="changeCargando(Boolean($event))"
                      (cerrarVisible)="changeIcono(Number($event))"
-
 ></app-cargando-model>

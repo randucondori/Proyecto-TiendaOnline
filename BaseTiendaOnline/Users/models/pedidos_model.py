@@ -1,9 +1,11 @@
 from django.db import models
 
 
-class PEdidosModel(models.Model):
+class PedidosModel(models.Model):
     usuario=models.ForeignKey("UsuarioOrdinario",null=False,blank=False,on_delete=models.CASCADE)
     pedido=models.JSONField(null=True,blank=True,default=dict)
+    estado=models.CharField(max_length=50,null=False,blank=False,choices=[("","")])
+    born=models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
 
     class Meta:
         db_table="Pedidos"

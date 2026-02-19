@@ -1,4 +1,4 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, OnInit, output, signal} from '@angular/core';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 import {NgClass} from '@angular/common';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
@@ -41,9 +41,10 @@ export class Explorer implements OnInit {
     this.getproductos.getProductos().subscribe({
       next: data => {
         this.productos.set(data.productos)
+        console.log(data)
       },
       error: err => {
-
+        console.log(err)
       }
     })
 
@@ -57,9 +58,9 @@ export class Explorer implements OnInit {
     })
   }
 
-  comprar(p:object,nombre:string) {
+  comprar(nombre:string,precio:number,img:string) {
     this.notificaciones.update(val => [...val,nombre ]);
-    this.carrito.addCompra(p)
+    this.carrito.addCompra(nombre,precio,img);
 
     setTimeout(() => {
       this.notificaciones.update(val=>[...val.slice(0,-1)])

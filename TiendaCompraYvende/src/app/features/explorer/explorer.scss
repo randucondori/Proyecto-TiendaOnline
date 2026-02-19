@@ -11,6 +11,9 @@
 #categorias{
   background-color: #F1F1F0;
 }
+#categorias > button{
+  white-space: nowrap;
+}
 
 //<<<<<<<<<<4. Productos>>>>>>>>>
 
@@ -35,8 +38,12 @@
 .add{
   background-color: #ECB613;
   color: white;
-  animation: 4s infinite bounce;
 }
+.add:hover{
+  animation: infinite bounce;
+  animation-duration: 2s;
+}
+
 //<<<<<<<<<<5. notificaciones>>>>>>>>>
 #notificacion{
   top: 5px;

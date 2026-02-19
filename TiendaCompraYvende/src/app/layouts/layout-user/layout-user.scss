@@ -10,7 +10,10 @@ p {
 }
 
 //<<<<<<<<<1. contenido>>>>>>>
-
+#uni{
+  width: fit-content;
+  z-index: 999;
+}
 #contenedor {
   scrollbar-color: var(--bs-dorado) #485864;
   scrollbar-width: thin;
@@ -20,24 +23,7 @@ p {
   width: 100dvw;
   height: 100dvh;
 }
-#mi-btn{
-  border: none;
-  outline: none;
-  width: fit-content;
-}
 
-.enTres{
-  grid-template-columns: 15% auto 1fr;
-}
-.enDos{
-  grid-template-columns: 1fr;
-}
-
-.enMedio{
-  position: absolute;
-  top:35%;
-  height: 30%;
-}
 //<<<<<<<<<6. carrito>>>>>>>>>
 #carrito{
   top: 92%;

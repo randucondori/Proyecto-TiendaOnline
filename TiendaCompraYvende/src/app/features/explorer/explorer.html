@@ -1,8 +1,8 @@
 <!--//<<<<<<<<<<0. Contenedor padre>>>>>>>>>-->
 <div class="p-3 w-100">
 <!--  //<<<<<<<<<<1. Buscador>>>>>>>>>-->
-  <div class="input-group w-75">
-    <button type="button" class="btn btn-info "><i class="bi bi-search"></i></button>
+  <div class="input-group w-100">
+    <button type="button" class="btn bg-dorado-suave btn-success "><i class="bi bi-search"></i></button>
     <input type="text" class="form-control " placeholder="Buscar . . . ">
   </div>
 <!--  //<<<<<<<<<<2. Zona comprar productos>>>>>>>>>-->
@@ -33,7 +33,7 @@
           <b><i class="text-warning">Precio : </i> {{p.precio}}€</b>
         </div>
 
-        <button class="btn w-100 add" (click)="comprar(p,p.nombre)">
+        <button class="btn w-100 add" (click)="comprar(p.nombre,p.precio,p.img)" >
           Añadir al Carrito
         </button>
 

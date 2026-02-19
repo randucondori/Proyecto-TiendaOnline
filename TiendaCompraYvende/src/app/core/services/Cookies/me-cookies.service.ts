@@ -29,7 +29,10 @@ export class MeCookiesService {
 
   // borrar cookie
   remove(key: string) {
-    this.CookiesService.delete(key)
+    if(this.exists(key)){
+      console.log(21)
+      this.CookiesService.delete(key, "/")
+    }
   }
 
   // Comprobar que existe cookie

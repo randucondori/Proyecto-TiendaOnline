@@ -11,9 +11,9 @@ p{
 #barra{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: relative;
-  width: 100%;
+  width: 200px;
+  height: 100%;
   background-color: #221C11;
   padding:20px 6% 10px 10%;
 }
@@ -23,11 +23,15 @@ p{
 
 //<<<<<< 2. opciones user  >>>>>>>
 .parte2{
-  width: 100%;
+  width: 90%;
   color: #74716A;
   gap:10px;
   font-size:20px;
   height: fit-content;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
 }
 
 .parte2:hover{
@@ -52,6 +56,17 @@ p{
   border-left: 5px solid #EEB713 ;
   color: #EEB713;
   font-size:20px;
+}
+
+#mi-btn{
+  border: none;
+  outline: none;
+  width: fit-content;
+}
+.enMedio{
+  position: absolute;
+  top:35%;
+  height: 30%;
 }
 
 @media (max-width: 1836px){

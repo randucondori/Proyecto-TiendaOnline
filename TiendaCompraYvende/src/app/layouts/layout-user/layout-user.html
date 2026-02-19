@@ -2,18 +2,19 @@
 <div class="position-absolute" id="fondo-user"></div>
 
 <!--//<<<<<<<<<1. contenido>>>>>>>-->
-<div class="" id="contenedor" [ngClass]="barra()?'enDos':'enTres'">
-  <app-barra-opciones [ngClass]="barra()?'d-none':'d-block'"></app-barra-opciones>
-  <button class="bg-dorado-suave rounded-0 p-0" id="mi-btn" (click)="toggleBarra()" [ngClass]="[barra()?'enMedio rounded-end-2':'']">
-    <b><i class="bi m-0 px-1" [ngClass]="barra()?'bi-arrow-right-circle-fill':'bi-arrow-left-circle-fill'" ></i></b>
-  </button>
-  <div class=" py-3 overflow-y-scroll" id="contenido" [ngClass]="[barra()?'px-5':'ps-2 pe-5']">
+<div class="" id="contenedor">
+
+  <app-barra-opciones class="position-fixed h-100  d-flex" id="uni"></app-barra-opciones>
+
+  <div class=" py-3 overflow-y-scroll p-5" id="contenido">
     <router-outlet></router-outlet>
   </div>
 
-  <button class="position-fixed btn btn-success fs-4 " id="carrito">
+  <button class="position-fixed btn btn-success fs-4 " id="carrito" (click)="toggleCompras(true)">
     <i class="bi bi-cart-fill"></i> Ver Carrito
   </button>
 
 </div>
-
+@if(compras()){
+<app-carrito (salir)="toggleCompras($event)"></app-carrito>
+}

@@ -21,6 +21,7 @@ export class BarraOpciones {
 
   visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
+  barra=signal<boolean>(false)
 
   constructor(
     private cookie: MeCookiesService,
@@ -31,16 +32,20 @@ export class BarraOpciones {
   cambiarEstado(estado:string){
     this.estado=estado;
   }
+
   cerrarSesion(): void {
     this.cookie.remove(webs.token)
     this.visibleCargando.set(true)
     setTimeout(() => {
       this.tipeResp.set(1)
+
+      setTimeout(() => {
+        this.visibleCargando.set(false)
+        this.router.navigate(['/'])
+      },1200)
+
     },700)
-    setTimeout(() => {
-      this.visibleCargando.set(false)
-      this.router.navigate(['/'])
-    },1200)
+
   }
 
   changeCargando(o: boolean) {
@@ -49,6 +54,10 @@ export class BarraOpciones {
 
   changeIcono(n: number): void {
     this.tipeResp.set(n)
+  }
+
+  toggleBarra(){
+    this.barra.set(!this.barra().valueOf());
   }
 
 
