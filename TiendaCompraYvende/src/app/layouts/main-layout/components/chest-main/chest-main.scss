@@ -31,14 +31,25 @@
   display: block;
 }
 
-#comida {
-
+@media (max-width: 719px) {
+  #imgs{
+    grid-template-columns: 1fr;
+    padding: 0 0 0 10%;
+  }
+  .box-img > img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .texto-img{
+    top: 10%;
+    font-size: 35px;
+    width: 100%;
+  }
 }
-
-#ropa {
-
-}
-
-#mueble {
-
+@media (max-width: 400px) {
+  #texto{
+    padding: 0 0 0 10%;
+  }
 }

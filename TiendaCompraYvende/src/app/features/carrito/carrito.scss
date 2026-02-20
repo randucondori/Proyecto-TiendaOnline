@@ -5,7 +5,8 @@
   top: 20px;
   padding: 10px;
   border-radius: 5px;
-  width: 30%;
+  min-width: 340px;
+  width: 31%;
   display: grid;
   grid-template-rows: auto auto 1fr 5% 5%;
 }
@@ -28,8 +29,28 @@
   display: flex;
   gap:10px;
   text-align: center;
+  padding: 0 5px 0 0;
 }
-.comprado > img{
+.precios{
+  width: 125px;
+}
+.box-img{
+  width: 20%;
+  height: 100%;
+}
+.box-img > img{
   object-fit: cover;
-  border-radius: 2px;
+}
+@media (max-width: 1401px){
+  .comprado{
+    display: grid;
+    height: fit-content;
+    justify-content: center;
+    padding: 0;
+  }
+  .box-img{
+    width: 100%;
+    height: 140px;
+    margin: 20px 0 0 0 ;
+  }
 }

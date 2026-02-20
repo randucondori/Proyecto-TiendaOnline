@@ -30,12 +30,6 @@
         Explorar
       </button>
 
-      <button class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/favorite']"
-              [ngClass]="[estado==='favoritos'?'focus':'button-parte2']" (click)="cambiarEstado('favoritos')">
-        <i class="bi bi-heart-fill"></i>
-        Favoritos
-      </button>
-
       <button class="w-100 d-flex justify-content-start rounded-3 btn " [routerLink]="['/sesion/user']"
               [ngClass]="[estado==='perfil'?'focus':'button-parte2']" (click)="cambiarEstado('perfil')">
         <i class="bi bi-person-fill"></i>

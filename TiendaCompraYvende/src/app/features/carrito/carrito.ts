@@ -43,7 +43,11 @@ export class Carrito implements OnInit {
   }
 
   LimpiarCompra() {
-    this.cargandoService.confirmarEliminacion()
+    if(this.productos().length!==0){
+      this.cargandoService.confirmarEliminacion()
+    }else{
+      this.cargandoService.alert("Limpio","El carrito se encuentra vacio","success")
+    }
   }
 
   eliminarUno(id: string) {

@@ -1,5 +1,7 @@
 //<<<<<<<<<<0. Contenedor padre>>>>>>>>>
-
+#padre{
+  padding: 2%;
+}
 
 //<<<<<<<<<<1. Buscador>>>>>>>>>
 
@@ -67,3 +69,20 @@
   20%  { transform: translateY(0); }
 }
 
+@media (max-width: 675px) {
+  #productosBuscados{
+    grid-template-columns: 1fr;
+  }
+  .producto > img {
+    width: 100%;
+    min-width: 270px;
+  }
+}
+@media (max-width: 375px) {
+  .producto > img{
+    width: 270px;
+  }
+}
+@media (max-width: 584px) {
+
+}

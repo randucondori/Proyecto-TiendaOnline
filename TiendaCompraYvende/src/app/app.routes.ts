@@ -35,10 +35,7 @@ export const routes: Routes = [
       },{
       path:"explorer",
         loadComponent:()=>import("./features/explorer/explorer").then(c=>c.Explorer)
-      },{
-      path:"favorite",
-        loadComponent:()=>import("./features/favorite/favorite").then(c=>c.Favorite)
-      }
+      },
 
 
     ]

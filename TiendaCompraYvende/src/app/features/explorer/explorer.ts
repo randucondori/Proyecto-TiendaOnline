@@ -69,7 +69,11 @@ export class Explorer implements OnInit {
   }
 
   changeCat(nombre: string) {
-    this.cat=nombre;
+    if(this.cat===nombre){
+      this.cat="";
+    }else{
+      this.cat=nombre;
+    }
   }
 
 }
