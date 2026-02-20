@@ -15,13 +15,14 @@
               (click)="changeCat(c.slug)"
       >{{c.nombre}}</button>
     }
+
   </div>
   <br>
 <!--  //<<<<<<<<<<4. Productos>>>>>>>>>-->
   <div id="productosBuscados">
     @for(p of productos();track p.slug){
 
-      <div class="rounded-3 bg-white p-2 d-grid justify-content-center" [ngClass]="[cat===p.categoria_nombre.toLowerCase() || cat===''?'d-block':'d-none']">
+      <div class="rounded-3 bg-white p-2 d-grid justify-content-center" [ngClass]="[cat===p.categoria_nombre || cat===''?'d-block':'d-none']">
 
         <div class="producto">
           <img src="{{p.img}}" alt="">

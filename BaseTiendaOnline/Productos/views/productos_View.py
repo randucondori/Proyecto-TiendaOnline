@@ -10,7 +10,7 @@ class ProductosView(viewsets.ViewSet):
     def list(self, request):
         productos = [{"nombre": p.nombre,
                       "precio": p.precio,
-                      "categoria_nombre": p.categoria.nombre,
+                      "categoria_nombre": p.categoria.slug,
                       "slug": p.slug,
                       "img": "nada" if not p.img.url else request.build_absolute_uri(p.img.url),
                       "id": p.id,

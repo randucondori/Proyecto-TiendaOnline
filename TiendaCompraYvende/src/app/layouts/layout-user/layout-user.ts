@@ -23,7 +23,7 @@ export class LayoutUser implements OnInit {
   }
 
   // barra=signal<boolean>(false)
-  puenteAB=model()
+  puenteAB = model()
   compras = signal<boolean>(false)
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
@@ -15,9 +15,9 @@ import {webs} from '../../../../constants/WebsVar';
   templateUrl: './barra-opciones.html',
   styleUrl: './barra-opciones.scss',
 })
-export class BarraOpciones {
+export class BarraOpciones implements OnInit {
 
-  estado="inicio"
+  estado:any=""
 
   visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
@@ -28,9 +28,16 @@ export class BarraOpciones {
     private router: Router
   ) {}
 
+  ngOnInit() {
+    let log=this.getRut()
+    this.estado=this.getRut()?log?.split("/")[2]:'inicio'
+  }
+
+
 
   cambiarEstado(estado:string){
     this.estado=estado;
+    this.putRut()
   }
 
   cerrarSesion(): void {
@@ -42,6 +49,7 @@ export class BarraOpciones {
       setTimeout(() => {
         this.visibleCargando.set(false)
         this.router.navigate(['/'])
+        this.resRut()
       },1200)
 
     },700)
@@ -58,6 +66,16 @@ export class BarraOpciones {
 
   toggleBarra(){
     this.barra.set(!this.barra().valueOf());
+  }
+
+  getRut(){
+    return sessionStorage.getItem('rut');
+  }
+  putRut(){
+    sessionStorage.setItem('rut', "/sesion/"+this.estado);
+  }
+  resRut(){
+    sessionStorage.setItem('rut',"/sesion/inicio");
   }
 
 

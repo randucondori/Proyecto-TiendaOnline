@@ -23,6 +23,7 @@ export class ShowProductos implements OnInit {
   Productos=signal<producto>([])
 
 
+
   ngOnInit() {
     this.productosService.getProductos().subscribe({
       next: data => {
