@@ -1,5 +1,5 @@
 #productos{
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5,1fr);
   gap:30px;
 }
 .producto{
@@ -19,4 +19,32 @@
   transition: 0.5s;
   margin: -10px 0 10px;
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.2);
+}
+.llevar{
+  height: 450px !important;
+}
+.llevar > img{
+  max-height: 300px !important;
+}
+
+@media (max-width: 1644px) {
+  #productos{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+@media  (max-width: 1327px){
+  #productos{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media (max-width: 1008px) {
+  #productos{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (max-width: 700px) {
+  #productos{
+    grid-template-columns: 1fr;
+  }
 }

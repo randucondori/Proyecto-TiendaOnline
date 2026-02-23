@@ -1,6 +1,7 @@
 import {Component, OnInit, output, signal} from '@angular/core';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {CargandoService} from '../../core/utils/cargando.service';
+import {Pasarela} from '../pasarela/pasarela';
 
 type compra={
   nombre: string,
@@ -9,7 +10,9 @@ type compra={
 
 @Component({
   selector: 'app-carrito',
-  imports: [],
+  imports: [
+    Pasarela
+  ],
   templateUrl: './carrito.html',
   styleUrl: './carrito.scss',
 })
@@ -20,7 +23,7 @@ export class Carrito implements OnInit {
     private cargandoService: CargandoService
   ) {
   }
-
+  pago=signal<boolean>(false)
 
   productos = signal<compra[]>([]);
   salir = output<boolean>()
@@ -58,5 +61,8 @@ export class Carrito implements OnInit {
     this.carritoService.addCompra(id, nombre, precio, img);
   }
 
+  togglePago(){
+    this.pago.set(!this.pago())
+  }
 
 }

@@ -1,0 +1,18 @@
+#cerrar{
+  cursor: pointer;
+  top: 10%;
+  margin-left:10px ;
+}
+#estado{
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.estado{
+  border-bottom: 1px solid var(--bs-dorado);
+}
+.precionable{
+  cursor: pointer;
+}
+.precionable:hover{
+  text-shadow: -1px -1px 1px black;
+}

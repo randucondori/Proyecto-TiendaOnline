@@ -22,7 +22,7 @@
 #productosBuscados{
   display: grid;
   padding: 10px 1%;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-columns: repeat(6,1fr) ;
   gap:15px;
 }
 .producto{
@@ -84,8 +84,18 @@
     width: 270px;
   }
 }
-@media (max-width: 584px) {
 
+
+
+@media (max-width: 1790px) {
+  #productosBuscados{
+    grid-template-columns: repeat(5,1fr);
+  }
+}
+@media (max-width: 1490px) {
+  #productosBuscados{
+    grid-template-columns: repeat(4,1fr);
+  }
 }
 @media (max-width: 1195px) {
   #productosBuscados{
