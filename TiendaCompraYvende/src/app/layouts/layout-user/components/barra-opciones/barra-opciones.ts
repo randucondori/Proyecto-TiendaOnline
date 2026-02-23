@@ -21,7 +21,7 @@ export class BarraOpciones implements OnInit {
 
   visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
-  barra=signal<boolean>(false)
+  barra=signal<boolean>(true)
 
   constructor(
     private cookie: MeCookiesService,

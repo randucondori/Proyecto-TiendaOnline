@@ -22,7 +22,6 @@ export class LayoutUser implements OnInit {
   ) {
   }
 
-  // barra=signal<boolean>(false)
   puenteAB = model()
   compras = signal<boolean>(false)
 

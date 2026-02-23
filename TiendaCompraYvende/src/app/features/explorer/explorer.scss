@@ -22,7 +22,7 @@
 #productosBuscados{
   display: grid;
   padding: 10px 1%;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   gap:15px;
 }
 .producto{
@@ -51,7 +51,8 @@
   top: 5px;
   right: 5px;
   overflow-y: hidden;
-  height: 99%;
+  max-height: 99%;
+  height: fit-content;
 }
 #notificacion > div{
   transition: 2s;
@@ -85,4 +86,18 @@
 }
 @media (max-width: 584px) {
 
+}
+@media (max-width: 1195px) {
+  #productosBuscados{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 900px) {
+  #productosBuscados{
+    grid-template-columns: 1fr 1fr;
+  }
+}@media (max-width: 647px) {
+  #productosBuscados{
+    grid-template-columns: 1fr ;
+  }
 }
