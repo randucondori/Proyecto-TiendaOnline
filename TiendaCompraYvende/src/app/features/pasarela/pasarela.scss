@@ -1,18 +1,103 @@
-#cerrar{
+* {
+  transition: 1s;
+}
+
+#cerrar {
   cursor: pointer;
   top: 10%;
-  margin-left:10px ;
+  margin-left: 10px;
 }
-#estado{
+#compra{
+  width: 25%;
+  min-width: 380px;
+}
+
+#estado {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
-.estado{
+
+.estado {
   border-bottom: 1px solid var(--bs-dorado);
 }
-.precionable{
-  cursor: pointer;
+.precionable:hover {
+  text-shadow: 1px 0 1px black;
 }
-.precionable:hover{
-  text-shadow: -1px -1px 1px black;
+
+#formulario {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+}
+
+#uno {
+  margin: 0 auto;
+  width: 90%;
+}
+
+#contenido {
+  height: fit-content;
+}
+
+#card {
+  height: 70px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+.lava-lamp {
+  position: relative;
+  background: #331f00;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: var(--bs-dorado);
+  border-radius: 50%;
+  animation: rise 3s infinite ease-in;
+}
+
+/* Tamaños y posiciones aleatorias para las burbujas */
+.bubble:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 20px;
+  animation-duration: 6s;
+}
+
+.bubble:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  left: 100px;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  left: 200px;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+
+/* Animación de subida y cambio de forma */
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+  }
+  100% {
+    transform: translateY(-300px) scale(1);
+  }
 }

@@ -1,10 +1,12 @@
 <!--//<<<<<<<<<<0. Contenedor padre>>>>>>>>>-->
 <div class=" w-100" id="padre">
 <!--  //<<<<<<<<<<1. Buscador>>>>>>>>>-->
-  <div class="input-group w-100">
-    <button type="button" class="btn bg-dorado-suave btn-success "><i class="bi bi-search"></i></button>
-    <input type="text" class="form-control " placeholder="Buscar . . . ">
-  </div>
+  <form class="input-group w-100">
+    <button type="submit" class="btn bg-dorado-suave btn-success " (click)="input()">
+      <i class="bi bi-search"></i>
+    </button>
+    <input type="text" name="name" class="form-control " placeholder="Buscar . . . " [(ngModel)]="val" >
+  </form>
 <!--  //<<<<<<<<<<2. Zona comprar productos>>>>>>>>>-->
 
 <!--  //<<<<<<<<<<3. categorias>>>>>>>>>-->
@@ -22,7 +24,8 @@
   <div id="productosBuscados">
     @for(p of productos();track p.slug){
 
-      <div class="rounded-3 bg-white p-2 d-grid justify-content-center" [ngClass]="[cat===p.categoria_nombre || cat===''?'d-block':'d-none']">
+      <div class="rounded-3 bg-white p-2 d-grid justify-content-center"
+           [ngClass]="[(cat === '' || cat === p.categoria_nombre) && buscar(p.nombre)?'d-block':'d-none']">
 
         <div class="producto">
           <img src="{{p.img}}" alt="">

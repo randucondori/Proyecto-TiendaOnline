@@ -2,26 +2,26 @@
 
 <div class="position-absolute z-3 w-100 h-100">
 
-  <div class="bg-white w-25 h-75 my-5 m-auto rounded-2 shadow-lg">
+  <div class="bg-white h-75 my-5 m-auto rounded-2 shadow-lg" id="compra">
     <div class="py-3 px-2">
 
       <div class="position-relative">
 
-        <h2 class="text-center mb-0 ">Proceso de Pago</h2>
+        <h2 class="text-center mb-0 ">Pago</h2>
         <i class="bi bi-x-lg fs-4 position-absolute" id="cerrar" (click)="salir.emit()"></i>
 
       </div>
 
-      <div class=" border-bottom mb-2 mt-3 d-grid " id="estado">
+      <div class=" border-bottom mb-2 mt-3 d-grid justify-content-center" id="estado">
 
-        <div class="d-flex pago gap-2 px-3 w-75 justify-content-center" [ngClass]="[estado()===0?'estado texto-dorado':'precionable']">
+        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center" [ngClass]="[estado()===0?'estado texto-dorado':'']">
           <i class="bi bi-bag-check"></i>
-          <p class="m-0" (click)="toggleEstado(0)">envio</p>
+          <p class="m-0" >Pre compra</p>
         </div>
 
-        <div class="d-flex pago gap-2 px-3 w-75 justify-content-center" [ngClass]="[estado()===1?'estado texto-dorado':'precionable']">
+        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center" [ngClass]="[estado()===1?'estado texto-dorado':'']">
           <i class="bi bi-bag-check"></i>
-          <p class="m-0" (click)="toggleEstado(1)">envio</p>
+          <p class="m-0">envio</p>
         </div>
 
 
@@ -29,7 +29,80 @@
 
     </div>
 
-    <form action="">
+    <form action="" class="" id="formulario">
+
+      <div class="bg-blanco-roto w-100 p-2 rounded-2 text-dark" id="contenido">
+
+        <div class="w-100 bg-dorado-suave lava-lamp" id="card">
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="m-0">Precio de compra :</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{pre()}}/€</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="m-0">Precio de Envió :</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{envio()}}/€</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="m-0">Precio del IVA:</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{IVA()}}/€</p>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between">
+          <p class="m-0 fs-4">Precio Total:</p>
+          <p clasS="m-0 fs-4 text-start text-decoration-underline">{{total()}}/€</p>
+        </div>
+
+      </div>
+
+      <div class="w-100 d-grid my-3" [ngClass]="[estado()===0?'d-block':'d-none']">
+
+        <i class="text-center fs-3 fst-italic fw-bold">Información para el envío</i>
+
+        <div>
+
+          <div class="form-floating">
+            <input class="form-control" placeholder="">
+            <label class="form-label">Dirección</label>
+          </div>
+
+          <div class="form-floating mt-4">
+            <input class="form-control" placeholder="">
+            <label class="form-label">Teléfono</label>
+          </div>
+
+        </div>
+
+        <button type="button" class=" btn btn-info my-3" id="uno" (click)="toggleEstado(1)">Siguiente
+          <i class="bi bi-arrow-right"></i>
+        </button>
+
+      </div>
+
+      <div class="w-100 d-grid my-3" [ngClass]="[estado()===0?'d-none':'d-block']">
+        <i class="fs-3 text-center">Métodos de pago</i>
+
+
+
+        <div class="d-flex gap-2">
+          <button type="button" class=" btn btn-info my-3" id="uno" (click)="toggleEstado(0)">
+            <i class="bi bi-arrow-left"></i>Volver
+          </button>
+
+          <button type="button" class=" btn btn-info my-3" id="uno">
+            <i class="bi bi-cash-coin me-2"></i>Pagar
+          </button>
+        </div>
+      </div>
+
 
     </form>
 

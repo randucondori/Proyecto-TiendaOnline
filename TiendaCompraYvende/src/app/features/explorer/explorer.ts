@@ -1,7 +1,8 @@
-import {Component, OnInit, output, signal} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {ProductosService} from '../../core/services/Productos/productos.service';
 import {NgClass} from '@angular/common';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
+import {FormsModule} from '@angular/forms';
 
 type producto = [{
   nombre: string,
@@ -20,14 +21,17 @@ type categoria ={
 @Component({
   selector: 'app-explorer',
   imports: [
-    NgClass
+    NgClass,
+    FormsModule
   ],
   templateUrl: './explorer.html',
   styleUrl: './explorer.scss',
+  standalone: true,
 })
 export class Explorer implements OnInit {
   notificaciones = signal<string[]>([])
-
+  search=signal<string>("")
+  val=""
   productos = signal<producto>([])
   categorias=signal<categoria[]>([])
 
@@ -76,4 +80,12 @@ export class Explorer implements OnInit {
     }
   }
 
+  buscar(val:string){
+    let reg=RegExp(".*"+this.search(),"i")
+    return this.search()===""?true:reg.test(val)
+  }
+
+  input(){
+    this.search.set(this.val)
+  }
 }
