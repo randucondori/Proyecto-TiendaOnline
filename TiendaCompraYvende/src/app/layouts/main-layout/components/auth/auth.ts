@@ -40,7 +40,7 @@ export class Auth {
   ) {
     this.formLogin = this.formBuild.group({
       email: ['', [Validators.required, ValidandoEmail]],
-      password: ['', Validators.required, PassValid(this.passlen)]
+      password: ['', [Validators.required, PassValid(this.passlen)]]
     })
   }
 

@@ -14,12 +14,14 @@
 
       <div class=" border-bottom mb-2 mt-3 d-grid justify-content-center" id="estado">
 
-        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center" [ngClass]="[estado()===0?'estado texto-dorado':'']">
+        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center"
+             [ngClass]="[estado()===0?'estado texto-dorado':'']">
           <i class="bi bi-bag-check"></i>
-          <p class="m-0" >Pre compra</p>
+          <p class="m-0">Pre compra</p>
         </div>
 
-        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center" [ngClass]="[estado()===1?'estado texto-dorado':'']">
+        <div class="d-flex pago gap-2 px-3 w-100 justify-content-center"
+             [ngClass]="[estado()===1?'estado texto-dorado':'']">
           <i class="bi bi-bag-check"></i>
           <p class="m-0">envio</p>
         </div>
@@ -29,7 +31,7 @@
 
     </div>
 
-    <form action="" class="" id="formulario">
+    <form action="" class="" id="formulario" [formGroup]="pagoFrom">
 
       <div class="bg-blanco-roto w-100 p-2 rounded-2 text-dark" id="contenido">
 
@@ -41,42 +43,50 @@
 
         <div class="d-flex justify-content-between">
           <p class="m-0">Precio de compra :</p>
-          <p clasS="m-0 text-start text-decoration-underline">{{pre()}}/€</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{ pre().toFixed(2) }}/€</p>
         </div>
 
         <div class="d-flex justify-content-between">
           <p class="m-0">Precio de Envió :</p>
-          <p clasS="m-0 text-start text-decoration-underline">{{envio()}}/€</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{ envio() }}/€</p>
         </div>
 
         <div class="d-flex justify-content-between">
           <p class="m-0">Precio del IVA:</p>
-          <p clasS="m-0 text-start text-decoration-underline">{{IVA()}}/€</p>
+          <p clasS="m-0 text-start text-decoration-underline">{{ IVA() }}/€</p>
         </div>
 
         <hr>
 
         <div class="d-flex justify-content-between">
           <p class="m-0 fs-4">Precio Total:</p>
-          <p clasS="m-0 fs-4 text-start text-decoration-underline">{{total()}}/€</p>
+          <p clasS="m-0 fs-4 text-start text-decoration-underline">{{ total() }}/€</p>
         </div>
 
       </div>
 
       <div class="w-100 d-grid my-3" [ngClass]="[estado()===0?'d-block':'d-none']">
 
-        <i class="text-center fs-3 fst-italic fw-bold">Información para el envío</i>
+        <i class="text-center fs-3 fst-italic fw-bold">Información personal</i>
 
         <div>
 
-          <div class="form-floating">
-            <input class="form-control" placeholder="">
-            <label class="form-label">Dirección</label>
+          <div class="">
+            <label class="form-label w-100">Dirección
+              <input class="form-control" placeholder="C. 00 ciudad"
+                     formControlName="direccion" [ngClass]="
+                     [pagoFrom.get('direccion')?.touched && pagoFrom.get('direccion')?.errors?'invalido':'',
+                      pagoFrom.get('direccion')?.touched && !pagoFrom.get('direccion')?.errors?'valido':'']">
+            </label>
           </div>
 
-          <div class="form-floating mt-4">
-            <input class="form-control" placeholder="">
-            <label class="form-label">Teléfono</label>
+          <div class="">
+            <label class="form-label w-100">Teléfono
+              <input class="form-control" placeholder="000 000 000"
+                     formControlName="telefono" [ngClass]="
+                     [pagoFrom.get('telefono')?.touched && pagoFrom.get('telefono')?.errors?'invalido':'',
+                      pagoFrom.get('telefono')?.touched && !pagoFrom.get('telefono')?.errors?'valido':'']">
+            </label>
           </div>
 
         </div>
@@ -89,7 +99,6 @@
 
       <div class="w-100 d-grid my-3" [ngClass]="[estado()===0?'d-none':'d-block']">
         <i class="fs-3 text-center">Métodos de pago</i>
-
 
 
         <div class="d-flex gap-2">

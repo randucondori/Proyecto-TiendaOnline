@@ -1,12 +1,13 @@
-import {AbstractControl, ValidationErrors} from '@angular/forms';
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 
-export function PassValid(min=6,max=30){
-  return (control: AbstractControl):Observable<ValidationErrors | null> => {
+export function PassValid(min:number=6,max:number=30):ValidatorFn{
+  return (control: AbstractControl): ValidationErrors | null => {
     if (Number(control.value.length) < min) {
-      return of({'cantidadError': true})
+      return {'cantidadError': true}
     }
-    return of(null);
+    return null;
   }
 
 }
+

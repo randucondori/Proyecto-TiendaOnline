@@ -50,9 +50,9 @@ export class BarraOpciones implements OnInit {
         this.visibleCargando.set(false)
         this.router.navigate(['/'])
         this.resRut()
-      },1200)
+      },900)
 
-    },700)
+    },300)
 
   }
 
