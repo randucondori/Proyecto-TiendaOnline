@@ -53,7 +53,7 @@
     <i>{{ total() !== 0 ? total().toFixed(2) : '0.00' }}€</i>
   </div>
 
-  <button type="button" class="btn btn-info" (click)="togglePago()">Pagar €/s</button>
+  <button type="button" class="btn btn-info" [ngClass]="[productos().length>0?'':'elemento-desactivado']"  (click)="togglePago()">Pagar €/s</button>
 
 </div>
 @if(pago()){

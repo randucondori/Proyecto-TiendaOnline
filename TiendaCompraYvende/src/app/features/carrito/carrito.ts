@@ -2,6 +2,7 @@ import {Component, OnInit, output, signal} from '@angular/core';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {CargandoService} from '../../core/utils/cargando.service';
 import {Pasarela} from '../pasarela/pasarela';
+import {NgClass} from '@angular/common';
 
 type compra={
   nombre: string,
@@ -11,7 +12,8 @@ type compra={
 @Component({
   selector: 'app-carrito',
   imports: [
-    Pasarela
+    Pasarela,
+    NgClass
   ],
   templateUrl: './carrito.html',
   styleUrl: './carrito.scss',
