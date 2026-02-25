@@ -7,14 +7,14 @@ from Users.serealizers import PedidosSerializer
 
 class PedidosView(viewsets.ViewSet):
 
-    http_method_names = ['post', 'create']
+    http_method_names = ['post']
 
     def create(self,request):
         serializer = PedidosSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
-            print(PedidosModel.objects.first().pedido)
             return Response({"succes":True},status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+

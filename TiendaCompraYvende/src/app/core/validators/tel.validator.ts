@@ -1,7 +1,7 @@
-import {AbstractControl, ValidationErrors} from '@angular/forms';
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 
-export function TelValidator(min:number=9,max:number=30){
+export function TelValidator(min:number=9,max:number=30):ValidatorFn{
   return (control: AbstractControl):ValidationErrors | null => {
     if (Number(control.value.length) < min) {
       return {'cantidadError': true}

@@ -2,3 +2,4 @@ from .userLogin_serializer import Login_Serializer
 from .register_serializer import RegisterSerializer
 from .ciudad_serializers import CiudadSerealizer
 from .pedidos_serializer import PedidosSerializer
+from .misPedidos_serializer import MisPedidoSerializer

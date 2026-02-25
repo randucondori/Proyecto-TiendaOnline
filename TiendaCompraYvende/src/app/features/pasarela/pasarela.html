@@ -26,7 +26,6 @@
           <p class="m-0">envio</p>
         </div>
 
-
       </div>
 
     </div>
@@ -73,7 +72,7 @@
 
           <div class="">
             <label class="form-label w-100">Dirección
-              <input class="form-control" placeholder="C. 00 ciudad"
+              <input class="form-control" placeholder="C. 00 ciudad" type="text"
                      formControlName="direccion" [ngClass]="
                      [pagoFrom.get('direccion')?.touched && pagoFrom.get('direccion')?.errors?'invalido':'',
                       pagoFrom.get('direccion')?.touched && !pagoFrom.get('direccion')?.errors?'valido':'']">
@@ -82,7 +81,7 @@
 
           <div class="">
             <label class="form-label w-100">Teléfono
-              <input class="form-control" placeholder="000 000 000"
+              <input class="form-control" placeholder="000 000 000" type="tel"
                      formControlName="telefono" [ngClass]="
                      [pagoFrom.get('telefono')?.touched && pagoFrom.get('telefono')?.errors?'invalido':'',
                       pagoFrom.get('telefono')?.touched && !pagoFrom.get('telefono')?.errors?'valido':'']">
@@ -91,7 +90,8 @@
 
         </div>
 
-        <button type="button" class=" btn btn-info my-3" id="uno" (click)="toggleEstado(1)">Siguiente
+        <button type="button" class=" btn btn-info my-3" id="uno" (click)="toggleEstado(1)"
+                [ngClass]="[continuar()?'elemento-desactivado':'']">Siguiente
           <i class="bi bi-arrow-right"></i>
         </button>
 
@@ -100,13 +100,58 @@
       <div class="w-100 d-grid my-3" [ngClass]="[estado()===0?'d-none':'d-block']">
         <i class="fs-3 text-center">Métodos de pago</i>
 
+        <div>
+
+          <div class="">
+            <label class="form-label w-100">Número de tarjeta:
+              <input class="form-control" placeholder="0000 0000 0000 0000" type="text"
+                     formControlName="tarjetaN" [ngClass]="
+                     [pagoFrom.get('tarjetaN')?.touched && pagoFrom.get('tarjetaN')?.errors?'invalido':'',
+                      pagoFrom.get('tarjetaN')?.touched && !pagoFrom.get('tarjetaN')?.errors?'valido':'']">
+            </label>
+
+            <label class="form-label w-100">Nombre del titular:
+              <input class="form-control" placeholder="--------" type="text"
+                     formControlName="titular" [ngClass]="
+                     [pagoFrom.get('titular')?.touched && pagoFrom.get('titular')?.errors?'invalido':'',
+                      pagoFrom.get('titular')?.touched && !pagoFrom.get('titular')?.errors?'valido':'']">
+            </label>
+          </div>
+
+          <div class="d-flex gap-3">
+            <label class="form-label w-100">Fecha de vencimiento:
+              <input class="form-control" type="date"
+                     formControlName="vencimiento" [ngClass]="
+                     [pagoFrom.get('vencimiento')?.touched && pagoFrom.get('vencimiento')?.errors?'invalido':'',
+                      pagoFrom.get('vencimiento')?.touched && !pagoFrom.get('vencimiento')?.errors?'valido':'']">
+            </label>
+
+            <label class="form-label w-100">Código de seguridad:
+              <input class="form-control" placeholder="- - -" type="text"
+                     formControlName="codigo" [ngClass]="
+                     [pagoFrom.get('codigo')?.touched && pagoFrom.get('codigo')?.errors?'invalido':'',
+                      pagoFrom.get('codigo')?.touched && !pagoFrom.get('codigo')?.errors?'valido':'']">
+            </label>
+          </div>
+
+          <!--          <div class="">-->
+          <!--            <label class="form-label w-100">Código de seguridad:-->
+          <!--              <input class="form-control" placeholder="- - -"-->
+          <!--                     formControlName="codigo" [ngClass]="-->
+          <!--                     [pagoFrom.get('codigo')?.touched && pagoFrom.get('codigo')?.errors?'invalido':'',-->
+          <!--                      pagoFrom.get('codigo')?.touched && !pagoFrom.get('codigo')?.errors?'valido':'']">-->
+          <!--            </label>-->
+          <!--          </div>-->
+
+        </div>
 
         <div class="d-flex gap-2">
           <button type="button" class=" btn btn-info my-3" id="uno" (click)="toggleEstado(0)">
             <i class="bi bi-arrow-left"></i>Volver
           </button>
 
-          <button type="button" class=" btn btn-info my-3" id="uno">
+          <button type="button" class=" btn btn-info my-3" id="uno"
+                  [ngClass]="[pagoFrom.valid?'':'elemento-desactivado']">
             <i class="bi bi-cash-coin me-2"></i>Pagar
           </button>
         </div>

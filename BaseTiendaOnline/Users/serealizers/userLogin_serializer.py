@@ -53,6 +53,7 @@ class Login_Serializer(serializers.ModelSerializer):
             "success": True,
             "data": {
                 "nombre": user.nombre,
+                "id":user.id,
                 "email": user.email,
                 "refreshToken": str(refresh),
                 "token": str(refresh.access_token)

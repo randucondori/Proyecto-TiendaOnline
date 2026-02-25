@@ -4,6 +4,7 @@ import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PassValid} from '../../core/validators/pass.validator';
 import {TelValidator} from '../../core/validators/tel.validator';
+import {IsnumberValidator} from '../../core/validators/Isnumber.validator';
 
 @Component({
   selector: 'app-pasarela',
@@ -13,11 +14,11 @@ import {TelValidator} from '../../core/validators/tel.validator';
   ],
   templateUrl: './pasarela.html',
   styleUrl: './pasarela.scss',
-  standalone:true,
+  standalone: true,
 })
 export class Pasarela {
-  pre=signal<number>(0)
-  pagoFrom:FormGroup;
+  pre = signal<number>(0)
+  pagoFrom: FormGroup;
 
   constructor(
     private carritoService: CarritoService,
@@ -28,9 +29,14 @@ export class Pasarela {
       this.pre.set(carrito[1]);
     })
 
-    this.pagoFrom=this.formBuilder.group({
+    this.pagoFrom = this.formBuilder.group({
       direccion: ['', [Validators.required, PassValid()]],
-      telefono: ['',[Validators.required,TelValidator()]],
+      telefono: ['', [Validators.required, TelValidator()]],
+
+      tarjetaN: ["", [Validators.required, IsnumberValidator(16),]],
+      titular: ["", [Validators.required]],
+      vencimiento: ["", [Validators.required]],
+      codigo: ["", [Validators.required,PassValid(3,3)]],
     })
 
   }
@@ -39,21 +45,28 @@ export class Pasarela {
   estado = signal<number>(0)
 
 
-  toggleEstado(i:number) {
+  toggleEstado(i: number) {
     this.estado.set(i)
   }
 
-  envio(){
-    return parseFloat((this.pre()*0.07).toFixed(2))
+  envio() {
+    return parseFloat((this.pre() * 0.07).toFixed(2))
   }
 
-  IVA(){
+  IVA() {
     return parseFloat((0.17 * this.pre()).toFixed(2))
   }
 
-  total(){
-    return parseFloat((this.envio()+this.IVA()+this.pre()).toFixed(2))
+  total() {
+    return parseFloat((this.envio() + this.IVA() + this.pre()).toFixed(2))
   }
 
-  protected readonly JSON = JSON;
+  continuar() {
+    let uno = this.pagoFrom.get("direccion")?.errors
+    let dos = this.pagoFrom.get("telefono")?.errors
+
+    return !!(uno || dos)
+
+  }
+
 }
