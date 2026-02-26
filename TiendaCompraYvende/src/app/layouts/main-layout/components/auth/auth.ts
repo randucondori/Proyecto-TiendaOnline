@@ -8,11 +8,8 @@ import {LoginService} from '../../../../core/services/login/login.service';
 import {IniciaCon} from '../inicia-con/inicia-con';
 import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
-import {CargandoService} from '../../../../core/utils/cargando.service';
 import {webs} from '../../../../constants/WebsVar';
-
-
-type DatosDeEnvio = { email?: string, password: string }
+import {ModelService} from '../../../../core/services/model/model.service';
 
 @Component({
   selector: 'app-auth',
@@ -37,6 +34,7 @@ export class Auth {
     private loginService: LoginService,
     private cookie: MeCookiesService,
     private router: Router,
+    private model: ModelService,
   ) {
     this.formLogin = this.formBuild.group({
       email: ['', [Validators.required, ValidandoEmail]],
@@ -44,7 +42,6 @@ export class Auth {
     })
   }
 
-  visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
   errors = signal<string[]>([])
 
@@ -56,14 +53,15 @@ export class Auth {
       "password": this.formLogin.value.password
     }
 
-    this.visibleCargando.set(true)
+    this.model.show()
+    this.errors.set([])
 
     this.loginService.IsLogin(data).subscribe({
       next: value => {
         this.tipeResp.set(1)
         this.cookie.set(webs.token, JSON.stringify(value));
         setTimeout(() => {
-          this.visibleCargando.set(false)
+          this.model.hide();
           this.router.navigateByUrl('/sesion/inicio');
         }, 800)
       },
@@ -76,20 +74,9 @@ export class Auth {
       }
     })
   }
-
-  changeCargando(o: boolean) {
-    this.visibleCargando.set(o)
-  }
-
   changeIcono(n: number): void {
     this.tipeResp.set(n)
   }
-
-  changeError(lista:[]){
-    this.errors.set(lista)
-  }
-
-
   protected readonly Boolean = Boolean;
   protected readonly Number = Number;
 }

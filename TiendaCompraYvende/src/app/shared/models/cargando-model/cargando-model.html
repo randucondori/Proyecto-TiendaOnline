@@ -23,14 +23,6 @@
     <div class="rounded-circle bg-danger" id="box-x">
       <i class="bi bi-x-lg mx-auto d-block text-white" id="x"></i>
     </div>
-    @if(!contenido()){
-      <p>Error de Conexión</p>
-      <p class="text-center">Comuníquese con atención al cliente o vuelva mas tarde</p>
-    }
   }
-  <div id="contenido" class="mx-2 pt-3">
-    @for (c of contenido(); track c) {
-      <b>- {{c}}</b>
-    }
-  </div>
+  <ng-content select="[bodyError]"></ng-content>
 </div>

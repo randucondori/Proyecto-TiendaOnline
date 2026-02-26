@@ -6,8 +6,23 @@
 
     <div class="mb-5" id="parte1">
       <!--  //<<<<<< 1. logo  >>>>>>>-->
-      <div>
-        <p class="h2">Lgoo</p>
+      <div class="forma">
+
+        <div class="drop"  >
+
+          <button type="button" class=" btn btn-transparent" (click)="toggleDrop()">
+            <i class="bi bi-person-badge-fill text-white fs-2" ></i>
+          </button>
+
+        </div>
+
+          <div appClickFuera (fuera)="cerrarDrop()"
+               class="cont" [ngClass]="[drop()?'visible':'invisible']" >
+            <i class="text-wrap">hola</i>
+            <button class="btn btn-success">preciona</button>
+
+          </div>
+
       </div>
 
       <!--  //<<<<<< 2. opciones user  >>>>>>>-->
@@ -52,7 +67,6 @@
   <b><i class="bi m-0 px-1" [ngClass]="barra()?'bi-arrow-right-circle-fill':'bi-arrow-left-circle-fill'" ></i></b>
 </button>
 
-<app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()"
-                     (cerrarIcono)="changeCargando(Boolean($event))"
-                     (cerrarVisible)="changeIcono(Number($event))"
+<app-cargando-model  [icono]="tipeResp()"
+                     (cerrarIcono)="changeIcono(Number($event))"
 ></app-cargando-model>

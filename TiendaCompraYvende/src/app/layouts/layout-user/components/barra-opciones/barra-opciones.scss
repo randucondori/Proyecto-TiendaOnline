@@ -20,6 +20,32 @@ p{
 }
 
 //<<<<<< 1. logo  >>>>>>>
+.forma{
+  width: fit-content;
+  height: 100%;
+}
+.drop{
+  transition: 0.3s;
+  width: fit-content;
+  height: fit-content;
+}
+.cont{
+  z-index: 999;
+  transition: 0.3s;
+  position: absolute;
+  border-radius: 5px;
+  width: 120px;
+  padding: 10px;
+  background-color: white;
+  display: grid;
+  gap: 10px;
+}
+.visible{
+  opacity: 1;
+}
+.invisible{
+  opacity: 0;
+}
 
 
 //<<<<<< 2. opciones user  >>>>>>>

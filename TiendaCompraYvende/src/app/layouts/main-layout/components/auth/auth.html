@@ -64,10 +64,19 @@
     </button>
   </div>
 
-  <app-cargando-model  [visible]="visibleCargando()" [icono]="tipeResp()" [contenido]="errors()"
-                       (cerrarIcono)="changeCargando(Boolean($event))" (cerrarVisible)="changeIcono(Number($event))"
-                       (vaciarErrores)="changeError($event)"
-  ></app-cargando-model>
+  <app-cargando-model   [icono]='tipeResp()' [contenido]="true"
+                       (cerrarIcono)="changeIcono(Number($event))"
+                       >
+    <div bodyError>
+      <br>
+      @for (c of errors(); track c) {
+        <b>- {{c}}</b>
+      }
+      @if(!errors()){
+        <p class="text-center mx-3 fw-bold">Error de conexión, llame a soporte o salga y vuelva a entrar en un tiempo</p>
+      }
+    </div>
+  </app-cargando-model>
 
 </form>
 

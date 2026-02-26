@@ -8,9 +8,9 @@ import {IniciaCon} from '../inicia-con/inicia-con';
 import {LoginService} from '../../../../core/services/login/login.service';
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
 import {CiudadesService} from '../../../../core/services/ciudades/ciudades.service';
+import {ciudad} from '../../../../core/interfaces/user';
+import {ModelService} from '../../../../core/services/model/model.service';
 
-
-type ciudad={"nombre":string,"slug":string}
 
 @Component({
   selector: 'app-registro',
@@ -28,7 +28,6 @@ export class Registro implements OnInit {
 
   formRegister: FormGroup;
 
-  visibleCargando = signal<boolean>(false)
   tipeResp = signal<number>(0)
   errors = signal<string[]>([])
 
@@ -40,6 +39,7 @@ export class Registro implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private ciudadesService: CiudadesService,
+    private model:ModelService,
   ) {
     this.formRegister = this.formBuilder.group({
       nombre: ['', [Validators.required]],
@@ -74,32 +74,27 @@ export class Registro implements OnInit {
       "password0": form.password_confirmation,
       "ciudad": form.ciudad,
     };
-    this.visibleCargando.set(true)
+    this.model.show()
+    this.errors.set([])
+
     this.loginService.ToRegister(data).subscribe({
       next: () => {
         this.tipeResp.set(1)
         setTimeout(()=>{
 
         },2000)
-        console.log(this.errors().values(),this.tipeResp().valueOf(),this.visibleCargando().valueOf())
-
         setTimeout(() => {
-          this.visibleCargando.set(false)
+          this.model.hide()
           this.router.navigateByUrl('/sesion');
         }, 2000)
       },
       error: (error) => {
         this.tipeResp.set(2);
         this.errors.set(error.error.errors);
-        console.log(this.errors().valueOf())
       },
       complete: () => {
       }
     })
-  }
-
-  changeCargando(o: boolean) {
-    this.visibleCargando.set(o)
   }
 
   changeIcono(n: number): void {

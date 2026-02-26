@@ -4,13 +4,15 @@ import {MeCookiesService} from '../../../../core/services/Cookies/me-cookies.ser
 import {CargandoModel} from '../../../../shared/models/cargando-model/cargando-model';
 import {NgClass} from '@angular/common';
 import {webs} from '../../../../constants/WebsVar';
-
+import {ModelService} from '../../../../core/services/model/model.service';
+import {ClickFuera} from '../../../../shared/directives/click-fuera';
 @Component({
   selector: 'app-barra-opciones',
   imports: [
     RouterLink,
     CargandoModel,
-    NgClass
+    NgClass,
+    ClickFuera
   ],
   templateUrl: './barra-opciones.html',
   styleUrl: './barra-opciones.scss',
@@ -19,13 +21,14 @@ export class BarraOpciones implements OnInit {
 
   estado:any=""
 
-  visibleCargando = signal<boolean>(false)
+  drop=signal<boolean>(false)
   tipeResp = signal<number>(0)
   barra=signal<boolean>(true)
 
   constructor(
     private cookie: MeCookiesService,
-    private router: Router
+    private router: Router,
+    private model:ModelService,
   ) {}
 
   ngOnInit() {
@@ -42,22 +45,18 @@ export class BarraOpciones implements OnInit {
 
   cerrarSesion(): void {
     this.cookie.remove(webs.token)
-    this.visibleCargando.set(true)
+    this.model.show()
     setTimeout(() => {
       this.tipeResp.set(1)
 
       setTimeout(() => {
-        this.visibleCargando.set(false)
+        this.model.hide()
         this.router.navigate(['/'])
         this.resRut()
       },900)
 
     },300)
 
-  }
-
-  changeCargando(o: boolean) {
-    this.visibleCargando.set(o)
   }
 
   changeIcono(n: number): void {
@@ -77,7 +76,13 @@ export class BarraOpciones implements OnInit {
   resRut(){
     sessionStorage.setItem('rut',"/sesion/inicio");
   }
+  toggleDrop(){
+    this.drop.set(!this.drop());
+  }
 
+  cerrarDrop(){
+    this.drop.set(false);
+  }
 
   protected readonly Boolean = Boolean;
   protected readonly Number = Number;

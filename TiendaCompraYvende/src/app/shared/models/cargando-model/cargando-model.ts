@@ -1,5 +1,6 @@
-import {Component, input, model, output} from '@angular/core';
+import {Component, input, output, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
+import {ModelService} from '../../../core/services/model/model.service';
 
 @Component({
   selector: 'app-cargando-model',
@@ -11,19 +12,25 @@ import {NgClass} from '@angular/common';
   standalone:true,
 })
 export class CargandoModel {
-  visible=model<boolean>()
-  icono =input<number>()
-  contenido=input<string[]>([])
 
-  cerrarVisible=output<boolean>()
+  constructor(
+    private modelService: ModelService ,
+  ) {
+    this.modelService.action$.subscribe(action => {
+      this.visible.set(action);
+    })
+  }
+
+  visible=signal<boolean>(false);
+  icono =input<number>()
+  contenido=input<boolean>(false)
+
   cerrarIcono=output<number>()
-  vaciarErrores=output<[]>()
+
 
 
   cerrar(){
     this.cerrarIcono.emit(0)
-    this.cerrarVisible.emit(false)
-    this.vaciarErrores.emit([])
   }
 
 
