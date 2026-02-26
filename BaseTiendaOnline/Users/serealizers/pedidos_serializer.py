@@ -1,7 +1,10 @@
 import ast
 import re
+from decimal import Decimal
 
 from rest_framework import serializers
+
+from Productos.models import ProductosModels
 from Users.models import PedidosModel, UsuarioOrdinario
 
 
@@ -31,9 +34,8 @@ class PedidosSerializer(serializers.ModelSerializer):
         if not pedido:
             raise serializers.ValidationError({"PedidoVacio":"No se puede crear un pedido vacío"})
 
-        # cache=ast.literal_eval(pedido)
-        if not re.search(r"^[\(\)\[\]0-9,]+$",pedido):
-            raise serializers.ValidationError({"NoFormatPedido":"El formato del pedido no es correcto [(0,1),(0,1),...]"})
+        if not re.search(r"^[\[\]0-9,\s]+$",str(pedido)):
+            raise serializers.ValidationError({"NoFormatPedido":"El formato del pedido no es correcto [[0,1],[0,1],...]"})
         return pedido
 
     def validate_estado(self,estado):
@@ -44,14 +46,46 @@ class PedidosSerializer(serializers.ModelSerializer):
 
     def create(self,data):
 
+        pedido=data['pedido']
+
+        pack=self.cernir(pedido) # [ids,cantidades]
+
+        products=ProductosModels.objects.filter(id__in=pack[0])
+
+        precios=[p.precio for p in products]
+
+        repedido=[]
+
+        for i in range(len(products)):
+            repedido.append([products[i].nombre,float(products[i].precio),pack[1][i]])
+        total=0
+
+        for i in range (len(precios)):
+            total+=precios[i]*pack[1][i]
+
+        total=self.neto(total)
+
         user=UsuarioOrdinario.objects.filter(id=data["usuario_id"]).first()
+
 
         pedido = PedidosModel.objects.create(
             usuario=user,
-            pedido=data['pedido'],
-            estado=data['estado']
+            pedido=repedido,
+            estado=data['estado'],
+            pago=total,
         )
 
         return pedido
 
 
+    def cernir(self,pedido):
+
+        ids = [i[0] for i in pedido]
+        cantidades = [c[1] for c in pedido]
+
+        return [ids,cantidades]
+
+    def neto(self,press):
+        total = press + (press * Decimal('0.07')) + (press * Decimal('0.17'))
+
+        return round(total,2)

@@ -6,7 +6,7 @@ from Users.models import PedidosModel
 
 
 class PedidosAdmin(ModelAdmin):
-    display=("usuario__nombre","pedido","estado")
+    list_display=("usuario__email","pedido","id","estado","pago",)
     readonly_fields = ("pedido",)
 
 admin.site.register(PedidosModel,PedidosAdmin)

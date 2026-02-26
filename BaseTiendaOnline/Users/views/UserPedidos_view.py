@@ -17,7 +17,8 @@ class MyPedidosView(APIView):
 
             usuario=UsuarioOrdinario.objects.filter(id=serializado.data['id_user']).first()
             tablaPedidos=PedidosModel.objects.filter(usuario=usuario).all()
-            pedidos=[{"usuario":i.usuario.id,"pedido":i.pedido,"estado":i.estado,"fecha":i.born} for i in tablaPedidos]
+
+            pedidos=[{"usuario":i.usuario.id,"pedido":i.pedido,"estado":i.estado,"fecha":i.born,"pago":i.pago} for i in tablaPedidos]
 
             return Response({"succes":True,"pedidos":pedidos},status=status.HTTP_201_CREATED)
         else:
