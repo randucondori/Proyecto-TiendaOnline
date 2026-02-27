@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
+import {PedidosService} from '../../../../core/services/pedidos/pedidos.service';
+import {pedido,pedidos} from '../../../../core/interfaces/pedidos';
+
 
 @Component({
   selector: 'app-pedidos-user',
@@ -6,6 +9,25 @@ import { Component } from '@angular/core';
   templateUrl: './pedidos-user.html',
   styleUrl: './pedidos-user.scss',
 })
-export class PedidosUser {
+export class PedidosUser implements OnInit {
 
+  pedidos=signal<pedidos[]>([])
+
+  constructor(
+    private pedidoService: PedidosService
+  ) {}
+
+
+  ngOnInit() {
+    this.pedidoService.getPedidos().subscribe({
+      next: data => {
+        this.pedidos.set(data.pedidos);
+      },
+      error: error => {
+
+      }
+    })
+  }
+
+  protected readonly JSON = JSON;
 }

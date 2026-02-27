@@ -9,8 +9,8 @@ class PedidosView(viewsets.ViewSet):
 
     http_method_names = ['post']
 
-    def create(self,request):
-        serializer = PedidosSerializer(data=request.data)
+    def create(self,request,):
+        serializer = PedidosSerializer(data=request.data,context={'request': request})
 
         if serializer.is_valid():
             serializer.save()

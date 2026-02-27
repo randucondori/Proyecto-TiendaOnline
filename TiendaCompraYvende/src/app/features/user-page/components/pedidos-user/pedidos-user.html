@@ -3,33 +3,36 @@
   <!--    //<<<<<<<4. pedidos >>>>>>>-->
   <div class="rounded-3 d-flex " id="pedido">
 
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
+    @for (p of pedidos(); let i = $index; track i) {
+      <div class="pedido d-flex position-relative">
+        <img src="{{p.pedido[0].imagen}}" alt="" class="">
+        <p class="position-absolute texto-dorado fs-2 text-img {{p.estado}}">
+          {{p.estado}}
+        </p>
+        <div class="d-flex w-100 flex-column justify-content-between">
+          <div class="texto-pedido py-2 px-3 d-flex flex-column gap-2">
+            @for (ip of p.pedido; let j = $index; track j) {
+              <div class="w-100 ">
+                <div class="w100 bg-gris-antracita rounded-top-2">
+                  <p class="text-madera-clara ms-3">{{ j }} pedido</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="m-0">{{ ip.nombre }}</p>
+                  <b class="bg-dorado-suave text-dark px-2 rounded-1"> <i
+                    class="text-dark bg-white px-1 rounded-1 mx-2">{{ ip.cantidad }} </i> x {{ ip.precio }}</b>
+                </div>
 
+              </div>
+            }
+          </div>
+
+          <div class="border-top d-flex w-100 justify-content-around pagos py-3" >
+              <p class="h3 fw-bold m-0">Total del pedido :</p>
+              <b class="bg-dorado-suave rounded-2 px-3 py-1 fs-4">{{p.pago}}</b>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
+    }
 
   </div>
 
