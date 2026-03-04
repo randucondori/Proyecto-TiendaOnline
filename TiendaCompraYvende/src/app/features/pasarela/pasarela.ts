@@ -5,6 +5,9 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {PassValid} from '../../core/validators/pass.validator';
 import {TelValidator} from '../../core/validators/tel.validator';
 import {IsnumberValidator} from '../../core/validators/Isnumber.validator';
+import {MeCookiesService} from '../../core/services/Cookies/me-cookies.service';
+import {PedidosService} from '../../core/services/pedidos/pedidos.service';
+import {CargandoService} from '../../core/utils/cargando.service';
 
 @Component({
   selector: 'app-pasarela',
@@ -23,6 +26,8 @@ export class Pasarela {
   constructor(
     private carritoService: CarritoService,
     private formBuilder: FormBuilder,
+    private pedidoservice:PedidosService,
+    private cargandoService:CargandoService,
   ) {
 
     this.carritoService.action$.subscribe(carrito => {
@@ -66,6 +71,21 @@ export class Pasarela {
     let dos = this.pagoFrom.get("telefono")?.errors
 
     return !!(uno || dos)
+
+  }
+
+  enviarPedido() {
+    let envio=this.pedidoservice.commitPedido()
+    this.pedidoservice.enviarPedidos(envio).subscribe({
+      next:(resp)=>{
+        if(resp){
+          this.cargandoService.confirm("Operación Exitosa")
+          this.salir.emit()
+        }
+      },
+      error:()=>{
+      }
+    })
 
   }
 

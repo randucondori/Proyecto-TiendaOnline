@@ -31,7 +31,7 @@
 
     </div>
 
-    <form action="" class="" id="formulario" [formGroup]="pagoFrom">
+    <form action="" class="" id="formulario" [formGroup]="pagoFrom" (ngSubmit)="enviarPedido()">
 
       <div class="bg-blanco-roto w-100 p-2 rounded-2 text-dark" id="contenido">
 
@@ -151,7 +151,7 @@
             <i class="bi bi-arrow-left"></i>Volver
           </button>
 
-          <button type="button" class=" btn btn-info my-3" id="uno"
+          <button type="submit" class=" btn btn-info my-3" id="uno"
                   [ngClass]="[pagoFrom.valid?'':'elemento-desactivado']">
             <i class="bi bi-cash-coin me-2"></i>Pagar
           </button>

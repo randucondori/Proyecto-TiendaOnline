@@ -3,11 +3,7 @@ import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {CargandoService} from '../../core/utils/cargando.service';
 import {Pasarela} from '../pasarela/pasarela';
 import {NgClass} from '@angular/common';
-
-type compra={
-  nombre: string,
-  info:[number,string,number,string]
-}
+import {compra} from '../../core/interfaces/carrito';
 
 @Component({
   selector: 'app-carrito',
