@@ -1,6 +1,6 @@
 import {Component, OnInit, signal} from '@angular/core';
 import {PedidosService} from '../../../../core/services/pedidos/pedidos.service';
-import {pedido,pedidos} from '../../../../core/interfaces/pedidos';
+import {pedidos} from '../../../../core/interfaces/pedidos';
 
 
 @Component({
@@ -28,6 +28,4 @@ export class PedidosUser implements OnInit {
       }
     })
   }
-
-  protected readonly JSON = JSON;
 }

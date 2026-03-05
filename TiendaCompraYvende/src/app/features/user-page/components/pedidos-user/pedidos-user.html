@@ -3,33 +3,40 @@
   <!--    //<<<<<<<4. pedidos >>>>>>>-->
   <div class="rounded-3 d-flex " id="pedido">
 
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
+    @for (p of pedidos(); let i = $index; track i) {
+      <div class="pedido d-flex">
+        <img src="{{p.pedido[0].imagen}}" alt="" class="object-fit-cover">
+        <div class=" texto-pedido ">
 
+          <div class="bg-beige-muy-claro">
+            <p class="text-center">Productos Pedidos</p>
+          </div>
+
+          <div class="d-grid px-3 gap-2 w-100 overflow-y-auto">
+            @for (pp of p.pedido; track pp) {
+
+              <div class="d-flex w-100 justify-content-between">
+
+                <p class="m-0">{{ pp.nombre }}</p>
+
+                <div class="w-25 d-flex justify-content-around bg-dorado-suave w-50 mx-2 rounded-1">
+                  <p class="m-0 text-black bg-beige-muy-claro px-2">{{ pp.cantidad }}</p>
+                  <p class="m-0">{{ pp.precio }}</p>
+                </div>
+
+              </div>
+            }
+          </div>
+
+          <div class="bg-beige-muy-claro d-flex justify-content-around" >
+
+            <p class=" h3 ">Precio Total :</p>
+            <p class="h3 ">{{ p.pago }}€</p>
+
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
-
-    <div class="pedido d-flex">
-      <img src="descarga.jpg" alt="" class="">
-      <div class=" texto-pedido">
-
-      </div>
-    </div>
+    }
 
   </div>
 

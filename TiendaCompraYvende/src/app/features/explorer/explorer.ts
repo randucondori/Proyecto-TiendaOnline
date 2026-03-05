@@ -3,15 +3,7 @@ import {ProductosService} from '../../core/services/Productos/productos.service'
 import {NgClass} from '@angular/common';
 import {CarritoService} from '../../core/services/carrito/carrito.service';
 import {FormsModule} from '@angular/forms';
-
-type producto = [{
-  nombre: string,
-  precio: number,
-  categoria_nombre: string,
-  slug: string,
-  img: string,
-  id:any
-}] | [];
+import {producto} from '../../core/interfaces/carrito';
 
 type categoria ={
   nombre: string,

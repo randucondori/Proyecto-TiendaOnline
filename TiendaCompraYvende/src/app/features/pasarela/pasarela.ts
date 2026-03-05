@@ -5,7 +5,6 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {PassValid} from '../../core/validators/pass.validator';
 import {TelValidator} from '../../core/validators/tel.validator';
 import {IsnumberValidator} from '../../core/validators/Isnumber.validator';
-import {MeCookiesService} from '../../core/services/Cookies/me-cookies.service';
 import {PedidosService} from '../../core/services/pedidos/pedidos.service';
 import {CargandoService} from '../../core/utils/cargando.service';
 
