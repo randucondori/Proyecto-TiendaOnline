@@ -25,6 +25,5 @@ class Login(APIView):
             for key, error in serialisado.errors.items():
                 for err in error:
                     errores.append(str(err))
-            print(errores)
 
             return Response({"succes":False,"error":errores},status=status.HTTP_400_BAD_REQUEST)

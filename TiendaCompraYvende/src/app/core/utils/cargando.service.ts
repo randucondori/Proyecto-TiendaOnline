@@ -25,11 +25,12 @@ export class CargandoService {
     })
   }
 
-  confirm(title: string,
-          description: string,
-          confirmText: string = "¿Esta seguro?",
-          cancelText: string = "Cancelar",
-          icon: "warning" | "info" | "error" | "success"): void {
+  confirm(title: string,text:string=""): void {
+    Swal.fire({
+      title: title,
+      text:text ,
+      icon: "success"
+    });
   }
 
   confirmarEliminacion() {
@@ -49,7 +50,6 @@ export class CargandoService {
       }
     });
   }
-
 
 
   alert(title: string,
